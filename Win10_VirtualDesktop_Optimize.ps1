@@ -2,30 +2,33 @@
 Param
 (
     [Parameter()]
-    [ValidateSet('2004')]
+    [ValidateSet('1909','2004')]
     $WindowsVersion = 2004
 
 )
 
 #Requires -RunAsAdministrator
+
 <#
-- TITLE:          Microsoft Windows 10 VDI/WVD Optimization Script
+- TITLE:          Microsoft Windows 10 Virtual Desktop Optimization Script
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
-- LAST UPDATED:   5/8/2020
-- PURPOSE:        To automatically apply setting referenced in white paper:
-                  "Optimizing Windows 10, for Virtual Desktop Infrastructure (VDI) and Windows Virtual Desktop (WVD)" 
-                  URL: TBD
-
+- LAST UPDATED:   6/18/2020
+- PURPOSE:        To automatically apply settings referenced in the following white papers:
+                  https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
+                  
 - Important:      Every setting in this script and input files are possible recommendations only,
                   and NOT requirements in any way. Please evaluate every setting for applicability
                   to your specific environment. These scripts have been tested on plain Hyper-V
                   VMs. Please test thoroughly in your environment before implementation
 
-- DEPENDENCIES    1. LGPO.EXE (available at https://www.microsoft.com/en-us/download/details.aspx?id=55319)
-                  2. LGPO database files available on the GitHub site where this script is located
-                  3. This PowerShell script
-                  4. The text input files containing all the apps, services, traces, etc. that you...
+- DEPENDENCIES    1. On the target machine, run PowerShell elevated (as administrator)
+                  2. Within PowerShell, set exectuion policy to enable the running of scripts.
+                     Ex. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+                  3. LGPO.EXE (available at https://www.microsoft.com/en-us/download/details.aspx?id=55319)
+                  4. LGPO database files available in the respective folders (ex. \1909, or \2004)
+                  5. This PowerShell script
+                  6. The text input files containing all the apps, services, traces, etc. that you...
                      may be interested in disabling. Please review these input files to customize...
                      to your environment/requirements
 
@@ -36,16 +39,9 @@ https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-pol
 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6
 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6
 https://msdn.microsoft.com/en-us/library/cc422938.aspx
+#>
 
 <# Categories of cleanup items:
-- Appx package cleanup                 - Complete
-- Scheduled tasks                      - Complete
-- Automatic Windows traces             - Complete
-- Local group policy                   - Complete
-- System services                      - Complete
-- Disk cleanup                         - Complete
-- Default User Profile Customization   - Complete
-
 This script is dependent on three elements:
 LGPO Settings folder, applied with the LGPO.exe Microsoft app
 
