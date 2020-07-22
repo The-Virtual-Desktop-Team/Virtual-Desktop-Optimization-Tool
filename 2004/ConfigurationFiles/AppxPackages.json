@@ -202,11 +202,5 @@
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/3d-viewer/9nblggh42ths",
     "Description": "App to view common 3D file types"
-  },
-  {
-    "AppxPackage": "Microsoft.OneConnect",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/3d-viewer/9nblggh42ths",
-    "Description": "App to view common 3D file types"
   }
 ]
