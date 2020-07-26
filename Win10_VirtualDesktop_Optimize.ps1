@@ -3,7 +3,11 @@ Param
 (
     [Parameter()]
     [ValidateSet('1909','2004')]
-    $WindowsVersion = 2004
+    $WindowsVersion = 2004,
+
+    [Parameter()]
+    [Switch]
+    $Restart
 
 )
 
@@ -255,13 +259,21 @@ $EndTime = Get-Date
 $ScriptRunTime = New-TimeSpan -Start $StartTime -End $EndTime
 Write-Host "Total Run Time: $($ScriptRunTime.Hours) Hours $($ScriptRunTime.Minutes) Minutes $($ScriptRunTime.Seconds) Seconds" -ForegroundColor Cyan
 
-Add-Type -AssemblyName PresentationFramework
-$Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
-Switch ($Answer)
+If ($Restart)
 {
-    "Yes" { Write-Warning "Restarting Computer in 15 Seconds"; Start-sleep -seconds 15; Restart-Computer -Force }
-    "No" { Write-Warning "A reboot is required for all changed to take effect" }
-    Default { Write-Warning "A reboot is required for all changed to take effect" }
+    Restart-Computer -Force
 }
+else 
+{
+    Write-Warning "A reboot is required for all changed to take effect"
+}
+#Add-Type -AssemblyName PresentationFramework
+#$Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
+#Switch ($Answer)
+#{
+#    "Yes" { Write-Warning "Restarting Computer in 15 Seconds"; Start-sleep -seconds 15; Restart-Computer -Force }
+#    "No" { Write-Warning "A reboot is required for all changed to take effect" }
+#    Default { Write-Warning "A reboot is required for all changed to take effect" }
+#}
 
 ########################  END OF SCRIPT  ########################
