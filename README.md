@@ -112,3 +112,24 @@ You would also want to reset the 'Update Orchestrator' service to it's initial s
 # Note on disk cleanup (06/11/2020)
 
 Starting with the 2004 version of these scripts, we no longer invoke the Disk Cleanup Wizard (Cleanmgr.exe).  DCW is near end-of-life, but also sometimes "hangs" during running of the scripts.  Instead some basic disk cleanup has been incorporated into the 'Win10_VirtualDesktop_Optimize.ps1' script.  There are logs, traces, and event log files deleted.  If you wish to maintain log files, you can edit the .PS1 script and remove those entries.
+
+# Disclaimer
+This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment.  
+THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.  We grant 
+You a nonexclusive, royalty-free right to use and modify the Sample Code and to reproduce and distribute the object code form 
+of the Sample Code, provided that You agree: (i) to not use Our name, logo, or trademarks to market Your software product in 
+which the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product in which the Sample Code 
+is embedded; and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, 
+including attorneys’ fees, that arise or result from the use or distribution of the Sample Code.
+
+Microsoft provides programming examples for illustration only, without warranty either expressed or
+implied, including, but not limited to, the implied warranties of merchantability and/or fitness 
+for a particular purpose. 
+ 
+This sample assumes that you are familiar with the programming language being demonstrated and the 
+tools used to create and debug procedures. Microsoft support professionals can help explain the 
+functionality of a particular procedure, but they will not modify these examples to provide added 
+functionality or construct procedures to meet your specific needs. if you have limited programming 
+experience, you may want to contact a Microsoft Certified Partner or the Microsoft fee-based consulting 
+line at (800) 936-5200. 
