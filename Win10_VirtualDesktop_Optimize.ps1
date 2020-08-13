@@ -126,10 +126,10 @@ If ($AppxPackage.Count -gt 0)
         Write-Verbose "Attempting to remove $($Item.AppxPackage) - $($Item.Description)"
         Get-AppxPackage -Name $Package | Remove-AppxPackage -ErrorAction SilentlyContinue  | Out-Null
         
-        #Write-Verbose "`t`tAttempting to remove [All Users] $($Item.AppxPackage) - $($Item.Description)"
-        #Get-AppxPackage -AllUsers -Name $Package | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue 
+        Write-Verbose "Attempting to remove [All Users] $($Item.AppxPackage) - $($Item.Description)"
+        Get-AppxPackage -AllUsers -Name $Package | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue 
         
-        Write-Verbose "`t`tRemoving Provisioned Package $($item.AppxPackage)"
+        Write-Verbose "Removing Provisioned Package $($item.AppxPackage)"
         Get-AppxProvisionedPackage -Online | Where-Object { $_.PackageName -like $Package } | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue | Out-Null
     }
 }
