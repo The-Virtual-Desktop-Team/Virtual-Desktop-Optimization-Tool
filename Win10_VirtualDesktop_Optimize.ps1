@@ -30,7 +30,8 @@ Param
 (
     [Parameter()]
     [ValidateSet('1909','2004')]
-    $WindowsVersion = 2004,
+    $WindowsVersion = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID -ErrorAction Stop).ReleaseID
+    ,
 
     [Parameter()]
     [Switch]
@@ -205,29 +206,32 @@ if (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe"))
 }
 #endregion
 
-#region Disable Services
+#region Configure Services
 If (Test-Path .\ConfigurationFiles\Services.json)
- 
 {
-    $ServicesToDisable = Get-Content .\ConfigurationFiles\Services.json | ConvertFrom-Json
+    $Services = Get-Content .\ConfigurationFiles\Services.json | ConvertFrom-Json
 }
 
-If ($ServicesToDisable.count -gt 0)
+If ($Services.count -gt 0)
 {
-    $ServicesToDisable = $ServicesToDisable | Where-Object { $_.VDIState -eq 'Disabled' }
-    Foreach ($Item in $ServicesToDisable)
+
+    Foreach ($Item in $Services)
     {
-        Write-Verbose "Stopping $($Item.Name) - $($Item.Description)"
-        Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue
-        Write-Verbose "`t`tDisabling $($Item.Name)"
-        Set-Service $Item.Name -StartupType Disabled 
+        Write-Verbose "Configuring $($Item.Name) - $($Item.Description) - $($Item.VDIState)"
+        If ($Item.VDIState -eq 'Disabled')
+        {
+            Write-Verbose "Stopping $($Item.Name) - $($Item.Description)"
+            Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue
+        }
+        Write-Verbose "`t`tSetting $($Item.Name) to $($Item.VDIState)"
+        Set-Service $Item.Name -StartupType $Item.VDIState
     }
 }
 #endregion
 
 #region Network Optimization
 # LanManWorkstation optimizations
-Write-Verbose "Configuring LanManWorlstation Optimizations"
+Write-Verbose "Configuring LanManWorkstation Optimizations"
 New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\LanmanWorkstation\Parameters\" -Name "DisableBandwidthThrottling" -PropertyType "DWORD" -Value "1" -Force | Out-Null
 New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\LanmanWorkstation\Parameters\" -Name "FileInfoCacheEntriesMax" -PropertyType "DWORD" -Value "1024" -Force | Out-Null
 New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\LanmanWorkstation\Parameters\" -Name "DirectoryCacheEntriesMax" -PropertyType "DWORD" -Value "1024" -Force | Out-Null
