@@ -44,7 +44,7 @@ Param
 - TITLE:          Microsoft Windows 10 Virtual Desktop Optimization Script
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
-- LAST UPDATED:   6/18/2020
+- LAST UPDATED:   8/14/2020
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
