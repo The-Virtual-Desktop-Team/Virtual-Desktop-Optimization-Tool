@@ -113,6 +113,17 @@ You would also want to reset the 'Update Orchestrator' service to it's initial s
 
 Starting with the 2004 version of these scripts, we no longer invoke the Disk Cleanup Wizard (Cleanmgr.exe).  DCW is near end-of-life, but also sometimes "hangs" during running of the scripts.  Instead some basic disk cleanup has been incorporated into the 'Win10_VirtualDesktop_Optimize.ps1' script.  There are logs, traces, and event log files deleted.  If you wish to maintain log files, you can edit the .PS1 script and remove those entries.
 
+# Running Scripts
+There may be times when you download this script and it is tagged as being dowlowed from the internet, and thus being blocked from running.  In order to all this script to be run you may have to run **Unblock-File** to remove this stream. 
+
+**From the PowerShell Documentation** -The Unblock-File cmdlet lets you open files that were downloaded from the Internet. It unblocks PowerShell script files that were downloaded from the Internet so you can run them, even when the PowerShell execution policy is RemoteSigned. By default, these files are blocked to protect the computer from untrusted files.
+
+Before using the Unblock-File cmdlet, review the file and its source and verify that it is safe to open.
+
+Internally, the Unblock-File cmdlet removes the Zone.Identifier alternate data stream, which has a value of "3" to indicate that it was downloaded from the Internet.
+
+More information about Unblock-File can be found here: [Unblock-File](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file?view=powershell-5.1)
+
 # Disclaimer
 This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment.  
 THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
