@@ -52,11 +52,6 @@
     "Description": "The Diagnostic Policy Service enables problem detection, troubleshooting and resolution for Windows components. If this service is stopped, diagnostics will no longer function."
   },
   {
-    "Name": "DsmSvc",
-    "VDIState": "Disabled",
-    "Description": "Enables the detection, download and installation of device-related software. If this service is disabled, devices may be configured with outdated software, and may not work correctly."
-  },
-  {
     "Name": "DusmSvc",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/uwp/schemas/mobilebroadbandschema/dusm/schema-root",
