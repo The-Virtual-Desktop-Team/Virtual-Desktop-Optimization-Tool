@@ -116,7 +116,7 @@ Starting with the 2004 version of these scripts, we no longer invoke the Disk Cl
 
 There have been several reports of problems with the Start Menu after applying the optimization settings, and possibly other actions.  Recently we were able to reproduce a problem with the Start Menu by performing a Feature Update from 1909 to 2004, where the 1909 session host had the optimization settings in place.  The problem could arise as the result of having "optimized" user profiles, either locally or in a profile solution such as FSLogix.  Then the Feature Update process does some work with Appx packages during that process, leading to orphaned items in the user's Start Menu.
 
-1. Create a script to repair the Start Menu, by copying the following to a text file, saving that as a .CMD or .BAT file, then providing that to the affected user either interactively or a logon script.
+1. Create a script to repair the Start Menu, by copying the following to a text file, saving that as a .CMD or .BAT file, then providing that to the affected user either interactively or a logon script (normally does not require elevation).
 
         start /wait taskkill /IM StartMenuExperienceHost.exe /F  
         rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AC"  
