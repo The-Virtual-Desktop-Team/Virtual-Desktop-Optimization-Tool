@@ -101,8 +101,8 @@ Try
     Write-Verbose "Disabling Windows Media Player Feature"
     Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -NoRestart | Out-Null
     Get-WindowsPackage -Online -PackageName "*Windows-mediaplayer*" | ForEach-Object { 
-        Write-Verbose "Removeing $($_.PackageName)"
-        Remove-WindowsPackage -PackageName $_.PackageName -Online -ErrorAction SilentlyContinue  -NoRestart | Out-Null
+        Write-Verbose "Removing $($_.PackageName)"
+        Remove-WindowsPackage -PackageName $_.PackageName -Online -ErrorAction SilentlyContinue -NoRestart | Out-Null
     }
 }
 Catch { }
