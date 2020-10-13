@@ -150,8 +150,9 @@ If ($SchTasksList.count -gt 0)
     Foreach ($Item in $SchTasksList)
     {
         #$Task = (($Item -split ":")[0]).Trim()
+        $TaskObject = Get-ScheduledTask $Item.ScheduledTask
         Write-Verbose "Disabling Scheduled Task $($Item.ScheduledTask)"
-        Disable-ScheduledTask -TaskName $Item.ScheduledTask -ErrorAction SilentlyContinue
+        Disable-ScheduledTask -InputObject $TaskObject -ErrorAction SilentlyContinue
         #$EnabledScheduledTasks | Where-Object { $_.TaskName -like "*$Task*" } #| Disable-ScheduledTask
     }
 }
