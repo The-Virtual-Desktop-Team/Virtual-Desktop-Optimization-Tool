@@ -38,6 +38,9 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
 **".\Win10_VirtualDesktop_Optimize.ps1 -WindowsVersion 2004 -Verbose**  
 6. When complete, you should see a prompt to restart.  You do not have to restart right away.
 
+> **[NOTE]** You may want to reset the PowerShell execution policy when finished, if not already set with other means  
+> **"Set-ExecutionPolicy -ExecutionPolicy Restricted"**
+
 # IMPORTANT ISSUE (01/17/2020)
 IMPORTANT: There is a setting in the current LGPO files that should not be set by default. As of 1/17/10...
 a fix has been checked in to the "Pending" branch.  Once we confirm that resolves the issue we will merge...
