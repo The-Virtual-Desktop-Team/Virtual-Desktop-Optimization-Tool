@@ -1,9 +1,7 @@
 # Introduction 
-Automatically apply setting referenced in white paper:
-"Optimizing Windows 10, version 1909, for a Virtual Desktop Infrastructure (VDI) role"  
-URL: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909  
-This information will be updated once later versions are published on docs.microsoft.com.  
-A new version of this paper for Windows 10 2004 is pending publication as of 06/11/2020.
+The toolset in this repository was created to automatically apply setting referenced in white paper:
+"Optimizing Windows 10, version 2004 for a Virtual Desktop Infrastructure (VDI) role"  
+URL: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations-2004  
 
 # Getting Started
 
