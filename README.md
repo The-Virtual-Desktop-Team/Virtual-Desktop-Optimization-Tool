@@ -40,13 +40,11 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
 > **"Set-ExecutionPolicy -ExecutionPolicy Restricted"**
 
 # IMPORTANT ISSUE (01/17/2020)
-IMPORTANT: There is a setting in the current LGPO files that should not be set by default. As of 1/17/10...
-a fix has been checked in to the "Pending" branch.  Once we confirm that resolves the issue we will merge...
-into the "Master" branch.  The issue is that Windows will not check certificate information, and thus...
-program installations could fail.  The temporary workaround is to open GPEDIT.MSC on the reference image...
-The set the policy to "not configured".  Here is the location of the policy setting:
+IMPORTANT: Windows cannot check certificate information CCRL) with the following setting disabled
 
 **Local Computer Policy \ Computer Configuration \ Administrative Templates \ System \ Internet Communication Management \ Internet Communication settings**
+
+We removed this setting from the optimization toolset
 
 ```
 Turn off Automatic Root Certificates Update
@@ -113,6 +111,27 @@ You would also want to reset the 'Update Orchestrator' service to it's initial s
 # Note on disk cleanup (06/11/2020)
 
 Starting with the 2004 version of these scripts, we no longer invoke the Disk Cleanup Wizard (Cleanmgr.exe).  DCW is near end-of-life, but also sometimes "hangs" during running of the scripts.  Instead some basic disk cleanup has been incorporated into the 'Win10_VirtualDesktop_Optimize.ps1' script.  There are logs, traces, and event log files deleted.  If you wish to maintain log files, you can edit the .PS1 script and remove those entries.
+
+# Start Menu "broken links" (10/13/2020)
+
+There have been several reports of problems with the Start Menu after applying the optimization settings, and possibly other actions.  Recently we were able to reproduce a problem with the Start Menu by performing a Feature Update from 1909 to 2004, where the 1909 session host had the optimization settings in place.  The problem could arise as the result of having "optimized" user profiles, either locally or in a profile solution such as FSLogix.  Then the Feature Update process does some work with Appx packages during that process, leading to orphaned items in the user's Start Menu.
+
+1. Create a script to repair the Start Menu, by copying the following to a text file, saving that as a .CMD or .BAT file, then providing that to the affected user either interactively or a logon script.
+
+`start /wait taskkill /IM StartMenuExperienceHost.exe /F`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AC"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AppData"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalCache"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\RoamingState"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\Settings"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\SystemAppData"`  
+`rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\TempState"`  
+`Start C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe`
+
+2. Re-run the optimization toolset, with the appropriate '-WindowsVersion' parameter (e.g. 2004).
+> **[NOTE]** Not only will this repair the Start Menu in some cases, there are a few settings that are specific to the specific build that may not have been previously applied.  
+
 
 # Running Scripts
 There may be times when you download this script and it is tagged as being dowlowed from the internet, and thus being blocked from running.  In order to all this script to be run you may have to run **Unblock-File** to remove this stream. 

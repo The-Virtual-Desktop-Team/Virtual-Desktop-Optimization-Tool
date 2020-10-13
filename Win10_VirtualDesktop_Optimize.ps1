@@ -221,7 +221,7 @@ If ($ServicesToDisable.count -gt 0)
     {
         Write-Verbose "Stopping $($Item.Name) - $($Item.Description)"
         Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue
-        Write-Verbose "`t`tDisabling $($Item.Name)"
+        Write-Verbose "Disabling $($Item.Name)"
         Set-Service $Item.Name -StartupType Disabled 
     }
 }
