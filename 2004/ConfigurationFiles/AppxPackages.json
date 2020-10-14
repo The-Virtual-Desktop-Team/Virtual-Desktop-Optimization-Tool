@@ -49,7 +49,7 @@
   },
   {
     "AppxPackage": "Microsoft.MicrosoftStickyNotes",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-sticky-notes/9nblggh4qghw",
     "Description": "Notetaking app"
   },

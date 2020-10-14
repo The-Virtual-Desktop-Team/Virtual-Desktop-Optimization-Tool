@@ -6,11 +6,11 @@ URL: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-servi
 # Getting Started
 
  ## REFERENCES:
- https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx
- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6
- https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/
- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6
- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6
+ https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx  
+ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6  
+ https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/  
+ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6  
+ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6  
  https://msdn.microsoft.com/en-us/library/cc422938.aspx
 
  ## DEPENDENCIES
