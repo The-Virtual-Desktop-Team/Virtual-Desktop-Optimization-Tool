@@ -34,11 +34,9 @@ add "HKLM\Temp\Software\Microsoft\InputPersonalization" /v RestrictImplicitTextC
 add "HKLM\Temp\Software\Microsoft\Personalization\Settings" /v AcceptedPrivacyPolicy /t REG_DWORD /d 0 /f
 add "HKLM\Temp\Software\Microsoft\InputPersonalization\TrainedDataStore" /v HarvestContacts /t REG_DWORD /d 0 /f
 add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /v ScoobeSystemSettingEnabled /t REG_DWORD /d 0 /f
-
 add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.549981C3F5F10_8wekyb3d8bbwe" /v Disabled /t REG_DWORD /d 1 /f
 add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.549981C3F5F10_8wekyb3d8bbwe" /v DisabledByUser /t REG_DWORD /d 1 /f
-add "HKLM\Temp\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings /v IsAADCloudSearchEnabled /t REG_DWORD /d 0 /f
-add "HKLM\Temp\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings /v IsDeviceSearchHistoryEnabled /t REG_DWORD /d 0 /f
-add "HKLM\Temp\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings /v IsMSACloudSearchEnabled /t REG_DWORD /d 0 /f
-
+add "HKLM\Temp\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsAADCloudSearchEnabled /t REG_DWORD /d 0 /f
+add "HKLM\Temp\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsDeviceSearchHistoryEnabled /t REG_DWORD /d 0 /f
+add "HKLM\Temp\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsMSACloudSearchEnabled /t REG_DWORD /d 0 /f
 Unload HKLM\Temp
