@@ -131,7 +131,10 @@ There have been several reports of problems with the Start Menu after applying t
 
 2. Re-run the optimization toolset, with the appropriate '-WindowsVersion' parameter (e.g. 2004).
 > **[NOTE]** Not only will this repair the Start Menu in some cases, there are a few settings that are specific to the specific build that may not have been previously applied.  
-
+# "Specify Passive Polling" setting may cause network connectivity issues (11/10/2020)
+We have a report that a Network Connectivity Status Indicator (NCSI) setting called "Specify passive polling", if disabled in environments with proxy servers and Office 365, could cause intermittent network connectivity issues.  There can also be problems with Office 365 apps that utilize NCSI to determine current connectivity state.
+The background is that in many cases you can disable the passive polling with no issues.  This applies as well to Azure WVD.
+In this case, you can reset the setting to "not configured" with virtually no impact, and you could do that in group policy or other methods.
 
 # Running Scripts
 There may be times when you download this script and it is tagged as being dowlowed from the internet, and thus being blocked from running.  In order to all this script to be run you may have to run **Unblock-File** to remove this stream. 
