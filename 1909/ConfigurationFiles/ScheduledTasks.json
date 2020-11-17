@@ -126,11 +126,6 @@
     "Description": "Scans startup entries and raises notification to the user if there are too many startup entries."
   },
   {
-    "ScheduledTask": "SyspartRepair",
-    "VDIState": "Disabled",
-    "Description": null
-  },
-  {
     "ScheduledTask": "WindowsActionDialog",
     "VDIState": "Disabled",
     "Description": "Location Notification"
