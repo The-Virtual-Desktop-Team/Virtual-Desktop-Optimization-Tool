@@ -119,7 +119,7 @@ BEGIN {
     $WorkingLocation = (Join-Path $PSScriptRoot $WindowsVersion)
 
     # All switch enables all the sections to be true
-    If ($All) {
+    If ($All -OR [system.string]::IsNullOrEmpty($PSCmdlet.MyInvocation.BoundParameters.keys)) {
         $WindowsMediaPlayer = $true
         $AppxPackages = $true
         $ScheduledTasks = $true
