@@ -1,0 +1,206 @@
+[
+  {
+    "AppxPackage": "Microsoft.OneConnect",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/mobile-plans/9nblggh5pnb1",
+    "Description": "Microsoft Mobile Plans app"
+  },
+  {
+    "AppxPackage": "Microsoft.MSPaint",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99",
+    "Description": "Paint 3D"
+  },
+  {
+    "AppxPackage": "Microsoft.BingWeather",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/msn-weather/9wzdncrfj3q2",
+    "Description": "MSN Weather app"
+  },
+  {
+    "AppxPackage": "Microsoft.GetHelp",
+    "VDIState": "Disabled",
+    "URL": "https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/customize-get-help-app",
+    "Description": "App that facilitates free support for Microsoft products"
+  },
+  {
+    "AppxPackage": "Microsoft.Getstarted",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-tips/9wzdncrdtbjj",
+    "Description": "Windows 10 tips app"
+  },
+  {
+    "AppxPackage": "Microsoft.Messaging",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-messaging/9wzdncrfjbq6",
+    "Description": "Enables, SMS, MMS and RCS messaging from your device"
+  },
+  {
+    "AppxPackage": "Microsoft.MicrosoftOfficeHub",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/office/9wzdncrd29v9",
+    "Description": "Office UWP app suite"
+  },
+  {
+    "AppxPackage": "Microsoft.MicrosoftSolitaireCollection",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-solitaire-collection/9wzdncrfhwd2",
+    "Description": "Solitaire suite of games"
+  },
+  {
+    "AppxPackage": "Microsoft.MicrosoftStickyNotes",
+    "VDIState": "Enabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-sticky-notes/9nblggh4qghw",
+    "Description": "Notetaking app"
+  },
+  {
+    "AppxPackage": "Microsoft.Office.OneNote",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/onenote/9wzdncrfhvjl",
+    "Description": "OneNote UWP app"
+  },
+  {
+    "AppxPackage": "Microsoft.People",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-people/9nblggh10pg8",
+    "Description": "Contact management app"
+  },
+  {
+    "AppxPackage": "Microsoft.Print3D",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/print-3d/9pbpch085s3s",
+    "Description": "Print 3D app to prepare objects for 3D printing on your device"
+  },
+  {
+    "AppxPackage": "Microsoft.SkypeApp",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/skype/9wzdncrfj364",
+    "Description": "Instant message, voice or video call app"
+  },
+  {
+    "AppxPackage": "Microsoft.Wallet",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/payments",
+    "Description": "(Microsoft Pay) for Edge browswer on certain devices"
+  },
+  {
+    "AppxPackage": "Microsoft.Windows.Photos",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-photos/9wzdncrfjbh4",
+    "Description": "Photo and video editor"
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsAlarms",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-alarms-clock/9wzdncrfj3pr",
+    "Description": "A combination app, of alarm clock, world clock, timer, and stopwatch."
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsCalculator",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-calculator/9wzdncrfhvn5",
+    "Description": "Microsoft Calculator app"
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsCamera",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-camera/9wzdncrfjbbg",
+    "Description": "Camera app to manage photos and video"
+  },
+  {
+    "AppxPackage": "microsoft.windowscommunicationsapps",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/mail-and-calendar/9wzdncrfhvqm",
+    "Description": "Mail & Calendar apps"
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsFeedbackHub",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/feedback-hub/9nblggh4r32n",
+    "Description": "App to provide Feedback on Windows and apps to Microsoft"
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsMaps",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-maps/9wzdncrdtbvb",
+    "Description": "Microsoft Maps app"
+  },
+  {
+    "AppxPackage": "Microsoft.Xbox.TCUI",
+    "VDIState": "Disabled",
+    "URL": "https://docs.microsoft.com/en-us/gaming/xbox-live/features/general/tcui/live-tcui-overview",
+    "Description": "XBox Title Callable UI (TCUI) enables your game code to call pre-defined user interface displays"
+  },
+  {
+    "AppxPackage": "Microsoft.XboxApp",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
+    "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
+  },
+  {
+    "AppxPackage": "Microsoft.XboxGameOverlay",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/xbox-game-bar/9nzkpstsnw4p",
+    "Description": "Xbox Game Bar extensible overlay"
+  },
+  {
+    "AppxPackage": "Microsoft.XboxGamingOverlay",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/xbox-game-bar/9nzkpstsnw4p",
+    "Description": "Xbox Game Bar extensible overlay"
+  },
+  {
+    "AppxPackage": "Microsoft.XboxIdentityProvider",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/xbox-identity-provider/9wzdncrd1hkw",
+    "Description": "A system app that enables PC games to connect to Xbox Live."
+  },
+  {
+    "AppxPackage": "Microsoft.XboxSpeechToTextOverlay",
+    "VDIState": "Disabled",
+    "URL": "https://support.xbox.com/help/account-profile/accessibility/use-game-chat-transcription",
+    "Description": "Xbox game transcription overlay"
+  },
+  {
+    "AppxPackage": "Microsoft.YourPhone",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/Your-phone/9nmpj99vjbwv",
+    "Description": "Android phone to PC device interface app"
+  },
+  {
+    "AppxPackage": "Microsoft.ZuneMusic",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/groove-music/9wzdncrfj3pt",
+    "Description": "Groove Music app"
+  },
+  {
+    "AppxPackage": "Microsoft.ZuneVideo",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/movies-tv/9wzdncrfj3p2",
+    "Description": "Movies and TV app"
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsSoundRecorder",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-voice-recorder/9wzdncrfhwkn",
+    "Description": "(Voice recorder)"
+  },
+  {
+    "AppxPackage": "Microsoft.ScreenSketch",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/snip-sketch/9mz95kl8mr0l",
+    "Description": "Snip and Sketch app"
+  },
+  {
+    "AppxPackage": "Microsoft.MixedReality.Portal",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/mixed-reality-portal/9ng1h8b3zc7m",
+    "Description": "The app that facilitates Windows Mixed Reality setup, and serves as the command center for mixed reality experiences"
+  },
+  {
+    "AppxPackage": "Microsoft.Microsoft3DViewer",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/3d-viewer/9nblggh42ths",
+    "Description": "App to view common 3D file types"
+  }
+]

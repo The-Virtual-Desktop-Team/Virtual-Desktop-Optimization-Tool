@@ -119,7 +119,7 @@ BEGIN {
     $WorkingLocation = (Join-Path $PSScriptRoot $WindowsVersion)
 
     # All switch enables all the sections to be true
-    If ($All) {
+    If ($All -OR [system.string]::IsNullOrEmpty($PSCmdlet.MyInvocation.BoundParameters.keys)) {
         $WindowsMediaPlayer = $true
         $AppxPackages = $true
         $ScheduledTasks = $true
@@ -158,8 +158,7 @@ PROCESS {
     If ($AppxPackages) {
         If (Test-Path .\ConfigurationFiles\AppxPackages.json) {
             Write-Output ("[VDI Optimize] Removing Appx Packages")
-            $AppxPackage = Get-Content .\ConfigurationFiles\AppxPackages.json | ConvertFrom-Json | Where-Object { $_.VDIState -eq 'Disabled' }
-
+            $AppxPackage = (Get-Content .\ConfigurationFiles\AppxPackages.json | ConvertFrom-Json).Where( { $_.VDIState -eq 'Disabled' })
             If ($AppxPackage.Count -gt 0) {
                 Foreach ($Item in $AppxPackage) {
                     try {                
@@ -188,7 +187,7 @@ PROCESS {
     If ($ScheduledTasks) {
         If (Test-Path .\ConfigurationFiles\ScheduledTasks.json) {
             Write-Output ("[VDI Optimize] Disable Scheduled Tasks")
-            $SchTasksList = Get-Content .\ConfigurationFiles\ScheduledTasks.json | ConvertFrom-Json | Where-Object { $_.VDIState -eq 'Disabled' }
+            $SchTasksList = (Get-Content .\ConfigurationFiles\ScheduledTasks.json | ConvertFrom-Json).Where({$_.VDIState -eq 'Disabled'})
             If ($SchTasksList.count -gt 0) {
                 Foreach ($Item in $SchTasksList) {
                     $TaskObject = Get-ScheduledTask $Item.ScheduledTask
@@ -213,7 +212,7 @@ PROCESS {
     If ($DefaultUserSettings) {
         If (Test-Path .\ConfigurationFiles\DefaultUserSettings.json) {
             Write-Output ("[VDI Optimize] Set Default User Settings")
-            $UserSettings = Get-Content .\ConfigurationFiles\DefaultUserSettings.json | ConvertFrom-Json | Where-Object {$_.SetProperty -eq $true}
+            $UserSettings = (Get-Content .\ConfigurationFiles\DefaultUserSettings.json | ConvertFrom-Json).Where( { $_.SetProperty -eq $true })
             If ($UserSettings.Count -gt 0) {
                 Write-Verbose "Processing Default User Settings (Registry Keys)"
 
@@ -249,8 +248,7 @@ PROCESS {
     If ($Autologgers) {
         If (Test-Path .\ConfigurationFiles\Autologgers.Json) {
             Write-Output ("[VDI Optimize] Disable Autologgers")
-            $DisableAutologgers = Get-Content .\ConfigurationFiles\Autologgers.Json | ConvertFrom-Json | Where-Object { $_.Disabled -eq 'True' }
-
+            $DisableAutologgers = (Get-Content .\ConfigurationFiles\Autologgers.Json | ConvertFrom-Json).Where( { $_.Disabled -eq 'True' })
             If ($DisableAutologgers.count -gt 0) {
                 Write-Verbose ("Processing Autologger Configuration File")
                 Foreach ($Item in $DisableAutologgers) {
@@ -268,7 +266,7 @@ PROCESS {
     If ($Services) {
         If (Test-Path .\ConfigurationFiles\Services.json) {
             Write-Output ("[VDI Optimize] Disable Services")
-            $ServicesToDisable = Get-Content .\ConfigurationFiles\Services.json | ConvertFrom-Json | Where-Object { $_.VDIState -eq 'Disabled' }
+            $ServicesToDisable = (Get-Content .\ConfigurationFiles\Services.json | ConvertFrom-Json ).Where( { $_.VDIState -eq 'Disabled' })
 
             If ($ServicesToDisable.count -gt 0) {
                 Write-Verbose ("Processing Services Configuration File")
@@ -386,14 +384,6 @@ PROCESS {
     If ($Restart) { Restart-Computer -Force }
     Else { Write-Warning "A reboot is required for all changed to take effect" }
 
-    #Add-Type -AssemblyName PresentationFramework
-    #$Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
-    #Switch ($Answer)
-    #{
-    #    "Yes" { Write-Warning "Restarting Computer in 15 Seconds"; Start-sleep -seconds 15; Restart-Computer -Force }
-    #    "No" { Write-Warning "A reboot is required for all changed to take effect" }
-    #    Default { Write-Warning "A reboot is required for all changed to take effect" }
-    #}
 
     ########################  END OF SCRIPT  ########################
 }
