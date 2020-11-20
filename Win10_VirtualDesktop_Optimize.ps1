@@ -28,13 +28,9 @@
 [Cmdletbinding(DefaultParameterSetName="Default")]
 Param (
     # Parameter help description
-    
     [Parameter(ParameterSetName="Default",Position=0,Mandatory=$false)]
     [Parameter(ParameterSetName="Tasks",Position=0,Mandatory=$false)]
     [System.String]$WindowsVersion = (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").ReleaseId,
-
-    [Parameter(ParameterSetName="Default",Position=1,Mandatory=$false)]
-    [Switch]$All,
 
     [Parameter(ParameterSetName="Tasks",Position=1,Mandatory=$false)]
     [Switch]$WindowsMediaPlayer,
@@ -66,8 +62,6 @@ Param (
     [Parameter(ParameterSetName="Default",Position=2,Mandatory=$false)]
     [Parameter(ParameterSetName="Tasks",Position=10,Mandatory=$false)]
     [Switch]$Restart
-
-    
 )
 
 #Requires -RunAsAdministrator
@@ -118,8 +112,24 @@ BEGIN {
     $CurrentLocation = Get-Location
     $WorkingLocation = (Join-Path $PSScriptRoot $WindowsVersion)
 
-    # All switch enables all the sections to be true
-    If ($All -OR [system.string]::IsNullOrEmpty($PSCmdlet.MyInvocation.BoundParameters.keys)) {
+    # Evaluate PSBoundParameters and if no valid parameters are passed, enable all tasks
+    $validTaskParameters = 0
+    Foreach ($Key in $PSCmdlet.MyInvocation.BoundParameters.Keys) {
+        Switch ($Key) {
+            "WindowsMediaPlayer" { $validTaskParameters++ }
+            "AppxPackages" { $validTaskParameters++ }
+            "DefaultUserSettings" { $validTaskParameters++ }
+            "Autologgers" { $validTaskParameters++ }
+            "ScheduledTasks" { $validTaskParameters++ }
+            "Services" { $validTaskParameters++ }
+            "DiskCleanup" { $validTaskParameters++ }
+            "NetworkOptimizations" { $validTaskParameters++ }
+            "LGPO" { $validTaskParameters++ }
+            Default { $null }
+        }
+    }
+
+    If ($validTaskParameters -eq 0) {
         $WindowsMediaPlayer = $true
         $AppxPackages = $true
         $ScheduledTasks = $true
