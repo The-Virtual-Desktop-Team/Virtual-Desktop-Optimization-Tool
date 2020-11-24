@@ -143,25 +143,25 @@ PROCESS {
 
     # This section is for disabling scheduled tasks.  If you find a task that should not be disabled
     # change its "VDIState" from Disabled to Enabled, or remove it from the json completely.
-    If ($ScheduledTasks) {
+    If ($Optimizations -contains 'ScheduledTasks' -or $Optimizations -contains 'Al') {
         If (Test-Path .\ConfigurationFiles\ScheduledTasks.json) {
-            Write-Output ("[VDI Optimize] Disable Scheduled Tasks")
+            Write-WVDLog -Message ("Disable Scheduled Tasks") -Level Info -Tag "ScheduledTasks" -OutputToScreen
             $SchTasksList = (Get-Content .\ConfigurationFiles\ScheduledTasks.json | ConvertFrom-Json).Where({$_.VDIState -eq 'Disabled'})
             If ($SchTasksList.count -gt 0) {
                 Foreach ($Item in $SchTasksList) {
                     $TaskObject = Get-ScheduledTask $Item.ScheduledTask
                     If ($TaskObject -and $TaskObject.State -ne 'Disabled') {
-                        Write-Verbose ("Attempting to disable Scheduled Task: {0}" -f $TaskObject.TaskName)
+                        Write-WVDLog -Message ("Attempting to disable Scheduled Task: {0}" -f $TaskObject.TaskName) -Level Verbose -Tag "ScheduledTasks"
                         try { Disable-ScheduledTask -InputObject $TaskObject | Out-Null }
-                        catch { Write-Output ("[ERROR] Failed to disabled Scheduled Task: {0} - {1}" -f $TaskObject.TaskName,$_.Exception.Message) }
+                        catch { Write-WVDLog -Message ("Failed to disabled Scheduled Task: {0} - {1}" -f $TaskObject.TaskName,$_.Exception.Message) -Level Error -Tag "ScheduledTasks" -OutputToScreen}
                     }
                     ElseIf ($TaskObject -and $TaskObject.State -eq 'Disabled') { Write-Verbose ("{0} Scheduled Task already disbled" -f $TaskObject.TaskName) }
-                    Else { Write-Output ("[ERROR] Unable to find Scheduled Task: {0}" -f $Item.ScheduledTask) }
+                    Else { Write-WVDLog -Message ("Unable to find Scheduled Task: {0}" -f $Item.ScheduledTask) -Level Error -Tag "ScheduledTasks" -OutputToScreen }
                 }
             }
-            Else { Write-Warning ("No Scheduled Tasks found to disable") }
+            Else { Write-WVDLog -Message ("No Scheduled Tasks found to disable") -Level Warning -Tag "ScheduledTasks" -OutputToScreen}
         }
-        Else { Write-Warning ("File not found: {0}\ConfigurationFiles\ScheduledTasks.json" -f $WorkingLocation) }
+        Else { Write-WVDLog -Message ("File not found: {0}\ConfigurationFiles\ScheduledTasks.json" -f $WorkingLocation) -Level Warning -Tag "ScheduledTasks" -OutputToScreen }
     }
     #endregion
 
