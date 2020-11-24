@@ -28,39 +28,13 @@
 [Cmdletbinding(DefaultParameterSetName="Default")]
 Param (
     # Parameter help description
-    [Parameter(ParameterSetName="Default",Position=0,Mandatory=$false)]
-    [Parameter(ParameterSetName="Tasks",Position=0,Mandatory=$false)]
     [System.String]$WindowsVersion = (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").ReleaseId,
 
-    [Parameter(ParameterSetName="Tasks",Position=1,Mandatory=$false)]
-    [Switch]$WindowsMediaPlayer,
+    [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','DiskCleanup')] 
+    [String[]]
+    $Optimizations = "All",
 
-    [Parameter(ParameterSetName="Tasks",Position=2,Mandatory=$false)]
-    [Switch]$AppxPackages,
 
-    [Parameter(ParameterSetName="Tasks",Position=3,Mandatory=$false)]
-    [Switch]$ScheduledTasks,
-
-    [Parameter(ParameterSetName="Tasks",Position=4,Mandatory=$false)]
-    [Switch]$DefaultUserSettings,
-
-    [Parameter(ParameterSetName="Tasks",Position=5,Mandatory=$false)]
-    [Switch]$Autologgers,
-
-    [Parameter(ParameterSetName="Tasks",Position=6,Mandatory=$false)]
-    [Switch]$Services,
-
-    [Parameter(ParameterSetName="Tasks",Position=7,Mandatory=$false)]
-    [Switch]$NetworkOptimizations,
-
-    [Parameter(ParameterSetName="Tasks",Position=8,Mandatory=$false)]
-    [Switch]$LGPO,
-
-    [Parameter(ParameterSetName="Tasks",Position=9,Mandatory=$false)]
-    [Switch]$DiskCleanup,
-
-    [Parameter(ParameterSetName="Default",Position=2,Mandatory=$false)]
-    [Parameter(ParameterSetName="Tasks",Position=10,Mandatory=$false)]
     [Switch]$Restart
 )
 
@@ -108,85 +82,60 @@ The Store and a few others, such as Wallet, were left off intentionally.  Though
 it is nearly impossible to get it back.  Please review the lists below and comment out or remove references to packages that you do not want to remove.
 #>
 BEGIN {
+    . ($PSScriptRoot + "\Functions\Write-WVDLog.ps1")
+    Set-WVDLog -Path "$PSScriptRoot\WVDLog_$(Get-Date -Format MM-dd-yyyy_HHmmss).csv"
     $StartTime = Get-Date
     $CurrentLocation = Get-Location
     $WorkingLocation = (Join-Path $PSScriptRoot $WindowsVersion)
+    Write-WVDLog -Message "Optimization Started at $StartTime from $WorkingLocation" -Level Info -OutputToScreen
 
     # Evaluate PSBoundParameters and if no valid parameters are passed, enable all tasks
-    $validTaskParameters = 0
-    Foreach ($Key in $PSCmdlet.MyInvocation.BoundParameters.Keys) {
-        Switch ($Key) {
-            "WindowsMediaPlayer" { $validTaskParameters++ }
-            "AppxPackages" { $validTaskParameters++ }
-            "DefaultUserSettings" { $validTaskParameters++ }
-            "Autologgers" { $validTaskParameters++ }
-            "ScheduledTasks" { $validTaskParameters++ }
-            "Services" { $validTaskParameters++ }
-            "DiskCleanup" { $validTaskParameters++ }
-            "NetworkOptimizations" { $validTaskParameters++ }
-            "LGPO" { $validTaskParameters++ }
-            Default { $null }
-        }
-    }
-
-    If ($validTaskParameters -eq 0) {
-        $WindowsMediaPlayer = $true
-        $AppxPackages = $true
-        $ScheduledTasks = $true
-        $DefaultUserSettings = $true
-        $Autologgers = $true
-        $Services = $true
-        $DiskCleanup = $true
-        $NetworkOptimizations = $true
-        $LGPO = $true
-    }
-
     try { Push-Location (Join-Path $PSScriptRoot $WindowsVersion)-ErrorAction Stop }
     catch {
-        Write-Warning ("Invalid Path {0} - Exiting script!" -f $WorkingLocation)
+        Write-WVDLog -Message ("Invalid Path {0} - Exiting script!" -f $WorkingLocation) -Level Error -OutputToScreen
         Break
     }
 }
 PROCESS {
 
     #region Disable, then remove, Windows Media Player including payload
-    If ($WindowsMediaPlayer) {
+    If ($Optimizations -contains "WindowsMediaPlayer" -or $Optimizations -contains "All") {
         try {
-            Write-Output ("[VDI Optimize] Disable / Remove Windows Media Player")
-            Write-Verbose "Disabling Windows Media Player Feature"
+            Write-WVDLog -Message "Disable / Remove Windows Media Player"  -Level Info    -Tag "MediaPlayer" -OutputToScreen
+            Write-WVDLog -Message "Disabling Windows Media Player Feature" -Level Verbose -Tag "MediaPlayer"
             Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -NoRestart | Out-Null
             Get-WindowsPackage -Online -PackageName "*Windows-mediaplayer*" | ForEach-Object { 
-                Write-Verbose "Removing $($_.PackageName)"
+                Write-WVDLog -Message "Removing $($_.PackageName)" -Level Info -Tag "MediaPlayer" #Should be verbose on this line
                 Remove-WindowsPackage -PackageName $_.PackageName -Online -ErrorAction SilentlyContinue -NoRestart | Out-Null
             }
         }
-        catch { Write-Output ("[ERROR] Disabling / Removing Windows Media Player - {0}" -f $_.Exception.Message)}
+        catch { Write-WVDLog -Message ("Disabling / Removing Windows Media Player - {0}" -f $_.Exception.Message) -Level Error -Tag "MediaPlayer" -OutputToScreen}
     }
     #endregion
 
     #region Begin Clean APPX Packages
-    If ($AppxPackages) {
+    If ($Optimizations -contains "AppxPackages" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\AppxPackages.json) {
-            Write-Output ("[VDI Optimize] Removing Appx Packages")
+            Write-WVDLog -Message ("[VDI Optimize] Removing Appx Packages") -Level Info -Tag "AppxPackages" -OutputToScreen
             $AppxPackage = (Get-Content .\ConfigurationFiles\AppxPackages.json | ConvertFrom-Json).Where( { $_.VDIState -eq 'Disabled' })
             If ($AppxPackage.Count -gt 0) {
                 Foreach ($Item in $AppxPackage) {
                     try {                
-                        Write-Verbose ("Removing Provisioned Package {0}" -f $Item.AppxPackage)
+                        Write-WVDLog -Message ("Removing Provisioned Package {0}" -f $Item.AppxPackage) -Level Verbose -Tag "AppxPackages"
                         Get-AppxProvisionedPackage -Online | Where-Object { $_.PackageName -like ("*{0}*" -f $Item.AppxPackage) } | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue | Out-Null
                                     
-                        Write-Verbose ("Attempting to remove [All Users] {0} - {1}" -f $Item.AppxPackage,$Item.Description)
+                        Write-WVDLog -Message ("Attempting to remove [All Users] {0} - {1}" -f $Item.AppxPackage,$Item.Description) -Level Verbose -Tag "AppxPackages"
                         Get-AppxPackage -AllUsers -Name ("*{0}*" -f $Item.AppxPackage) | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue 
                         
-                        Write-Verbose ("Attempting to remove {0} - {1}" -f $Item.AppxPackage,$Item.Description)
+                        Write-WVDLog -Message ("Attempting to remove {0} - {1}" -f $Item.AppxPackage,$Item.Description) -Level Verbose -Tag "AppxPackages"
                         Get-AppxPackage -Name ("*{0}*" -f $Item.AppxPackage) | Remove-AppxPackage -ErrorAction SilentlyContinue  | Out-Null
                     }
-                    catch { Write-Output ("[ERROR] Failed to remove Appx Package ({0}) - {1}" -f $Item.AppxPackage,$_.Exception.Message) }
+                    catch { Write-WVDLog -Message ("[ERROR] Failed to remove Appx Package ({0}) - {1}" -f $Item.AppxPackage,$_.Exception.Message) -Level Error -Tag "AppxPackages" -OutputToScreen }
                 }
             }
-            Else { Write-Warning ("No AppxPackages found to disable") }
+            Else { Write-WVDLog -Message ("No AppxPackages found to disable") -Level Warning -Tag "AppxPackages" -OutputToScreen}
         }
-        Else { Write-Warning ("File not found: {0}\ConfigurationFiles\AppxPackages.json" -f $WorkingLocation) }
+        Else { Write-WVDLog -Message ("File not found: {0}\ConfigurationFiles\AppxPackages.json" -f $WorkingLocation) -Tag "AppxPackages" -Level Warning  -OutputToScreen }
     }
     #endregion
 
