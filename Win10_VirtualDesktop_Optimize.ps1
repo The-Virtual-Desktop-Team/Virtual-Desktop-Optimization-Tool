@@ -116,7 +116,7 @@ PROCESS {
     #region Begin Clean APPX Packages
     If ($Optimizations -contains "AppxPackages" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\AppxPackages.json) {
-            Write-WVDLog -Message ("[VDI Optimize] Removing Appx Packages") -Level Info -Tag "AppxPackages" -OutputToScreen
+            Write-WVDLog -Message ("Removing Appx Packages") -Level Info -Tag "AppxPackages" -OutputToScreen
             $AppxPackage = (Get-Content .\ConfigurationFiles\AppxPackages.json | ConvertFrom-Json).Where( { $_.VDIState -eq 'Disabled' })
             If ($AppxPackage.Count -gt 0) {
                 Foreach ($Item in $AppxPackage) {
@@ -155,7 +155,7 @@ PROCESS {
                         try { Disable-ScheduledTask -InputObject $TaskObject | Out-Null }
                         catch { Write-WVDLog -Message ("Failed to disabled Scheduled Task: {0} - {1}" -f $TaskObject.TaskName,$_.Exception.Message) -Level Error -Tag "ScheduledTasks" -OutputToScreen}
                     }
-                    ElseIf ($TaskObject -and $TaskObject.State -eq 'Disabled') { Write-Verbose ("{0} Scheduled Task already disbled" -f $TaskObject.TaskName) }
+                    ElseIf ($TaskObject -and $TaskObject.State -eq 'Disabled') { Write-WVDLog -Message ("{0} Scheduled Task already disbled" -f $TaskObject.TaskName) -Level Verbose -Tag "ScheduledTasks" }
                     Else { Write-WVDLog -Message ("Unable to find Scheduled Task: {0}" -f $Item.ScheduledTask) -Level Error -Tag "ScheduledTasks" -OutputToScreen }
                 }
             }
