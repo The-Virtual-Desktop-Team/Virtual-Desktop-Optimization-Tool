@@ -14,16 +14,15 @@
         $OutputToScreen 
     )
     
-    $Title = "[VDI Optimize]"
-    Write-Verbose "$Title $Message"
-    If ($OutputToScreen)
+    #Write-Verbose "$Title $Message"
+    If ($OutputToScreen -or ([System.Management.Automation.ActionPreference]::SilentlyContinue -ne $VerbosePreference))
     {
         switch ($Level)
         {
-            'Info' { Write-Host    "$Title $Message" }
-            'Warning' { Write-Warning "$Title $Message" }
-            'Error' { Write-Host    "$Title - $Message" -ForegroundColor Red }
-            #'Verbose' { Write-Verbose "$Title $Message"}
+            'Info' { Write-Host    "$Message" }
+            'Warning' { Write-Warning "$Message" }
+            'Error' { Write-Host    "$Message" -ForegroundColor Red }
+            'Verbose' {Write-Verbose "$Message"}
         }
     }
 

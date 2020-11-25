@@ -101,8 +101,8 @@ PROCESS {
     #region Disable, then remove, Windows Media Player including payload
     If ($Optimizations -contains "WindowsMediaPlayer" -or $Optimizations -contains "All") {
         try {
-            Write-WVDLog -Message "Disable / Remove Windows Media Player"  -Level Info    -Tag "MediaPlayer" -OutputToScreen
-            Write-WVDLog -Message "Disabling Windows Media Player Feature" -Level Verbose -Tag "MediaPlayer"
+            Write-WVDLog -Message "[VDI Optimize] Disable / Remove Windows Media Player"  -Level Info    -Tag "MediaPlayer" -OutputToScreen
+            Write-WVDLog -Message "[VDI Optimize] Disabling Windows Media Player Feature" -Level Verbose -Tag "MediaPlayer"
             Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -NoRestart | Out-Null
             Get-WindowsPackage -Online -PackageName "*Windows-mediaplayer*" | ForEach-Object { 
                 Write-WVDLog -Message "Removing $($_.PackageName)" -Level Info -Tag "MediaPlayer" #Should be verbose on this line
@@ -116,7 +116,7 @@ PROCESS {
     #region Begin Clean APPX Packages
     If ($Optimizations -contains "AppxPackages" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\AppxPackages.json) {
-            Write-WVDLog -Message ("Removing Appx Packages") -Level Info -Tag "AppxPackages" -OutputToScreen
+            Write-WVDLog -Message ("[VDI Optimize] Removing Appx Packages") -Level Info -Tag "AppxPackages" -OutputToScreen
             $AppxPackage = (Get-Content .\ConfigurationFiles\AppxPackages.json | ConvertFrom-Json).Where( { $_.VDIState -eq 'Disabled' })
             If ($AppxPackage.Count -gt 0) {
                 Foreach ($Item in $AppxPackage) {
@@ -145,7 +145,7 @@ PROCESS {
     # change its "VDIState" from Disabled to Enabled, or remove it from the json completely.
     If ($Optimizations -contains 'ScheduledTasks' -or $Optimizations -contains 'Al') {
         If (Test-Path .\ConfigurationFiles\ScheduledTasks.json) {
-            Write-WVDLog -Message ("Disable Scheduled Tasks") -Level Info -Tag "ScheduledTasks" -OutputToScreen
+            Write-WVDLog -Message ("[VDI Optimize] Disable Scheduled Tasks") -Level Info -Tag "ScheduledTasks" -OutputToScreen
             $SchTasksList = (Get-Content .\ConfigurationFiles\ScheduledTasks.json | ConvertFrom-Json).Where({$_.VDIState -eq 'Disabled'})
             If ($SchTasksList.count -gt 0) {
                 Foreach ($Item in $SchTasksList) {
@@ -168,12 +168,12 @@ PROCESS {
     #region Customize Default User Profile
 
     # Apply appearance customizations to default user registry hive, then close hive file
-    If ($DefaultUserSettings) {
+    If ($Optimizations -contains "DefaultUserSettings" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\DefaultUserSettings.json) {
-            Write-Output ("[VDI Optimize] Set Default User Settings")
+            Write-WVDLog -Message ("[VDI Optimize] Set Default User Settings") -Tag 'UserSettings' -Level Info -OutputToScreen
             $UserSettings = (Get-Content .\ConfigurationFiles\DefaultUserSettings.json | ConvertFrom-Json).Where( { $_.SetProperty -eq $true })
             If ($UserSettings.Count -gt 0) {
-                Write-Verbose "Processing Default User Settings (Registry Keys)"
+                Write-WVDLog -Message "Processing Default User Settings (Registry Keys)" -Level Verbose -Tag "UserSettings"
 
                 & REG LOAD HKLM\DEFAULT C:\Users\Default\NTUSER.DAT | Out-Null
 
@@ -182,97 +182,97 @@ PROCESS {
                     Else { $Value = $Item.PropertyValue }
 
                     If (Test-Path -Path ("{0}" -f $Item.HivePath)) {
-                        Write-Verbose ("Found {0}\{1}" -f $Item.HivePath,$Item.KeyName)
+                        Write-WVDLog -Message ("Found {0}\{1}" -f $Item.HivePath, $Item.KeyName) -Level Verbose -Tag "UserSettings"
                         If (Get-ItemProperty -Path ("{0}" -f $Item.HivePath) -ErrorAction SilentlyContinue) { Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Force }
                         Else { New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null }
                     }
                     Else {
-                        Write-Warning ("Registry Path not found: {0}" -f $Item.HivePath)
-                        Write-Verbose ("Creating new Registry Key")
+                        Write-WVDLog -Message ("Registry Path not found: {0}" -f $Item.HivePath) -Level Warning -Tag "UserSettings" -OutputToScreen
+                        Write-WVDLog -Message ("Creating new Registry Key") -Level Verbose -Tag "UserSettings","NewKey"
                         $newKey = New-Item -Path ("{0}" -f $Item.HivePath) -Force
                         If (Test-Path -Path $newKey.PSPath) { New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null}
-                        Else { Write-Output ("[ERROR] Failed to create new Registry key") }
+                        Else { Write-WVDLog -Message ("Failed to create new Registry key") -Level Error -OutputToScreen -Tag "UserSettings"} 
                     }
                 }
 
                 & REG UNLOAD HKLM\DEFAULT | Out-Null
             }
-            Else { Write-Warning ("No Default User Settings to set") }
+            Else { Write-WVDLog -Message ("No Default User Settings to set") -Level Warning -Tag "UserSettings" -OutputToScreen }
         }
-        Else { Write-Warning ("File not found: {0}\ConfigurationFiles\DefaultUserSettings.json" -f $WorkingLocation) }
+        Else { Write-WVDLog -Message ("File not found: {0}\ConfigurationFiles\DefaultUserSettings.json" -f $WorkingLocation) -Level Warning -Tag 'UserSettings' -OutputToScreen }
     }
     #endregion
 
     #region Disable Windows Traces
-    If ($Autologgers) {
+    If ($Optimizations -contains "AutoLoggers" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\Autologgers.Json) {
-            Write-Output ("[VDI Optimize] Disable Autologgers")
+            Write-WVDLog -Message ("[VDI Optimize] Disable Autologgers") -Level Info -Tag "AutoLoggers" -OutputToScreen
             $DisableAutologgers = (Get-Content .\ConfigurationFiles\Autologgers.Json | ConvertFrom-Json).Where( { $_.Disabled -eq 'True' })
             If ($DisableAutologgers.count -gt 0) {
-                Write-Verbose ("Processing Autologger Configuration File")
+                Write-WVDLog -Message ("Processing Autologger Configuration File") -Level Verbose -Tag "AutoLoggers"
                 Foreach ($Item in $DisableAutologgers) {
-                    Write-Verbose ("Updating Registry Key for: {0}" -f $Item.KeyName)
+                    Write-WVDLog -Message ("Updating Registry Key for: {0}" -f $Item.KeyName) -Level Verbose -Tag "AutoLoggers"
                     New-ItemProperty -Path ("{0}" -f $Item.KeyName) -Name "Start" -PropertyType "DWORD" -Value 0 -Force | Out-Null
                 }
             }
-            Else { Write-Warning ("No Autologgers found to disable") }
+            Else { Write-WVDLog -Message ("No Autologgers found to disable") -Level Verbose -Tag "AutoLoggers" -OutputToScreen}
         }
-        Else { Write-Warning ("File not found: {0}\ConfigurationFiles\Autologgers.json" -f $WorkingLocation) }
+        Else { Write-WVDLog -Message ("File not found: {0}\ConfigurationFiles\Autologgers.json" -f $WorkingLocation) -Level Warning -Tag "AutoLoggers" -OutputToScreen}
     }
     #endregion
 
     #region Disable Services
-    If ($Services) {
+    If ($Optimizations -contains "Services" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\Services.json) {
-            Write-Output ("[VDI Optimize] Disable Services")
+            Write-WVDLog -Message ("[VDI Optimize] Disable Services") -Level Info -Tag "Services" -OutputToScreen
             $ServicesToDisable = (Get-Content .\ConfigurationFiles\Services.json | ConvertFrom-Json ).Where( { $_.VDIState -eq 'Disabled' })
 
             If ($ServicesToDisable.count -gt 0) {
-                Write-Verbose ("Processing Services Configuration File")
+                Write-WVDLog -Message ("Processing Services Configuration File") -Level Verbose -Tag "Services"
                 Foreach ($Item in $ServicesToDisable) {
-                    Write-Verbose ("Attempting to Stop Service {0} - {1}" -f $Item.Name,$Item.Description)
+                    Write-WVDLog -Message ("Attempting to Stop Service {0} - {1}" -f $Item.Name, $Item.Description) -Level Verbose -Tag "Services"
                     try { Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue }
-                    catch { Write-Output ("[ERROR] Failed to disabled Service: {0} - {1}" -f $Item.Name,$_.Exception.Message) }
-                    Write-Verbose ("Attempting to Disable Service {0} - {1}" -f $Item.Name,$Item.Description)
+                    catch { Write-WVDLog -Message ("Failed to disabled Service: {0} - {1}" -f $Item.Name, $_.Exception.Message)  -Level Error -Tag "Services" }
+                    Write-WVDLog -Message ("Attempting to Disable Service {0} - {1}" -f $Item.Name, $Item.Description) -Level Verbose -Tag "Services"
                     Set-Service $Item.Name -StartupType Disabled 
                 }
             }  
-            Else { Write-Warning ("No Services found to disable") }
+            Else { Write-WVDLog -Message ("No Services found to disable")  -Level Warning -Tag "Services" -OutputToScreen}
         }
-        Else { Write-Warning ("File not found: {0}\ConfigurationFiles\Services.json" -f $WorkingLocation) }
+        Else { Write-WVDLog -Message ("File not found: {0}\ConfigurationFiles\Services.json" -f $WorkingLocation)  -Level Warning -Tag "Services" -OutputToScreen }
     }
     #endregion
 
     #region Network Optimization
     # LanManWorkstation optimizations
-    If ($NetworkOptimizations) {
+    If ($Optimizations -contains "NetworkOptimizations" -or $Optimizations -contains "All") {
         If (Test-Path .\ConfigurationFiles\LanManWorkstation.json) {
-            Write-Output ("[VDI Optimize] Configure LanManWorkstation Settings")
+            Write-WVDLog -Message ("[VDI Optimize] Configure LanManWorkstation Settings") -Level Info -Tag "Network" -OutputToScreen
             $LanManSettings = Get-Content .\ConfigurationFiles\LanManWorkstation.json | ConvertFrom-Json
             If ($LanManSettings.Count -gt 0) {
-                Write-Verbose ("Processing LanManWorkstation Settings ({0} Hives)" -f $LanManSettings.Count)
+                Write-WVDLog -Message ("Processing LanManWorkstation Settings ({0} Hives)" -f $LanManSettings.Count) -Level Verbose -Tag "Network"
                 Foreach ($Hive in $LanManSettings) {
                     If (Test-Path -Path $Hive.HivePath) {
-                        Write-Verbose ("Found {0}" -f $Hive.HivePath)
+                        Write-WVDLog -Message ("Found {0}" -f $Hive.HivePath) -Level Verbose -Tag "Network"
                         $Keys = $Hive.Keys.Where{$_.SetProperty -eq $true}
                         If ($Keys.Count -gt 0) {
-                            Write-Verbose ("Create / Update LanManWorkstation Keys")
+                            Write-WVDLog -Message ("Create / Update LanManWorkstation Keys") -Level Verbose -Tag "Network"
                             Foreach ($Key in $Keys) {
                                 If (Get-ItemProperty -Path $Hive.HivePath -Name $Key.Name -ErrorAction SilentlyContinue) { Set-ItemProperty -Path $Hive.HivePath -Name $Key.Name -Value $Key.PropertyValue -Force }
                                 Else { New-ItemProperty -Path $Hive.HivePath -Name $Key.Name -PropertyType $Key.PropertyType -Value $Key.PropertyValue -Force | Out-Null }
                             }
                         }
-                        Else { Write-Warning ("No LanManWorkstation Keys to create / update") }
+                        Else { Write-WVDLog -Message ("No LanManWorkstation Keys to create / update") -Level Warning -Tag "Network" }  
                     }
-                    Else { Write-Warning ("Registry Path not found: {0}" -f $Hive.HivePath) }
+                    Else { Write-VDLog -Messageg ("Registry Path not found: {0}" -f $Hive.HivePath)  -Level Warning -Tag "Network" }
                 }
             }
-            Else { Write-Warning ("No LanManWorkstation Settings found") }
+            Else { Write-WVDLog -Message ("No LanManWorkstation Settings found")  -Level Warning -Tag "Network" }
         }
-        Else { Write-Warning ("File not found: {0}\ConfigurationFiles\LanManWorkstation.json" -f $WorkingLocation) }
+        Else { Write-WVDLog -Message ("File not found: {0}\ConfigurationFiles\LanManWorkstation.json" -f $WorkingLocation)  -Level Warning -Tag "Network" }
 
         # NIC Advanced Properties performance settings for network biased environments
-        Write-Verbose "Configuring Network Adapter Buffer Size"
+        Write-WVDLog -Message "[VDI Optimize] Configuring Network Adapter Buffer Size" -Level Info -Tag "NIC Properties" -OutputToScreen
         Set-NetAdapterAdvancedProperty -DisplayName "Send Buffer Size" -DisplayValue 4MB
 
         <#  NOTE:
@@ -289,13 +289,13 @@ PROCESS {
     #   * change the "Root Certificates Update" policy.
     #   * change the "Enable Windows NTP Client" setting.
     #   * set the "Select when Quality Updates are received" policy
-    If ($LGPO) {
+    If ($Optimizations -contains "LGPO" -or $Optimizations -contains "All") {
         If (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe")) {
-            Write-Output ("[VDI Optimize] Import Local Group Policy Items")
-            Write-Verbose "Importing Local Group Policy Items"
+            Write-WVDLog -Message ("[VDI Optimize] Import Local Group Policy Items") -Level Info -Tag "LGPO" -OutputToScreen
+            Write-WVDLog -Message "Importing Local Group Policy Items" -Level Verbose -Tag "LGPO"
             Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
         }
-        Else { Write-Warning ("File not found: {0}\LGPO\LGPO.exe" -f $PSScriptRoot) }
+        Else { Write-WVDLog -Message ("File not found: {0}\LGPO\LGPO.exe" -f $PSScriptRoot) -Level Warning -Tag "LGPO" -OutputToScreen}
     }
     #endregion
 
@@ -303,34 +303,34 @@ PROCESS {
     # Delete not in-use files in locations C:\Windows\Temp and %temp%
     # Also sweep and delete *.tmp, *.etl, *.evtx, *.log, *.dmp, thumbcache*.db (not in use==not needed)
     # 5/18/20: Removing Disk Cleanup and moving some of those tasks to the following manual cleanup
-    If ($DiskCleanup) {
-        Write-Verbose "Removing .tmp, .etl, .evtx, thumbcache*.db, *.log files not in use"
+    If ($Optimizations -contains "DiskCleanup" -or $Optimizations -contains "All") {
+        Write-WVDLog -Message "Removing .tmp, .etl, .evtx, thumbcache*.db, *.log files not in use" -Level Info -Tag "Temp Files" -OutputToScreen
         Get-ChildItem -Path c:\ -Include *.tmp, *.dmp, *.etl, *.evtx, thumbcache*.db, *.log -File -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -ErrorAction SilentlyContinue
 
         # Delete "RetailDemo" content (if it exits)
-        Write-Verbose "Removing Retail Demo content (if it exists)"
+        Write-WVDLog -Message "Removing Retail Demo content (if it exists)" -Level Info -Tag "Retail Demo" -OutputToScreen
         Get-ChildItem -Path $env:ProgramData\Microsoft\Windows\RetailDemo\* -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -ErrorAction SilentlyContinue
 
         # Delete not in-use anything in the C:\Windows\Temp folder
-        Write-Verbose "Removing all files not in use in $env:windir\TEMP"
+        Write-WVDLog -Message "Removing all files not in use in $env:windir\TEMP" -Level Info -Tag "Windows Temp" -OutputToScreen
         Remove-Item -Path $env:windir\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
 
         # Clear out Windows Error Reporting (WER) report archive folders
-        Write-Verbose "Cleaning up WER report archive"
+        Write-WVDLog -Message "Cleaning up WER report archive" -Level Info -Tag "WER Archive" -OutputToScreen
         Remove-Item -Path $env:ProgramData\Microsoft\Windows\WER\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
         Remove-Item -Path $env:ProgramData\Microsoft\Windows\WER\ReportArchive\* -Recurse -Force -ErrorAction SilentlyContinue
         Remove-Item -Path $env:ProgramData\Microsoft\Windows\WER\ReportQueue\* -Recurse -Force -ErrorAction SilentlyContinue
 
         # Delete not in-use anything in your %temp% folder
-        Write-Verbose "Removing files not in use in $env:TEMP directory"
+        Write-WVDLog -Message "Removing files not in use in $env:temp directory" -Level Info -Tag "Temp Dir" -OutputToScreen
         Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
 
         # Clear out ALL visible Recycle Bins
-        Write-Verbose "Clearing out ALL Recycle Bins"
+        Write-WVDLog -Message "Clearing out ALL Recycle Bins" -Level Info -Tag "Recycle Bin" -OutputToScreen
         Clear-RecycleBin -Force -ErrorAction SilentlyContinue
 
         # Clear out BranchCache cache
-        Write-Verbose "Clearing BranchCache cache"
+        Write-WVDLog -Message "Clearing BranchCache cache" -Level Info -Tag "Branch Cache" -OutputToScreen
         Clear-BCCache -Force -ErrorAction SilentlyContinue
     }
     #endregion
@@ -338,11 +338,11 @@ PROCESS {
     Set-Location $CurrentLocation
     $EndTime = Get-Date
     $ScriptRunTime = New-TimeSpan -Start $StartTime -End $EndTime
-    Write-Host "Total Run Time: $($ScriptRunTime.Hours) Hours $($ScriptRunTime.Minutes) Minutes $($ScriptRunTime.Seconds) Seconds" -ForegroundColor Cyan
+    Write-WVDLog -Message "`n`nTotal Run Time: $($ScriptRunTime.Hours) Hours $($ScriptRunTime.Minutes) Minutes $($ScriptRunTime.Seconds) Seconds" -Level Info -OutputToScreen
+    Write-WVDLog -Message "`n`nThank you from the Virtual Desktop Optimization Team" -Level Info -OutputToScreen
 
     If ($Restart) { Restart-Computer -Force }
-    Else { Write-Warning "A reboot is required for all changed to take effect" }
-
+    Else { Write-WVDLog -Message "`nA reboot is required for all changed to take effect" -Level Warning -OutputToScreen }
 
     ########################  END OF SCRIPT  ########################
 }
