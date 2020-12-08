@@ -130,8 +130,10 @@ There have been several reports of problems with the Start Menu after applying t
         Start C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
 
 2. Re-run the optimization toolset, with the appropriate '-WindowsVersion' parameter (e.g. 2004).
-> **[NOTE]** Not only will this repair the Start Menu in some cases, there are a few settings that are specific to the specific build that may not have been previously applied.  
+> **[NOTE]** Not only will this repair the Start Menu in some cases, there are a few settings that are specific to the specific build that may not have been previously applied. 
 
+# Note on reinstalling Appx Packages
+If you find that you have removed and appx package and now need it back, the easiest way is to either open up the Microsoft Store app and search for the application, or open up the AppxPackages.json file, search for the application, and follow the link provided in the URL section.  In order to install this though, you might need to re-enable the **InstallService** "Microsoft Store install service" or you might get an error when trying to reinstall.
 
 # Running Scripts
 There may be times when you download this script and it is tagged as being dowlowed from the internet, and thus being blocked from running.  In order to all this script to be run you may have to run **Unblock-File** to remove this stream. 
