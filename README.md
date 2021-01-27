@@ -132,6 +132,18 @@ There have been several reports of problems with the Start Menu after applying t
 2. Re-run the optimization toolset, with the appropriate '-WindowsVersion' parameter (e.g. 2004).
 > **[NOTE]** Not only will this repair the Start Menu in some cases, there are a few settings that are specific to the specific build that may not have been previously applied. 
 
+# OneDrive local policy setting prevents automatic OneDrive sign-in (01/27/2021)
+
+There is a default setting for OneDrive set in this tool, with these details:  
+`Computer Configuration\Administrative Templates\Windows Components\OneDrive`  
+`"Prevent OneDrive from generating network traffic until the user signs in to OneDrive"`  
+Default state: Not Configured  
+Optimization tool state: Enabled  
+
+There was another issue related to this setting also reported recently.  Some of the Office apps would "hang" for several or more seconds, until OneDrive sync was complete.  This could be related to this setting.  _Therefore, we are going to revert this setting, in this tool, to the default state of `"not configured"`_.
+
+This particular policy setting is actually a preference.  You can confirm this by noting the "down arrow" overlay on the setting icon.  A good way to revert the setting would be to change the setting back to default with group policy.  If you had to do this for each user, the process could be more involved.
+
 # Note on reinstalling Appx Packages
 If you find that you have removed and appx package and now need it back, the easiest way is to either open up the Microsoft Store app and search for the application, or open up the AppxPackages.json file, search for the application, and follow the link provided in the URL section.  In order to install this though, you might need to re-enable the **InstallService** "Microsoft Store install service" or you might get an error when trying to reinstall.
 
