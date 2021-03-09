@@ -1,0 +1,541 @@
+[
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "RegItemValueName": "AllowOnlineTips",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+        "RegItemValueName": "LockScreenImage",
+        "RegItemValueType": "REG_SZ",
+        "RegItemValue": "C:\\Windows\\web\\screen\\img105.jpg",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+        "RegItemValueName": "LockScreenOverlaysDisabled",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\InputPersonalization",
+        "RegItemValueName": "RestrictImplicitInkCollection",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\InputPersonalization",
+        "RegItemValueName": "RestrictImplicitTextCollection",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "DisableBranchCache",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "DisablePeerCachingClient",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "DisablePeerCachingServer",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "EnablePeerCaching",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\PeerDist\\Service",
+        "RegItemValueName": "Enable",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DisableLockScreenAppNotifications",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DontEnumerateConnectedUsers",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "EnableFontProviders",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\HotspotAuthentication",
+        "RegItemValueName": "Enabled",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Peernet",
+        "RegItemValueName": "Disabled",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkConnectivityStatusIndicator",
+        "RegItemValueName": "DisablePassivePolling",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetCache",
+        "RegItemValueName": "Enabled",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\TCPIP\\v6Transition",
+        "RegItemValueName": "Teredo_State",
+        "RegItemValueType": "REG_SZ",
+        "RegItemValue": "Disabled",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\config",
+        "RegItemValueName": "AutoConnectAllowedOEM",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
+        "RegItemValueName": "LetAppsAccessCellularData",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "2",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
+        "RegItemValueName": "LetAppsAccessCellularData_ForceAllowTheseApps",
+        "RegItemValueType": "REG_MULTI_SZ",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
+        "RegItemValueName": "LetAppsAccessCellularData_ForceDenyTheseApps",
+        "RegItemValueType": "REG_MULTI_SZ",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
+        "RegItemValueName": "LetAppsAccessCellularData_UserInControlOfTheseApps",
+        "RegItemValueType": "REG_MULTI_SZ",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
+        "RegItemValueName": "NoCloudApplicationNotification",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
+        "RegItemValueName": "DisableSystemRestore",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
+        "RegItemValueName": "DisableBalloonTips",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
+        "RegItemValueName": "DisableSendRequestAdditionalSoftwareToWER",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
+        "RegItemValueName": "DisableSendGenericDriverNotFoundToWER",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Device Metadata",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Device Metadata",
+        "RegItemValueName": "PreventDeviceMetadataFromNetwork",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SYSTEM\\CurrentControlSet\\Policies",
+        "RegItemValueName": "NtfsDisable8dot3NameCreation",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "3",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "EnableCdp",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\HandwritingErrorReports",
+        "RegItemValueName": "PreventHandwritingErrorReports",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\SQMClient\\Windows",
+        "RegItemValueName": "CEIPEnable",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching",
+        "RegItemValueName": "DontSearchWindowsUpdate",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\EventViewer",
+        "RegItemValueName": "MicrosoftEventVwrDisableLinks",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\PCHealth\\HelpSvc",
+        "RegItemValueName": "Headlines",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\PCHealth\\HelpSvc",
+        "RegItemValueName": "MicrosoftKBSearch",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Internet Connection Wizard",
+        "RegItemValueName": "ExitOnMSICW",
+        "RegItemValueType": "REG_DWORD",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM\\SOFTWARE\\",
+        "RegItemValueName": "",
+        "RegItemValueType": "",
+        "RegItemValue": "",
+        "VDIState": "Enabled"
+    }
+]
