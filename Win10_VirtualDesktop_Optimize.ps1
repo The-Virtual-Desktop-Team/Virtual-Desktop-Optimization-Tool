@@ -195,7 +195,7 @@ PROCESS {
                     }
                 }
 
-                & REG UNLOAD HKLM\DEFAULT | Out-Null
+                & REG UNLOAD HKLM\VDOT_TEMP | Out-Null
             }
             Else { Write-WVDLog -Message ("No Default User Settings to set") -Level Warning -Tag "UserSettings" -OutputToScreen }
         }
