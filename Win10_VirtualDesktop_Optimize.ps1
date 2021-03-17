@@ -143,7 +143,7 @@ PROCESS {
 
     # This section is for disabling scheduled tasks.  If you find a task that should not be disabled
     # change its "VDIState" from Disabled to Enabled, or remove it from the json completely.
-    If ($Optimizations -contains 'ScheduledTasks' -or $Optimizations -contains 'Al') {
+    If ($Optimizations -contains 'ScheduledTasks' -or $Optimizations -contains 'All') {
         If (Test-Path .\ConfigurationFiles\ScheduledTasks.json) {
             Write-WVDLog -Message ("[VDI Optimize] Disable Scheduled Tasks") -Level Info -Tag "ScheduledTasks" -OutputToScreen
             $SchTasksList = (Get-Content .\ConfigurationFiles\ScheduledTasks.json | ConvertFrom-Json).Where({$_.VDIState -eq 'Disabled'})
