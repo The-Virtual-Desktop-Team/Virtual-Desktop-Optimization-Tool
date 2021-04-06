@@ -299,24 +299,29 @@ PROCESS {
             If ($PolicyRegSettings.Count -gt 0)
             {
                 Write-WVDLog -Message ("Processing PolicyRegSettings Settings ({0} Hives)" -f $PolicyRegSettings.Count) -Level Verbose -Tag "LGPO"
-                Foreach ($Hive in $PolicyRegSettings)
+                Foreach ($Key in $PolicyRegSettings)
                 {
-                    If (Test-Path -Path $Hive.HivePath)
+                    If ($Key.VDIState -eq 'Enabled')
                     {
-                        Write-WVDLog -Message ("Found {0}" -f $Hive.HivePath) -Level Verbose -Tag "LGPO"
-                        $Keys = $Hive.Keys.Where{ $_.VDIState -eq 'true' }
-                        If ($Keys.Count -gt 0)
-                        {
-                            Write-WVDLog -Message ("Create / Update LGPO Keys") -Level Verbose -Tag "LGPO"
-                            Foreach ($Key in $Keys)
-                            {
-                                If (Get-ItemProperty -Path $Hive.HivePath -Name $Key.Name -ErrorAction SilentlyContinue) { Set-ItemProperty -Path $Hive.HivePath -Name $Key.Name -Value $Key.PropertyValue -Force }
-                                Else { New-ItemProperty -Path $Hive.HivePath -Name $Key.Name -PropertyType $Key.PropertyType -Value $Key.PropertyValue -Force | Out-Null }
-                            }
+                        If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
+                        { 
+                            $Write-Host "Found key, would be set to $($Key.RegItemPath) -Name $($Key.RegItemValueName) -Value $($Key.RegItemValue)"
+                            Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
                         }
-                        Else { Write-WVDLog -Message ("No LGPO Keys to create / update") -Level Warning -Tag "LGPO" }  
+                        Else 
+                        { 
+                            #Write-Host "Create new - $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)"
+                            If (Test-path $Key.RegItemPath)
+                            {
+                                New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+                            Else
+                            {
+                                New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+            
+                        }
                     }
-                    Else { Write-VDLog -Messageg ("Registry Path not found: {0}" -f $Hive.HivePath)  -Level Warning -Tag "LGPO" }
                 }
             }
             Else { Write-WVDLog -Message ("No LGPO Settings found")  -Level Warning -Tag "LGPO" }
