@@ -305,18 +305,19 @@ PROCESS {
                     {
                         If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
                         { 
-                            $Write-Host "Found key, would be set to $($Key.RegItemPath) -Name $($Key.RegItemValueName) -Value $($Key.RegItemValue)"
+                            Write-WVDLog -Message "Found key, $($Key.RegItemPath) -Name $($Key.RegItemValueName) -Value $($Key.RegItemValue)" -Level Verbose -Tag "LGPO"
                             Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
                         }
                         Else 
                         { 
-                            #Write-Host "Create new - $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)"
                             If (Test-path $Key.RegItemPath)
                             {
+                                Write-WVDLog -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -Level Verbose -Tag "LGPO"
                                 New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
                             }
                             Else
                             {
+                                Write-WVDLog -Message "Creating Key and Path" -Level Verbose -Tag "LGPO"
                                 New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
                             }
             
