@@ -403,7 +403,7 @@
         "RegItemValueName": "EnableQueryRemoteServer",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Disabled"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\ScriptedDiagnostics",
