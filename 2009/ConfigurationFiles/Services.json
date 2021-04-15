@@ -64,11 +64,6 @@
     "Description": "Windows Mobile Hotspot service: provides the ability to share a cellular data connection with another device."
   },
   {
-    "Name": "InstallService",
-    "VDIState": "Disabled",
-    "Description": "Microsoft Store install service."
-  },
-  {
     "Name": "lfsvc",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/uwp/api/Windows.Devices.Geolocation?view=winrt-19041",
