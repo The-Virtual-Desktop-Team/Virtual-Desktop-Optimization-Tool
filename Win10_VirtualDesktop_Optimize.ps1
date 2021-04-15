@@ -290,12 +290,54 @@ PROCESS {
     #   * change the "Enable Windows NTP Client" setting.
     #   * set the "Select when Quality Updates are received" policy
     If ($Optimizations -contains "LGPO" -or $Optimizations -contains "All") {
-        If (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe")) {
-            Write-WVDLog -Message ("[VDI Optimize] Import Local Group Policy Items") -Level Info -Tag "LGPO" -OutputToScreen
-            Write-WVDLog -Message "Importing Local Group Policy Items" -Level Verbose -Tag "LGPO"
-            Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
+        If (Test-Path .\ConfigurationFiles\PolicyRegSettings.json)
+        {
+            Write-WVDLog -Message ("[VDI Optimize] Local Group Policy Items - JSON") -Level Info -Tag "LGPO" -OutputToScreen         
+            Write-WVDLog -Message "Importing Local Group Policy Items using JSON" -Level Verbose -Tag "LGPO"
+            ####################################################
+            $PolicyRegSettings = Get-Content .\ConfigurationFiles\PolicyRegSettings.json | ConvertFrom-Json
+            If ($PolicyRegSettings.Count -gt 0)
+            {
+                Write-WVDLog -Message ("Processing PolicyRegSettings Settings ({0} Hives)" -f $PolicyRegSettings.Count) -Level Verbose -Tag "LGPO"
+                Foreach ($Key in $PolicyRegSettings)
+                {
+                    If ($Key.VDIState -eq 'Enabled')
+                    {
+                        If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
+                        { 
+                            Write-WVDLog -Message "Found key, $($Key.RegItemPath) -Name $($Key.RegItemValueName) -Value $($Key.RegItemValue)" -Level Verbose -Tag "LGPO"
+                            Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
+                        }
+                        Else 
+                        { 
+                            If (Test-path $Key.RegItemPath)
+                            {
+                                Write-WVDLog -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -Level Verbose -Tag "LGPO"
+                                New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+                            Else
+                            {
+                                Write-WVDLog -Message "Creating Key and Path" -Level Verbose -Tag "LGPO"
+                                New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+            
+                        }
+                    }
+                }
+            }
+            Else { Write-WVDLog -Message ("No LGPO Settings found")  -Level Warning -Tag "LGPO" }
+            ####################################################
         }
-        Else { Write-WVDLog -Message ("File not found: {0}\LGPO\LGPO.exe" -f $PSScriptRoot) -Level Warning -Tag "LGPO" -OutputToScreen}
+        Else 
+        {
+            If (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe"))
+            {
+                Write-WVDLog -Message ("[VDI Optimize] Import Local Group Policy Items") -Level Info -Tag "LGPO" -OutputToScreen
+                Write-WVDLog -Message "Importing Local Group Policy Items" -Level Verbose -Tag "LGPO"
+                Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
+            }
+            Else { Write-WVDLog -Message ("File not found: {0}\LGPO\LGPO.exe" -f $PSScriptRoot) -Level Warning -Tag "LGPO" -OutputToScreen }
+        }
     }
     #endregion
 
