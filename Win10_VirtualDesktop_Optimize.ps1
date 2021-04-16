@@ -82,6 +82,13 @@ The Store and a few others, such as Wallet, were left off intentionally.  Though
 it is nearly impossible to get it back.  Please review the lists below and comment out or remove references to packages that you do not want to remove.
 #>
 BEGIN {
+    If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
+    {
+        New-EventLog -Source 'VDOT' -LogName 'Virtual Desktop Optimization'
+        Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Log Created"
+    }
+    Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Starting Optimizations with the following options"
+
     . ($PSScriptRoot + "\Functions\Write-WVDLog.ps1")
     Set-WVDLog -Path "$PSScriptRoot\WVDLog_$(Get-Date -Format MM-dd-yyyy_HHmmss).csv"
     $StartTime = Get-Date
