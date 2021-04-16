@@ -87,7 +87,7 @@ BEGIN {
         New-EventLog -Source 'VDOT' -LogName 'Virtual Desktop Optimization'
         Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Log Created"
     }
-    Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Starting Optimizations with the following options"
+    Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Starting VDOT with the following options:`n$($PSBoundParameters | Out-String)" 
 
     . ($PSScriptRoot + "\Functions\Write-WVDLog.ps1")
     Set-WVDLog -Path "$PSScriptRoot\WVDLog_$(Get-Date -Format MM-dd-yyyy_HHmmss).csv"
