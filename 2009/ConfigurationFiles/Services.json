@@ -19,13 +19,13 @@
   },
   {
     "Name": "CDPSvc",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cdp/929c2238-6d49-4ba4-a36a-37e732c4f736",
     "Description": "Connected Devices Platform Service"
   },
   {
     "Name": "CDPUserSvc",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cdp/f5a15c56-ac3a-48f9-8c51-07b2eadbe9b4",
     "Description": "Connected Devices Platform User Service"
   },
