@@ -1,15 +1,21 @@
 [
   {
+    "AppxPackage": "Microsoft.BingNews",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-news/9wzdncrfhvfw",
+    "Description": "Microsoft News app"
+  },
+  {
     "AppxPackage": "Microsoft.BingWeather",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/msn-weather/9wzdncrfj3q2",
     "Description": "MSN Weather app"
   },
   {
-    "AppxPackage": "Microsoft.BingNews",
+    "AppxPackage": "Microsoft.GamingApp",
     "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/microsoft-news/9wzdncrfhvfw",
-    "Description": "Microsoft News app"
+    "URL": "https://www.microsoft.com/en-us/p/xbox/9mv0b5hzvk9z",
+    "Description": "Xbox app"
   },
   {
     "AppxPackage": "Microsoft.GetHelp",
@@ -24,34 +30,22 @@
     "Description": "Windows 10 tips app"
   },
   {
-    "AppxPackage": "Microsoft.Messaging",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/microsoft-messaging/9wzdncrfjbq6",
-    "Description": "Enables, SMS, MMS and RCS messaging from your device"
-  },
-  {
-    "AppxPackage": "Microsoft.Microsoft3DViewer",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/3d-viewer/9nblggh42ths",
-    "Description": "App to view common 3D file types"
-  },
-  {
     "AppxPackage": "Microsoft.MicrosoftOfficeHub",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/office/9wzdncrd29v9",
     "Description": "Office UWP app suite"
   },
   {
-    "AppxPackage": "Microsoft.MicrosoftStickyNotes",
-    "VDIState": "Enabled",
-    "URL": "https://www.microsoft.com/en-us/p/microsoft-sticky-notes/9nblggh4qghw",
-    "Description": "Note-taking app"
-  },
-  {
     "AppxPackage": "Microsoft.MicrosoftSolitaireCollection",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-solitaire-collection/9wzdncrfhwd2",
     "Description": "Solitaire suite of games"
+  },
+  {
+    "AppxPackage": "Microsoft.MicrosoftStickyNotes",
+    "VDIState": "Enabled",
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-sticky-notes/9nblggh4qghw",
+    "Description": "Note-taking app"
   },
   {
     "AppxPackage": "Microsoft.MixedReality.Portal",
@@ -78,16 +72,22 @@
     "Description": "Microsoft Mobile Plans app"
   },
   {
+    "AppxPackage": "Microsoft.Paint",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/paint/9pcfs5b6t72h",
+    "Description": "Windows basic sketching and graphics app"
+  },
+  {
     "AppxPackage": "Microsoft.People",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-people/9nblggh10pg8",
     "Description": "Contact management app"
   },
   {
-    "AppxPackage": "Microsoft.Print3D",
+    "AppxPackage": "Microsoft.PowerAutomateDesktop",
     "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/print-3d/9pbpch085s3s",
-    "Description": "Print 3D app to prepare objects for 3D printing on your device"
+    "URL": "https://flow.microsoft.com/en-us/desktop/",
+    "Description": "Power Automate Desktop app. Record desktop and web actions in a single flow"
   },
   {
     "AppxPackage": "Microsoft.ScreenSketch",
@@ -102,10 +102,10 @@
     "Description": "Instant message, voice or video call app"
   },
   {
-    "AppxPackage": "Microsoft.Wallet",
+    "AppxPackage": "Microsoft.Todos",
     "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/payments",
-    "Description": "(Microsoft Pay) for Edge browswer on certain devices"
+    "URL": "https://www.microsoft.com/en-us/p/microsoft-to-do-lists-tasks-reminders/9nblggh5r558",
+    "Description": "Microsoft To Do makes it easy to plan your day and manage your life"
   },
   {
     "AppxPackage": "Microsoft.Windows.Photos",
@@ -156,16 +156,16 @@
     "Description": "(Voice recorder)"
   },
   {
+    "AppxPackage": "Microsoft.WindowsTerminal",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701",
+    "Description": "A terminal app featuring tabs, panes, Unicode, UTF-8 character support, and GPU text rendering engine."
+  },
+  {
     "AppxPackage": "Microsoft.Xbox.TCUI",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/gaming/xbox-live/features/general/tcui/live-tcui-overview",
     "Description": "XBox Title Callable UI (TCUI) enables your game code to call pre-defined user interface displays"
-  },
-  {
-    "AppxPackage": "Microsoft.XboxApp",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
-    "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
   },
   {
     "AppxPackage": "Microsoft.XboxGameOverlay",
@@ -184,6 +184,12 @@
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/xbox-identity-provider/9wzdncrd1hkw",
     "Description": "A system app that enables PC games to connect to Xbox Live."
+  },
+  {
+    "AppxPackage": "Microsoft.XboxApp",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
+    "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
   },
   {
     "AppxPackage": "Microsoft.XboxSpeechToTextOverlay",
