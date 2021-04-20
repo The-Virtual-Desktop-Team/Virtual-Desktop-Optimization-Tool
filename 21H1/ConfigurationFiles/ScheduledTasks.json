@@ -45,11 +45,6 @@
     "Description": "The Windows Disk Diagnostic reports general disk and system information to Microsoft for users participating in the Customer Experience Program."
   },
   {
-    "ScheduledTask": "*MNO*",
-    "VDIState": "Disabled",
-    "Description": "Mobile broadband account experience metadata parser"
-  },
-  {
     "ScheduledTask": "NotificationTask",
     "VDIState": "Disabled",
     "Description": "Background task for performing per user and web interactions"
@@ -85,19 +80,9 @@
     "Description": "Detects and mitigates problems in physical memory (RAM)."
   },
   {
-    "ScheduledTask": "Scheduled",
-    "VDIState": "Disabled",
-    "Description": "The Windows Scheduled Maintenance Task performs periodic maintenance of the computer system by fixing problems automatically or reporting them through Security and Maintenance."
-  },
-  {
     "ScheduledTask": "ScheduledDefrag",
     "VDIState": "Disabled",
     "Description": "This task optimizes local storage drives."
-  },
-  {
-    "ScheduledTask": "SilentCleanup",
-    "VDIState": "Disabled",
-    "Description": "Maintenance task used by the system to launch a silent auto disk cleanup when running low on free disk space."
   },
   {
     "ScheduledTask": "SpeechModelDownloadTask",
@@ -119,11 +104,6 @@
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder",
     "Description": "Servicing task that may be better performed during maintenance windows"
-  },
-  {
-    "ScheduledTask": "StartupAppTask",
-    "VDIState": "Disabled",
-    "Description": "Scans startup entries and raises notification to the user if there are too many startup entries."
   },
   {
     "ScheduledTask": "WindowsActionDialog",
