@@ -5,986 +5,470 @@
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled",
-        "PolicySettingName": ""
+        "PolicySettingName": "Allow Online Tips"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
         "RegItemValueName": "LockScreenImage",
         "RegItemValueType": "String",
         "RegItemValue": "C:\\Windows\\web\\screen\\img105.jpg",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Force a specific default lock screen and logon image (sub-setting)"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+        "RegItemValueName": "AnimateLockScreenBackground",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled",
+        "PolicySettingName": "Prevent lock screen background motion"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
         "RegItemValueName": "LockScreenOverlaysDisabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\InputPersonalization",
-        "RegItemValueName": "RestrictImplicitInkCollection",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\InputPersonalization",
-        "RegItemValueName": "RestrictImplicitTextCollection",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
-        "RegItemValueName": "DisableBranchCache",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
-        "RegItemValueName": "DisablePeerCachingClient",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
-        "RegItemValueName": "DisablePeerCachingServer",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Force a specific default lock screen and logon image (Turn off fun facts, tips, tricks, and more on lock screen"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
         "RegItemValueName": "EnablePeerCaching",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow BITS peercaching"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "DisableBranchCache",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not allow the BITS client to use Windows Branch Cache"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "DisablePeerCachingClient",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not allow the computer to act as a BITS Peercaching client"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\BITS",
+        "RegItemValueName": "DisablePeerCachingServer",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not allow the computer to act as a BITS Peercaching server"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\PeerDist\\Service",
         "RegItemValueName": "Enable",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableLockScreenAppNotifications",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DontEnumerateConnectedUsers",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn on BranchCache"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
         "RegItemValueName": "EnableFontProviders",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Enable Font Providers"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\HotspotAuthentication",
         "RegItemValueName": "Enabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Peernet",
-        "RegItemValueName": "Disabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Enable Hotspot Authentication"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkConnectivityStatusIndicator",
         "RegItemValueName": "DisablePassivePolling",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetCache",
-        "RegItemValueName": "Enabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\TCPIP\\v6Transition",
-        "RegItemValueName": "Teredo_State",
-        "RegItemValueType": "String",
-        "RegItemValue": "Disabled",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Specify passive polling (checkbox: Disable passive polling)"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\config",
         "RegItemValueName": "AutoConnectAllowedOEM",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
-        "RegItemValueName": "LetAppsAccessCellularData",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "2",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
-        "RegItemValueName": "LetAppsAccessCellularData_ForceAllowTheseApps",
-        "RegItemValueType": "MultiString",
-        "RegItemValue": "",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
-        "RegItemValueName": "LetAppsAccessCellularData_ForceDenyTheseApps",
-        "RegItemValueType": "MultiString",
-        "RegItemValue": "",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WwanSvc\\CellularDataAccess",
-        "RegItemValueName": "LetAppsAccessCellularData_UserInControlOfTheseApps",
-        "RegItemValueType": "MultiString",
-        "RegItemValue": "",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
-        "RegItemValueName": "NoCloudApplicationNotification",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
-        "RegItemValueName": "DisableSystemRestore",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
-        "RegItemValueName": "DisableBalloonTips",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
-        "RegItemValueName": "DisableSendRequestAdditionalSoftwareToWER",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceInstall\\Settings",
-        "RegItemValueName": "DisableSendGenericDriverNotFoundToWER",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Device Metadata",
-        "RegItemValueName": "PreventDeviceMetadataFromNetwork",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SYSTEM\\CurrentControlSet\\Policies",
-        "RegItemValueName": "NtfsDisable8dot3NameCreation",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "3",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "EnableCdp",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\HandwritingErrorReports",
-        "RegItemValueName": "PreventHandwritingErrorReports",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\SQMClient\\Windows",
-        "RegItemValueName": "CEIPEnable",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching",
-        "RegItemValueName": "DontSearchWindowsUpdate",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow Windows to automatically connect to suggested open hotspots, to networks shared by contacts, and to hotspots offering paid services"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\EventViewer",
         "RegItemValueName": "MicrosoftEventVwrDisableLinks",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off Event Viewer 'Events.asp' links"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\HandwritingErrorReports",
+        "RegItemValueName": "PreventHandwritingErrorReports",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off handwriting recognition error reporting"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\PCHealth\\HelpSvc",
         "RegItemValueName": "Headlines",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off Help and Support Center 'Did you know?' content"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\PCHealth\\HelpSvc",
         "RegItemValueName": "MicrosoftKBSearch",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off Help and Support Center Microsoft Knowledge Base search"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Internet Connection Wizard",
-        "RegItemValueName": "ExitOnMSICW",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Registration Wizard Control",
-        "RegItemValueName": "NoRegistration",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\SearchCompanion",
-        "RegItemValueName": "DisableContentFileUpdates",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoInternetOpenWith",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoWebServices",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoOnlinePrintsWizard",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoPublishingWizard",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\TabletPC",
-        "RegItemValueName": "PreventHandwritingDataSharing",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
-        "RegItemValueName": "EnableFirstLogonAnimation",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\SQMClient\\Windows",
+        "RegItemValueName": "CEIPEnable",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "EnumerateLocalUsers",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableLockScreenAppNotifications",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DontEnumerateConnectedUsers",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off Windows Customer Experience Improvement Program"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "NoWelcomeScreen",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not display the Getting Started welcome screen at logon"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\309dce9b-bef4-4119-9921-a851fb12f0f4",
-        "RegItemValueName": "ACSettingIndex",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRE",
-        "RegItemValueName": "DisableSetup",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DontEnumerateConnectedUsers",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not enumerate connected users on domain-joined computers"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\StorageHealth",
-        "RegItemValueName": "AllowDiskHealthModelUpdates",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "EnumerateLocalUsers",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Enumerate local users on domain-joined computers"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\SystemRestore",
-        "RegItemValueName": "DisableSR",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Show clear logon background"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\ScheduledDiagnostics",
-        "RegItemValueName": "EnabledExecution",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+        "RegItemValueName": "EnableFirstLogonAnimation",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Show first sign-in animation"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\ScriptedDiagnosticsProvider\\Policy",
-        "RegItemValueName": "EnableQueryRemoteServer",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Disabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\ScriptedDiagnostics",
-        "RegItemValueName": "EnableDiagnostics",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{67144949-5132-4859-8036-a737b43825d8}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{eb73b633-3f4e-4ba0-8f60-8f3c6f53168f}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{9c5a40da-b965-4fc3-8781-88dd50a6299d}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{3af8b24a-c441-4fa4-8c5c-bed591bfa867}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{2698178D-FDAD-40AE-9D3C-1371703ADC5B}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{ffc42108-4920-4acf-a4fc-8abdcc68ada4}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{a7a5847a-7511-4e4e-90b1-45ad2a002f51}",
-        "RegItemValueName": "ScenarioExecutionEnabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\AdvertisingInfo",
-        "RegItemValueName": "DisabledByGroupPolicy",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DisableLockScreenAppNotifications",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\AppCompat",
-        "RegItemValueName": "DisableInventory",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoDriveTypeAutoRun",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "255",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoAutoRun",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off app notifications on the lock screen"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableSoftLanding",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not show Windows tips"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableWindowsConsumerFeatures",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\PreviewBuilds",
-        "RegItemValueName": "AllowBuildPreview",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\DataCollection",
-        "RegItemValueName": "DoNotShowFeedbackNotifications",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
-        "RegItemValueName": "MicrosoftEdgeDataOptIn",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off Microsoft consumer experiences"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeliveryOptimization",
         "RegItemValueName": "DODownloadMode",
         "RegItemValueType": "DWord",
         "RegItemValue": "99",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DWM",
-        "RegItemValueName": "DisableAccentGradient",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Download Mode (Delivery Optimization)"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DWM",
         "RegItemValueName": "DisallowAnimations",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not allow window animations"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
-        "RegItemValueName": "AllowEdgeSwipe",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
-        "RegItemValueName": "DisableHelpSticker",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DWM",
+        "RegItemValueName": "DisableAccentGradient",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
-        "RegItemValueName": "NoNewAppAlert",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\FileHistory",
-        "RegItemValueName": "Disabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\HomeGroup",
-        "RegItemValueName": "DisableHomeGroup",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Use solid color for Start background"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer",
         "RegItemValueName": "AllowServicePoweredQSA",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
-        "RegItemValueName": "EnableAutoUpgrade",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Suggested Sites",
-        "RegItemValueName": "Enabled",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Ext",
-        "RegItemValueName": "DisableAddonLoadTimePerformanceNotifications",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Recovery",
-        "RegItemValueName": "AutoRecover",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "2",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Geolocation",
-        "RegItemValueName": "PolicyDisableGeolocation",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
-        "RegItemValueName": "DisableFirstRunCustomize",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Infodelivery\\Restrictions",
-        "RegItemValueName": "NoSplash",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Infodelivery\\Restrictions",
-        "RegItemValueName": "NoUpdateCheck",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow Microsoft services to provide enhanced suggestions as the user types in the Address bar"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\SQM",
         "RegItemValueName": "DisableCustomerImprovementProgram",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Prevent participation in the Customer Experience Improvement Program"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
         "RegItemValueName": "TabProcGrowth",
         "RegItemValueType": "String",
         "RegItemValue": "Low",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Set tab process growth"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
         "RegItemValueName": "Play_Animations",
         "RegItemValueType": "String",
         "RegItemValue": "no",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Play animations in web pages"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
         "RegItemValueName": "Play_Background_Sounds",
         "RegItemValueType": "String",
         "RegItemValue": "no",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Play sounds in web pages"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
         "RegItemValueName": "Display Inline Videos",
         "RegItemValueType": "String",
         "RegItemValue": "no",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Play videos in web pages"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\FlipAhead",
         "RegItemValueName": "Enabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off the flip ahead with page prediction feature"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\PrefetchPrerender",
         "RegItemValueName": "Enabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off loading websites and content in the background to optimize performance"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main\\FormatDetection",
         "RegItemValueName": "PhoneNumberEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors",
-        "RegItemValueName": "DisableLocation",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors",
-        "RegItemValueName": "DisableSensors",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors",
-        "RegItemValueName": "DisableWindowsLocationProvider",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off phone number detection"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Maps",
         "RegItemValueName": "AllowUntriggeredNetworkTrafficOnSettingsPage",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off unsolicited network traffic on the Offline Maps settings page"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Maps",
         "RegItemValueName": "AutoDownloadAndUpdateMapData",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Messaging",
-        "RegItemValueName": "AllowMessageSync",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\BooksLibrary",
-        "RegItemValueName": "AllowConfigurationUpdateForBooksLibrary",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off Automatic Download and Update of Map Data"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\ServiceUI",
         "RegItemValueName": "AllowWebContentOnNewTabPage",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\BooksLibrary",
-        "RegItemValueName": "EnableExtendedBooksTelemetry",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow web content on New Tab page"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\Main",
         "RegItemValueName": "AllowPrelaunch",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow Microsoft Edge to pre-launch at Windows startup, when the system is idle, and each time Microsoft Edge is closed"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\TabPreloader",
         "RegItemValueName": "AllowTabPreloading",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow Microsoft Edge to start and load the Start and New Tab page at Windows startup and each time Microsoft Edge is closed"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\Main",
         "RegItemValueName": "PreventFirstRunPage",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Speech",
-        "RegItemValueName": "AllowSpeechModelUpdate",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": ""
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "RegItemValueName": "AllowCortanaAboveLock",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "RegItemValueName": "AllowSearchToUseLocation",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsInkWorkspace",
-        "RegItemValueName": "AllowWindowsInkWorkspace",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Reliability Analysis\\WMI",
-        "RegItemValueName": "WMIEnable",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "RegItemValueName": "PreventIndexingUncachedExchangeFolders",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Allow Cortana above lock screen"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR",
         "RegItemValueName": "AllowGameDVR",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\TextInput",
-        "RegItemValueName": "AllowLinguisticDataCollection",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Enables or disables Windows Game Recording and Broadcasting"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
         "RegItemValueName": "EnableFeaturedSoftware",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn on Software Notifications"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\FindMyDevice",
         "RegItemValueName": "AllowFindMyDevice",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn On/Off Find My Device"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "ConfigureWindowsSpotlight",
         "RegItemValueType": "DWord",
         "RegItemValue": "2",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\Explorer",
-        "RegItemValueName": "NoRemoteDestinations",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoSearchInternetInStartMenu",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Configure Windows spotlight on lock screen"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableThirdPartySuggestions",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not suggest third-party content in Windows spotlight"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableTailoredExperiencesWithDiagnosticData",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not use diagnostic data for tailored experiences"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "NoResolveSearch",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Do not use the search-based method when resolving shell shortcuts"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Directory UI",
         "RegItemValueName": "QueryLimit",
         "RegItemValueType": "DWord",
         "RegItemValue": "1500",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
-        "RegItemValueName": "NoWindowMinimizingShortcuts",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Maximum size of Active Directory searches"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "TaskbarNoNotification",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off all balloon notifications"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableWindowsSpotlightFeatures",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoThumbnailCache",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
-        "RegItemValueName": "DisableSearchBoxSuggestions",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off all Windows spotlight features"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
         "RegItemValueName": "NoBalloonFeatureAdvertisements",
         "RegItemValueType": "DWord",
         "RegItemValue": "",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Control Panel\\International",
-        "RegItemValueName": "TurnOffOfferTextPredictions",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
-        "RegItemValueName": "DisableThumbsDBOnNetworkFolders",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off feature advertisement balloon notifications"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
         "RegItemValueName": "NoToastApplicationNotification",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off toast notifications"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
         "RegItemValueName": "NoToastApplicationNotificationOnLockScreen",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
-        "RegItemValueName": "DisableMFUTracking",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off toast notifications on the lock screen"
     },
     {
         "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "NoInstrumentation",
         "RegItemValueType": "DWord",
         "RegItemValue": "",
-        "VDIState": "Enabled"
+        "VDIState": "Enabled",
+        "PolicySettingName": "Turn off user tracking"
     }
 ]
