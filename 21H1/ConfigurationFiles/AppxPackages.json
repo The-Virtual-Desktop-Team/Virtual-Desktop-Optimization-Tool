@@ -48,30 +48,6 @@
     "Description": "Note-taking app"
   },
   {
-    "AppxPackage": "Microsoft.MixedReality.Portal",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/mixed-reality-portal/9ng1h8b3zc7m",
-    "Description": "The app that facilitates Windows Mixed Reality setup, and serves as the command center for mixed reality experiences"
-  },
-  {
-    "AppxPackage": "Microsoft.MSPaint",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99",
-    "Description": "Paint 3D"
-  },
-  {
-    "AppxPackage": "Microsoft.Office.OneNote",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/onenote/9wzdncrfhvjl",
-    "Description": "OneNote UWP app"
-  },
-  {
-    "AppxPackage": "Microsoft.OneConnect",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/en-us/p/mobile-plans/9nblggh5pnb1",
-    "Description": "Microsoft Mobile Plans app"
-  },
-  {
     "AppxPackage": "Microsoft.Paint",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/paint/9pcfs5b6t72h",
@@ -150,6 +126,12 @@
     "Description": "Microsoft Maps app"
   },
   {
+    "AppxPackage": "Microsoft.WindowsNotepad",
+    "VDIState": "Enabled",
+    "URL": "https://www.microsoft.com/en-us/p/windows-notepad/9msmlrh6lzf3",
+    "Description": "Fast, simple text editor for plain text documents and source code files."
+  },
+  {
     "AppxPackage": "Microsoft.WindowsSoundRecorder",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/windows-voice-recorder/9wzdncrfhwkn",
@@ -184,12 +166,6 @@
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/xbox-identity-provider/9wzdncrd1hkw",
     "Description": "A system app that enables PC games to connect to Xbox Live."
-  },
-  {
-    "AppxPackage": "Microsoft.XboxApp",
-    "VDIState": "Disabled",
-    "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
-    "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
   },
   {
     "AppxPackage": "Microsoft.XboxSpeechToTextOverlay",
