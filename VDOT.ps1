@@ -159,7 +159,7 @@ Process
     
 
     # All DefaultUserSettings function Event ID's [40-49]
-    If ()
+    If ($Optimizations -contains "DefaultUserSettings" -or $Optimizations -contains "All")
     {
         Optimize-DefaultUserSettings -DefaultUserSettingsFilePath ".\ConfigurationFiles\DefaultUserSettings.json"
     }
