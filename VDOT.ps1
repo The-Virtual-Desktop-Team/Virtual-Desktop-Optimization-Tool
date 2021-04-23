@@ -152,10 +152,18 @@ Process
     }
     
     # All ScheduledTasks function Event ID's [30-39]
-    Optimize-ScheduledTasks
+    If ($Optimizations -contains "ScheduledTasks" -or $Optimizations -contains "All")
+    {
+        Optimize-ScheduledTasks -ScheduledTasksFilePath ".\ConfigurationFiles\ScheduledTasks.json"
+    }
+    
 
     # All DefaultUserSettings function Event ID's [40-49]
-    Optimize-DefaultUserSettings
+    If ()
+    {
+        Optimize-DefaultUserSettings -DefaultUserSettingsFilePath ".\ConfigurationFiles\DefaultUserSettings.json"
+    }
+    
     
     # All AutoLoggers function Event ID's [50-59]
     Optimize-AutoLoggers
