@@ -144,14 +144,6 @@
         "PolicySettingName": "Turn off Windows Customer Experience Improvement Program"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoWelcomeScreen",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled",
-        "PolicySettingName": "Do not display the Getting Started welcome screen at logon"
-    },
-    {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
         "RegItemValueName": "DontEnumerateConnectedUsers",
         "RegItemValueType": "DWord",
@@ -462,13 +454,5 @@
         "RegItemValue": "1",
         "VDIState": "Enabled",
         "PolicySettingName": "Turn off toast notifications on the lock screen"
-    },
-    {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "RegItemValueName": "NoInstrumentation",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "",
-        "VDIState": "Enabled",
-        "PolicySettingName": "Turn off user tracking"
     }
 ]
