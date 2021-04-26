@@ -1,0 +1,32 @@
+[
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\Cellcore\\",
+    "URL": "https://docs.microsoft.com/en-us/windows-hardware/drivers/network/cellular-architecture-and-driver-model",
+    "Disabled": true,
+    "Description": "The “Cellcore” trace has “SMSRouter” in the trace properties."
+  },
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\ReadyBoot\\",
+    "URL": "https://docs.microsoft.com/en-us/previous-versions/windows/desktop/xperf/readyboot-analysis",
+    "Disabled": true,
+    "Description": "“ReadyBoot is boot acceleration technology that maintains an in-RAM cache used to service disk reads faster than a slower storage medium such as a disk drive”.  VDI does not use “normal” computer disk devices, but usually segments of a shared storage medium.  ReadyBoot and other optimizations designed to assist normal disk devices do not have equivalent effects on shared storage devices.  And further, for non-persistent VDI, 99.999% of computer state is discarded when the user logs off.  This includes any optimizations performed by the OS during runtime.  Therefore, why allow Windows “normal” optimizations when all that computer and I/O work will be discarded at logoff for NP VDI?  For persistent, the choice is yours.  Another consideration is again, pooled VDI.  The users will normally not log into the same VM twice.  Therefore, any RAM caching of predicted I/O will have unknown impact because the underlying disk extent being utilized for that logon session will be different from session to session."
+  },
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\WDIContextLog\\",
+    "URL": "https://docs.microsoft.com/en-us/windows-hardware/drivers/network/wifi-universal-driver-model",
+    "Disabled": true,
+    "Description": "This is a startup trace that runs all the time, with these loggers: \"Microsoft-Windows-Kernel-PnP\":0x48000:0x4+\"Microsoft-Windows-Kernel-WDI\":0x100000000:0xff+\"Microsoft-Windows-Wininit\":0x20000:0x4+\"Microsoft-Windows-Kernel-BootDiagnostics\":0xffffffffffffffff:0x4+\"Microsoft-Windows-Kernel-Power\":0x1:0x4+\"Microsoft-Windows-Winlogon\":0x20000:0x4+\"Microsoft-Windows-Shell-Core\":0x6000000:0x4 On my clean state VM, this trace is running and using a very small amount of resources.  Current buffers are 4, buffer size is 16.  Those numbers reflect the amount of physical RAM reserved for this trace.  Because my VM does not use WLAN, AKA “wireless”, this trace is doing nothing for my VM now, and will not as long as I do not use wireless.  Therefore the recommendation to disable this trace and free these resources."
+  },
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\WiFiDriverIHVSession\\",
+    "URL": "https://docs.microsoft.com/en-us/windows-hardware/drivers/network/user-initiated-feedback-normal-mode",
+    "Disabled": true,
+    "Description": "This log is a container for “user-initiated feedback” for wireless networking (Wi-Fi).  If the VMs were to emulate wireless networking, you might just leave this one alone.  Also, this trace is enabled by default, but not run until triggered, presumably from a user-initiated feedback for a wireless issue.  The Windows diagnostics would run, gather some information from the current system including an event trace, and then send that information to Microsoft."
+  },
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\WiFiSession\\",
+    "URL": "N/A",
+    "Disabled": true,
+    "Description": "Not documented, but not hard to understand.  This is another diagnostic log for the Windows Diagnostics.  If your VMs are not using Wi-Fi, this log is not needed.  You could though leave this alone as it would almost never be started unless a user started a troubleshooter, and troubleshooters are usually disabled in VDI environments."
+  }
+]
