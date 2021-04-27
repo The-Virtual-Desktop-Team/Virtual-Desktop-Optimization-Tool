@@ -197,7 +197,7 @@ Function Optimize-AutoLoggers
     [CmdletBinding()]
     Param
     (
-
+        $AutoLoggersFilePath
     )
 
     Begin
@@ -221,7 +221,7 @@ Function Optimize-Services
     [CmdletBinding()]
     Param
     (
-
+        $ServicesFilePath
     )
 
     Begin
@@ -245,7 +245,7 @@ Function Optimize-Network
     [CmdletBinding()]
     Param
     (
-
+        $NetworkOptimizationsFilePath
     )
 
     Begin
@@ -269,7 +269,7 @@ Function Optimize-LocalPolicy
     [CmdletBinding()]
     Param
     (
-
+        $LocalPolicyFilePath
     )
 
     Begin
@@ -284,7 +284,7 @@ Function Optimize-LocalPolicy
 
     End
     {
-
+        #gpupdate /force 
     }
 }
 
@@ -293,7 +293,7 @@ Function Optimize-DiskCleanup
     [CmdletBinding()]
     Param
     (
-
+        
     )
 
     Begin

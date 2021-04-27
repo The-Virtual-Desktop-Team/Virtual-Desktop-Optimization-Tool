@@ -156,7 +156,6 @@ Process
     {
         Optimize-ScheduledTasks -ScheduledTasksFilePath ".\ConfigurationFiles\ScheduledTasks.json"
     }
-    
 
     # All DefaultUserSettings function Event ID's [40-49]
     If ($Optimizations -contains "DefaultUserSettings" -or $Optimizations -contains "All")
@@ -164,21 +163,35 @@ Process
         Optimize-DefaultUserSettings -DefaultUserSettingsFilePath ".\ConfigurationFiles\DefaultUserSettings.json"
     }
     
-    
     # All AutoLoggers function Event ID's [50-59]
-    Optimize-AutoLoggers
+    If ($Optimizations -contains "Autologgers" -or $Optimizations -contains "All")
+    {
+        Optimize-AutoLoggers -AutoLoggersFilePath ".\ConfigurationFiles\Autologgers.json"
+    }
 
     # All Services function Event ID's [60-69]
-    Optimize-Services
+    If ($Optimizations -contains "Services" -or $Optimizations -contains "All")
+    {
+        Optimize-Services -ServicesFilePath ".\ConfigurationFiles\Services.json"
+    }
 
     # All Network function Event ID's [70-79]
-    Optimize-Network
+    If ($Optimizations -contains "NetworkOptimizations" -or $Optimizations -contains "All")
+    {
+        Optimize-Network -NetworkOptimizationsFilePath ".\ConfigurationFiles\LanManWorkstation.json"
+    }
 
     # All LocalPolicy function Event ID's [80-89]
-    Optimize-LocalPolicy
+    If ($Optimizations -contains "LGPO" -or $Optimizations -contains "All")
+    {
+        Optimize-LocalPolicy -LocalPolicyFilePath ""
+    }
 
     # All DiskCleanup function Event ID's [90-99]
-    Optimize-DiskCleanup
+    If ($Optimizations -contains "DiskCleanup" -or $Optimizations -contains "All")
+    {
+        Optimize-DiskCleanup
+    }
 }
 
 End
