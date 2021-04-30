@@ -7,7 +7,7 @@
   },
   {
     "AppxPackage": "Microsoft.MSPaint",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99",
     "Description": "Paint 3D"
   },
@@ -25,7 +25,7 @@
   },
   {
     "AppxPackage": "Microsoft.Getstarted",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-tips/9wzdncrdtbjj",
     "Description": "Windows 10 tips app"
   },
@@ -37,7 +37,7 @@
   },
   {
     "AppxPackage": "Microsoft.MicrosoftOfficeHub",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/office/9wzdncrd29v9",
     "Description": "Office UWP app suite"
   },
@@ -55,7 +55,7 @@
   },
   {
     "AppxPackage": "Microsoft.Office.OneNote",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/onenote/9wzdncrfhvjl",
     "Description": "OneNote UWP app"
   },
@@ -85,25 +85,25 @@
   },
   {
     "AppxPackage": "Microsoft.Windows.Photos",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-photos/9wzdncrfjbh4",
     "Description": "Photo and video editor"
   },
   {
     "AppxPackage": "Microsoft.WindowsAlarms",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/windows-alarms-clock/9wzdncrfj3pr",
     "Description": "A combination app, of alarm clock, world clock, timer, and stopwatch."
   },
   {
     "AppxPackage": "Microsoft.WindowsCalculator",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/windows-calculator/9wzdncrfhvn5",
     "Description": "Microsoft Calculator app"
   },
   {
     "AppxPackage": "Microsoft.WindowsCamera",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/windows-camera/9wzdncrfjbbg",
     "Description": "Camera app to manage photos and video"
   },
@@ -187,7 +187,7 @@
   },
   {
     "AppxPackage": "Microsoft.ScreenSketch",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/snip-sketch/9mz95kl8mr0l",
     "Description": "Snip and Sketch app"
   },
@@ -199,7 +199,7 @@
   },
   {
     "AppxPackage": "Microsoft.Microsoft3DViewer",
-    "VDIState": "Disabled",
+    "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/en-us/p/3d-viewer/9nblggh42ths",
     "Description": "App to view common 3D file types"
   }
