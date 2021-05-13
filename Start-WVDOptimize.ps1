@@ -76,29 +76,28 @@ https://msdn.microsoft.com/en-us/library/cc422938.aspx
 #>
 
 <#
-All VDOT main function Event ID's [1-9]
-All WindowsMediaPlayer function Event ID's [10-19] - Normal Operations (Informational, Warning)
-All AppxPackages function Event ID's [20-29] - Normal Operations (Informational, Warning)
-All ScheduledTasks function Event ID's [30-39] - Normal Operations (Informational, Warning)
+All VDOT main function Event ID's           [1-9]   - Normal Operations (Informational, Warning)
+All WindowsMediaPlayer function Event ID's  [10-19] - Normal Operations (Informational, Warning)
+All AppxPackages function Event ID's        [20-29] - Normal Operations (Informational, Warning)
+All ScheduledTasks function Event ID's      [30-39] - Normal Operations (Informational, Warning)
 All DefaultUserSettings function Event ID's [40-49] - Normal Operations (Informational, Warning)
-All AutoLoggers function Event ID's [50-59] - Normal Operations (Informational, Warning)
-All Services function Event ID's [60-69] - Normal Operations (Informational, Warning)
-All Network function Event ID's [70-79] - Normal Operations (Informational, Warning)
-All LocalPolicy function Event ID's [80-89] - Normal Operations (Informational, Warning)
-All DiskCleanup function Event ID's [90-99] - Normal Operations (Informational, Warning)
+All AutoLoggers function Event ID's         [50-59] - Normal Operations (Informational, Warning)
+All Services function Event ID's            [60-69] - Normal Operations (Informational, Warning)
+All Network function Event ID's             [70-79] - Normal Operations (Informational, Warning)
+All LocalPolicy function Event ID's         [80-89] - Normal Operations (Informational, Warning)
+All DiskCleanup function Event ID's         [90-99] - Normal Operations (Informational, Warning)
 
 
-All VDOT main function Event ID's [100-109] - Errors Only
-All WindowsMediaPlayer function Event ID's [110-119] - Errors Only
-All AppxPackages function Event ID's [120-129] - Errors Only
-All ScheduledTasks function Event ID's [130-139] - Errors Only
+All VDOT main function Event ID's           [100-109] - Errors Only
+All WindowsMediaPlayer function Event ID's  [110-119] - Errors Only
+All AppxPackages function Event ID's        [120-129] - Errors Only
+All ScheduledTasks function Event ID's      [130-139] - Errors Only
 All DefaultUserSettings function Event ID's [140-149] - Errors Only
-All AutoLoggers function Event ID's [150-159] - Errors Only
-All Services function Event ID's [160-169] - Errors Only
-All Network function Event ID's [170-179] - Errors Only
-All LocalPolicy function Event ID's [180-189] - Errors Only
-All DiskCleanup function Event ID's [190-199] - Errors Only
-
+All AutoLoggers function Event ID's         [150-159] - Errors Only
+All Services function Event ID's            [160-169] - Errors Only
+All Network function Event ID's             [170-179] - Errors Only
+All LocalPolicy function Event ID's         [180-189] - Errors Only
+All DiskCleanup function Event ID's         [190-199] - Errors Only
 
 #>
 
