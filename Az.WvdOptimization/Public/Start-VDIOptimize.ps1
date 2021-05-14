@@ -90,7 +90,6 @@ Function Start-VDIOptimize
         $StartTime = Get-Date
         If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
         {
-            New-EventLog -
             New-EventLog -Source 'VDOT' -LogName 'Virtual Desktop Optimization'
             Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Log Created"
         }
