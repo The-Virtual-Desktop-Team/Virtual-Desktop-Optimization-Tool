@@ -16,7 +16,7 @@ Function _OptimizeServices
         If (Test-Path $ServicesFilePath)
         {
             Write-EventLog -EventId 60 -Message "Disable Services" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Disable Services"
+            Write-Host "[VDI Optimize] Disable Services" -ForegroundColor Cyan
             $ServicesToDisable = (Get-Content $ServicesFilePath | ConvertFrom-Json ).Where( { $_.VDIState -eq 'Disabled' })
 
             If ($ServicesToDisable.count -gt 0)

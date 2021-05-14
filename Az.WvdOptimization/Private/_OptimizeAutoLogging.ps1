@@ -16,7 +16,7 @@ Function _OptimizeAutoLoggers
         If (Test-Path $AutoLoggersFilePath)
         {
             Write-EventLog -EventId 50 -Message "Disable AutoLoggers" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Disable Autologgers"
+            Write-Host "[VDI Optimize] Disable Autologgers" -ForegroundColor Cyan
             $DisableAutologgers = (Get-Content $AutoLoggersFilePath | ConvertFrom-Json).Where( { $_.Disabled -eq 'True' })
             If ($DisableAutologgers.count -gt 0)
             {

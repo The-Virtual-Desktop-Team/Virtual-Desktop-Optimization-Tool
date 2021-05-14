@@ -16,7 +16,7 @@ Function _OptimizeAppxPackages
         If (Test-Path $AppxConfigFilePath)
         {
             Write-EventLog -EventId 20 -Message "[VDI Optimize] Removing Appx Packages" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information 
-            Write-Host "[VDI Optimize] Removing Appx Packages"
+            Write-Host "[VDI Optimize] Removing Appx Packages" -ForegroundColor Cyan
             $AppxPackage = (Get-Content $AppxConfigFilePath | ConvertFrom-Json).Where( { $_.VDIState -eq 'Disabled' })
             If ($AppxPackage.Count -gt 0)
             {

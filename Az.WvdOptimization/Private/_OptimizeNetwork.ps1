@@ -16,7 +16,7 @@ Function Optimize-Network
         If (Test-Path $NetworkOptimizationsFilePath)
         {
             Write-EventLog -EventId 70 -Message "Configure LanManWorkstation Settings" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Configure LanManWorkstation Settings"
+            Write-Host "[VDI Optimize] Configure LanManWorkstation Settings" -ForegroundColor Cyan
             $LanManSettings = Get-Content $NetworkOptimizationsFilePath | ConvertFrom-Json
             If ($LanManSettings.Count -gt 0)
             {
@@ -44,7 +44,7 @@ Function Optimize-Network
                                 Else
                                 {
                                     Write-EventLog -EventId 70 -Message "New $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-                                    Write-Host "New $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)"
+                                    Write-Verbose "New $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)"
                                     New-ItemProperty -Path $Hive.HivePath -Name $Key.Name -PropertyType $Key.PropertyType -Value $Key.PropertyValue -Force | Out-Null
                                 }
                             }
@@ -76,7 +76,7 @@ Function Optimize-Network
 
         # NIC Advanced Properties performance settings for network biased environments
         Write-EventLog -EventId 70 -Message "Configuring Network Adapter Buffer Size" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-        Write-Host "[VDI Optimize] Configuring Network Adapter Buffer Size"
+        Write-Host "[VDI Optimize] Configuring Network Adapter Buffer Size" -ForegroundColor Cyan
         Set-NetAdapterAdvancedProperty -DisplayName "Send Buffer Size" -DisplayValue 4MB
     }
 
