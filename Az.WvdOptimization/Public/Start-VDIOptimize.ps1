@@ -1,3 +1,70 @@
+<#
+- TITLE:          Microsoft Windows 10 Virtual Desktop Optimization Script
+- AUTHORED BY:    Robert M. Smith, Tim Muessig, Jason Parker
+- AUTHORED DATE:  4/17/2021
+- CONTRIBUTORS:   
+- LAST UPDATED:   
+- PURPOSE:        To automatically apply settings referenced in the following white papers:
+                  https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
+                  
+- Important:      Every setting in this script and input files are possible recommendations only,
+                  and NOT requirements in any way. Please evaluate every setting for applicability
+                  to your specific environment. These scripts have been tested on plain Hyper-V
+                  VMs. Please test thoroughly in your environment before implementation
+
+- DEPENDENCIES    1. On the target machine, run PowerShell elevated (as administrator)
+                  2. Within PowerShell, set exectuion policy to enable the running of scripts.
+                     Ex. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+                  3. LGPO.EXE (available at https://www.microsoft.com/en-us/download/details.aspx?id=55319)
+                  4. LGPO database files available in the respective folders (ex. \1909, or \2004)
+                  5. This PowerShell script
+                  6. The text input files containing all the apps, services, traces, etc. that you...
+                     may be interested in disabling. Please review these input files to customize...
+                     to your environment/requirements
+
+- REFERENCES:
+https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6
+https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6
+https://msdn.microsoft.com/en-us/library/cc422938.aspx
+#>
+
+<#
+All VDOT main function Event ID's           [1-9]   - Normal Operations (Informational, Warning)
+All WindowsMediaPlayer function Event ID's  [10-19] - Normal Operations (Informational, Warning)
+All AppxPackages function Event ID's        [20-29] - Normal Operations (Informational, Warning)
+All ScheduledTasks function Event ID's      [30-39] - Normal Operations (Informational, Warning)
+All DefaultUserSettings function Event ID's [40-49] - Normal Operations (Informational, Warning)
+All AutoLoggers function Event ID's         [50-59] - Normal Operations (Informational, Warning)
+All Services function Event ID's            [60-69] - Normal Operations (Informational, Warning)
+All Network function Event ID's             [70-79] - Normal Operations (Informational, Warning)
+All LocalPolicy function Event ID's         [80-89] - Normal Operations (Informational, Warning)
+All DiskCleanup function Event ID's         [90-99] - Normal Operations (Informational, Warning)
+
+
+All VDOT main function Event ID's           [100-109] - Errors Only
+All WindowsMediaPlayer function Event ID's  [110-119] - Errors Only
+All AppxPackages function Event ID's        [120-129] - Errors Only
+All ScheduledTasks function Event ID's      [130-139] - Errors Only
+All DefaultUserSettings function Event ID's [140-149] - Errors Only
+All AutoLoggers function Event ID's         [150-159] - Errors Only
+All Services function Event ID's            [160-169] - Errors Only
+All Network function Event ID's             [170-179] - Errors Only
+All LocalPolicy function Event ID's         [180-189] - Errors Only
+All DiskCleanup function Event ID's         [190-199] - Errors Only
+
+#>
+
+<# Categories of cleanup items:
+This script is dependent on three elements:
+LGPO Settings folder, applied with the LGPO.exe Microsoft app
+
+The UWP app input file contains the list of almost all the UWP application packages that can be removed with PowerShell interactively.  
+The Store and a few others, such as Wallet, were left off intentionally.  Though it is possible to remove the Store app, 
+it is nearly impossible to get it back.  Please review the lists below and comment out or remove references to packages that you do not want to remove.
+#>
 Function Start-VDIOptimize
 {
     [Cmdletbinding(DefaultParameterSetName = "Default")]
