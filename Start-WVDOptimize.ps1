@@ -216,6 +216,7 @@ Process
     # All LocalPolicy function Event ID's [80-89]
     If ($Optimizations -contains "LGPO" -or $Optimizations -contains "All")
     {
+        # [TO DO] Figure out how we are going to be moving forward, LGPO, .JSON, copy .pol files, then decide how to handle it
         Optimize-LocalPolicy -LocalPolicyFilePath ""
     }
 

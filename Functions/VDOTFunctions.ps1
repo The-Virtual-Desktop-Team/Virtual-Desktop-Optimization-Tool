@@ -16,7 +16,7 @@
         try
         {
             Write-EventLog -EventId 10 -Message "[VDI Optimize] Disable / Remove Windows Media Player" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information 
-            Write-Host "[VDI Optimize] Disable / Remove Windows Media Player"
+            Write-Host "[VDI Optimize] Disable / Remove Windows Media Player" -ForegroundColor Cyan
             Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -NoRestart | Out-Null
             Get-WindowsPackage -Online -PackageName "*Windows-mediaplayer*" | ForEach-Object { 
                 Write-EventLog -EventId 10 -Message "Removing $($_.PackageName)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information 
@@ -54,7 +54,7 @@ Function Optimize-AppxPackages
         If (Test-Path $AppxConfigFilePath)
         {
             Write-EventLog -EventId 20 -Message "[VDI Optimize] Removing Appx Packages" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information 
-            Write-Host "[VDI Optimize] Removing Appx Packages"
+            Write-Host "[VDI Optimize] Removing Appx Packages" -ForegroundColor Cyan
             $AppxPackage = (Get-Content $AppxConfigFilePath | ConvertFrom-Json).Where( { $_.VDIState -eq 'Disabled' })
             If ($AppxPackage.Count -gt 0)
             {
@@ -185,7 +185,7 @@ Function Optimize-DefaultUserSettings
         If (Test-Path $DefaultUserSettingsFilePath)
         {
             Write-EventLog -EventId 40 -Message "Set Default User Settings" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Set Default User Settings"
+            Write-Host "[VDI Optimize] Set Default User Settings" -ForegroundColor Cyan
             $UserSettings = (Get-Content $DefaultUserSettingsFilePath | ConvertFrom-Json).Where( { $_.SetProperty -eq $true })
             If ($UserSettings.Count -gt 0)
             {
@@ -273,7 +273,7 @@ Function Optimize-AutoLoggers
         If (Test-Path $AutoLoggersFilePath)
         {
             Write-EventLog -EventId 50 -Message "Disable AutoLoggers" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Disable Autologgers"
+            Write-Host "[VDI Optimize] Disable Autologgers" -ForegroundColor Cyan
             $DisableAutologgers = (Get-Content $AutoLoggersFilePath | ConvertFrom-Json).Where( { $_.Disabled -eq 'True' })
             If ($DisableAutologgers.count -gt 0)
             {
@@ -323,7 +323,7 @@ Function Optimize-Services
         If (Test-Path $ServicesFilePath)
         {
             Write-EventLog -EventId 60 -Message "Disable Services" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Disable Services"
+            Write-Host "[VDI Optimize] Disable Services" -ForegroundColor Cyan
             $ServicesToDisable = (Get-Content $ServicesFilePath | ConvertFrom-Json ).Where( { $_.VDIState -eq 'Disabled' })
 
             If ($ServicesToDisable.count -gt 0)
@@ -386,7 +386,7 @@ Function Optimize-Network
         If (Test-Path $NetworkOptimizationsFilePath)
         {
             Write-EventLog -EventId 70 -Message "Configure LanManWorkstation Settings" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "[VDI Optimize] Configure LanManWorkstation Settings"
+            Write-Host "[VDI Optimize] Configure LanManWorkstation Settings" -ForegroundColor Cyan
             $LanManSettings = Get-Content $NetworkOptimizationsFilePath | ConvertFrom-Json
             If ($LanManSettings.Count -gt 0)
             {
@@ -446,7 +446,7 @@ Function Optimize-Network
 
         # NIC Advanced Properties performance settings for network biased environments
         Write-EventLog -EventId 70 -Message "Configuring Network Adapter Buffer Size" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-        Write-Host "[VDI Optimize] Configuring Network Adapter Buffer Size"
+        Write-Host "[VDI Optimize] Configuring Network Adapter Buffer Size" -ForegroundColor Cyan
         Set-NetAdapterAdvancedProperty -DisplayName "Send Buffer Size" -DisplayValue 4MB
     }
 
@@ -471,12 +471,69 @@ Function Optimize-LocalPolicy
 
     Process
     {
-
+        If (Test-Path $LocalPolicyFilePath)
+        {
+            Write-EventLog -EventId 80 -Message "Local Group Policy Items" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
+            Write-Host "[VDI Optimize] Local Group Policy Items" -ForegroundColor Cyan
+            $PolicyRegSettings = Get-Content $LocalPolicyFilePath | ConvertFrom-Json
+            If ($PolicyRegSettings.Count -gt 0)
+            {
+                Write-EventLog -EventId 80 -Message "Processing PolicyRegSettings Settings ($($PolicyRegSettings.Count) Hives)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
+                Write-Verbose "Processing PolicyRegSettings Settings ($($PolicyRegSettings.Count) Hives)"
+                Foreach ($Key in $PolicyRegSettings)
+                {
+                    If ($Key.VDIState -eq 'Enabled')
+                    {
+                        If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
+                        { 
+                            Write-EventLog -EventId 80 -Message "Fount key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
+                            Write-Verbose "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)"
+                            Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
+                        }
+                        Else 
+                        { 
+                            If (Test-path $Key.RegItemPath)
+                            {
+                                Write-EventLog -EventId 80 -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
+                                Write-Verbose "Path found, creating new property -Path $($Key.RegItemPath) Name $($Key.RegItemValueName) PropertyType $($Key.RegItemValueType) Value $($Key.RegItemValue)"
+                                New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+                            Else
+                            {
+                                Write-EventLog -EventId 80 -Message "Creating Key and Path" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
+                                Write-Verbose "Creating Key and Path"
+                                New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+            
+                        }
+                    }
+                }
+            }
+            Else
+            {
+                Write-EventLog -EventId 80 -Message "No LGPO Settings Found!" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Warning
+                Write-Warning "No LGPO Settings found"
+            }
+        }
+        Else 
+        {
+            If (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe"))
+            {
+                Write-EventLog -EventId 80 -Message "[VDI Optimize] Import Local Group Policy Items" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
+                Write-Host "[VDI Optimize] Import Local Group Policy Items" -ForegroundColor Cyan
+                Write-Verbose "Importing Local Group Policy Items"
+                Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
+            }
+            Else
+            {
+                Write-WVDLog -Message ("File not found: {0}\LGPO\LGPO.exe" -f $PSScriptRoot) -Level Warning -Tag "LGPO" -OutputToScreen
+            }
+        }
     }
 
     End
     {
-        #gpupdate /force 
+        
     }
 }
 
@@ -530,7 +587,7 @@ Function Optimize-DiskCleanup
 
             # Clear out BranchCache cache
             Write-EventLog -EventId 90 -Message "Clearing BranchCache cache" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
-            Write-Host "Clearing BranchCache cache"
+            Write-Host "Clearing BranchCache cache" 
             Clear-BCCache -Force -ErrorAction SilentlyContinue
         }
 
