@@ -216,7 +216,6 @@ Process
     # All LocalPolicy function Event ID's [80-89]
     If ($Optimizations -contains "LGPO" -or $Optimizations -contains "All")
     {
-        # [TO DO] Figure out how we are going to be moving forward, LGPO, .JSON, copy .pol files, then decide how to handle it
         Optimize-LocalPolicy -LocalPolicyFilePath ""
     }
 
@@ -233,5 +232,14 @@ End
     $EndTime = Get-Date
     $ScriptRunTime = New-TimeSpan -Start $StartTime -End $EndTime
     Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "VDOT Total Run Time: $($ScriptRunTime.Hours) Hours $($ScriptRunTime.Minutes) Minutes $($ScriptRunTime.Seconds) Seconds"
+
+    If ($Restart) 
+    {
+        Restart-Computer -Force
+    }
+    Else
+    {
+        Write-Warning "A reboot is required for all changed to take effect"
+    }
     Write-Host "`n`nThank you from the Virtual Desktop Optimization Team" -ForegroundColor Cyan
 }
