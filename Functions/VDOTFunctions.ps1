@@ -283,7 +283,15 @@ Function Optimize-AutoLoggers
                 {
                     Write-EventLog -EventId 50 -Message "Updating Registry Key for: $($Item.KeyName)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information
                     Write-Verbose "Updating Registry Key for: $($Item.KeyName)"
-                    New-ItemProperty -Path ("{0}" -f $Item.KeyName) -Name "Start" -PropertyType "DWORD" -Value 0 -Force | Out-Null
+                    Try 
+                    {
+                        New-ItemProperty -Path ("{0}" -f $Item.KeyName) -Name "Start" -PropertyType "DWORD" -Value 0 -Force -ErrorAction Stop | Out-Null
+                    }
+                    Catch
+                    {
+                        Write-EventLog -EventId 150 -Message "Failed to add $($Item.KeyName)`n`n $($Error[0].Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Error
+                    }
+                    
                 }
             }
             Else 
