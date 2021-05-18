@@ -124,7 +124,7 @@
   },
   {
     "Name": "UsoSvc",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "Description": "Update Orchestrator service, manages Windows Updates. If stopped, your devices will not be able to download and install the latest updates."
   },
   {
