@@ -567,7 +567,8 @@ PROCESS {
             }
             Else
             {
-                Write-WVDLog -Message ("File not found: {0}\LGPO\LGPO.exe" -f $PSScriptRoot) -Level Warning -Tag "LGPO" -OutputToScreen
+                Write-EventLog -EventId 80 -Message "File not fount $PSScriptRoot\LGPO\LGPO.exe" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Warning
+                Write-Warning "File not fount $PSScriptRoot\LGPO\LGPO.exe"
             }
         }    
     }
