@@ -39,6 +39,7 @@ Param (
 )
 
 #Requires -RunAsAdministrator
+#Requires -PSEdition Desktop
 
 <#
 - TITLE:          Microsoft Windows 10 Virtual Desktop Optimization Script
