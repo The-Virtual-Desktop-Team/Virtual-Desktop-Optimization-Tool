@@ -13,7 +13,7 @@
   },
   {
     "Name": "CaptureService",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://docs.microsoft.com/en-us/uwp/api/windows.graphics.capture?view=winrt-19041",
     "Description": "OneCore capture service: enables optional screen capture functionality for applications that call the Windows.Graphics.Capture API."
   },
