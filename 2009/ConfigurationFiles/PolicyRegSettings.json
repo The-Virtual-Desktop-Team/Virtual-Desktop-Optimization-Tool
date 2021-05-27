@@ -116,7 +116,7 @@
         "RegItemValueName": "DisablePassivePolling",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetCache",
