@@ -1,3 +1,7 @@
+> **Please be sure to participate in our NEW survey!**
+>
+> [VDI Optimization User Experience Survey](https://forms.office.com/r/gN02UxDQmf)
+
 # Introduction
 
 The tool-set in this repository was created to automatically apply setting referenced in white paper:
@@ -24,7 +28,7 @@ URL: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-servi
  4. The two folders '2004' and 'LGPO'.
 
 **NOTE:** This script now takes just a few minutes to complete on the reference (gold) device. The total runtime will be presented at the end, in the status output messages.  
-A prompt to reboot will appear when the script has comoletely finished running. Wait for this prompt to confirm the script has successfully completed.  
+A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  
 Also, the "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
 
 ## Full Instructions (for Windows 10 2004, OR Windows 10 1909)
