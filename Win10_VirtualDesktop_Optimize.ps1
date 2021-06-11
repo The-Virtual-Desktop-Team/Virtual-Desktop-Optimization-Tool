@@ -159,7 +159,8 @@ PROCESS {
         }
         catch 
         { 
-            Write-EventLog -EventId 110 -Message "Disabling / Removing Windows Media Player - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Error 
+            $msg = ($_ | Format-List | Out-String)
+            Write-EventLog -EventId 110 -Message "Disabling / Removing Windows Media Player - $msg" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Error 
         }
     }
     #endregion
@@ -193,8 +194,9 @@ PROCESS {
                     }
                     catch 
                     {
-                        Write-EventLog -EventId 120 -Message "Failed to remove Appx Package $($Item.AppxPackage) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'AppxPackages' -EntryType Error 
-                        Write-Warning "Failed to remove Appx Package $($Item.AppxPackage) - $($_.Exception.Message)"
+                        $msg = ($_ | Format-List | Out-String)
+                        Write-EventLog -EventId 120 -Message "Failed to remove Appx Package $($Item.AppxPackage) - $msg" -LogName 'Virtual Desktop Optimization' -Source 'AppxPackages' -EntryType Error 
+                        Write-Warning "Failed to remove Appx Package $($Item.AppxPackage) - $msg"
                     }
                 }
             }
@@ -241,16 +243,17 @@ PROCESS {
                         }
                         catch
                         {
-                            Write-EventLog -EventId 130 -Message "Failed to disabled Scheduled Task: $($TaskObject.TaskName) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error 
+                            $msg = ($_ | Format-List | Out-String)
+                            Write-EventLog -EventId 130 -Message "Failed to disabled Scheduled Task: $($TaskObject.TaskName) - $msg" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error 
                         }
                     }
                     ElseIf ($TaskObject -and $TaskObject.State -eq 'Disabled') 
                     {
-                        Write-EventLog -EventId 30 -Message "$($TaskObject.TaskName) Scheduled Task is already disabled - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Warning
+                        Write-EventLog -EventId 30 -Message "$($TaskObject.TaskName) Scheduled Task is already disabled" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Warning
                     }
                     Else
                     {
-                        Write-EventLog -EventId 130 -Message "Unable to find Scheduled Task: $($TaskObject.TaskName) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error
+                        Write-EventLog -EventId 130 -Message "Unable to find Scheduled Task: $($TaskObject.TaskName)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error
                     }
                 }
             }
@@ -383,7 +386,8 @@ PROCESS {
                     }
                     Catch
                     {
-                        Write-EventLog -EventId 150 -Message "Failed to add $($Item.KeyName)`n`n $($Error[0].Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'AutoLoggers' -EntryType Error
+                        $msg = ($_ | Format-List | Out-String)
+                        Write-EventLog -EventId 150 -Message "Failed to add $($Item.KeyName)`n`n $msg" -LogName 'Virtual Desktop Optimization' -Source 'AutoLoggers' -EntryType Error
                     }
                     
                 }
@@ -429,8 +433,9 @@ PROCESS {
                             }
                             catch
                             {
-                                Write-EventLog -EventId 160 -Message "Failed to disabled Service: $($Item.Name) `n $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
-                                Write-Warning "Failed to disabled Service: $($Item.Name) `n $($_.Exception.Message)"
+                                $msg = ($_ | Format-List | Out-String)
+                                Write-EventLog -EventId 160 -Message "Failed to disabled Service: $($Item.Name) `n $msg" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
+                                Write-Warning "Failed to disabled Service: $($Item.Name) `n $msg"
                             }
                             Write-EventLog -EventId 60 -Message "Attempting to Disable Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
                             Write-Verbose "Attempting to Disable Service $($Item.Name) - $($Item.Description)"
