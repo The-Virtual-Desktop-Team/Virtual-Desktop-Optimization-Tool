@@ -306,7 +306,8 @@ PROCESS {
                         {
                             try {
                                 Write-EventLog -EventId 40 -Message "Set $($Item.HivePath) - $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                                Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Force 
+                                $result = Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Force 
+                                $result.Handle.Close()
                             } catch {
                                 $msg = ($_ | Format-List | Out-String)
                                 Write-EventLog -EventId 30 -Message "Set failed for $($Item.HivePath) - $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
@@ -316,7 +317,8 @@ PROCESS {
                         {
                             try {
                                 Write-EventLog -EventId 40 -Message "New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                                New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                                $result = New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                                $result.Handle.Close()
                             } catch {
                                 $msg = ($_ | Format-List | Out-String)
                                 Write-EventLog -EventId 30 -Message "Unable to create New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
@@ -337,7 +339,8 @@ PROCESS {
                         If (Test-Path -Path $newKey.PSPath)
                         {
                             try {
-                                New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                                $result = New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                                $result.Handle.Close()
                             } catch {
                                 $msg = ($_ | Format-List | Out-String)
                                 Write-EventLog -EventId 30 -Message "Error creating New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
@@ -349,7 +352,8 @@ PROCESS {
                         } 
                     }
                 }
-
+                
+                [gc]::Collect()
                 & REG UNLOAD HKLM\VDOT_TEMP | Out-Null
             }
             Else
