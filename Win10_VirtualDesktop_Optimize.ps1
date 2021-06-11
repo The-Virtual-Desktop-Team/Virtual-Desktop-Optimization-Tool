@@ -39,7 +39,7 @@ Param (
     [Switch]$Restart,
     [Switch]$AcceptEULA
 )
-
+ 
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
 
