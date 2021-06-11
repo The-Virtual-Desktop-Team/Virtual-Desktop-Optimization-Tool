@@ -306,8 +306,7 @@ PROCESS {
                         {
                             try {
                                 Write-EventLog -EventId 40 -Message "Set $($Item.HivePath) - $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                                $result = Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Force 
-                                $result.Handle.Close()
+                                Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Force 
                             } catch {
                                 $msg = ($_ | Format-List | Out-String)
                                 Write-EventLog -EventId 30 -Message "Set failed for $($Item.HivePath) - $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
@@ -317,8 +316,7 @@ PROCESS {
                         {
                             try {
                                 Write-EventLog -EventId 40 -Message "New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                                $result = New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
-                                $result.Handle.Close()
+                                New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
                             } catch {
                                 $msg = ($_ | Format-List | Out-String)
                                 Write-EventLog -EventId 30 -Message "Unable to create New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
@@ -331,28 +329,15 @@ PROCESS {
                         Write-EventLog -EventId 40 -Message "Creating new Registry Key $($Item.HivePath)" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
                         try {
                             $newKey = New-Item -Path ("{0}" -f $Item.HivePath) -Force
+                            $newKey.Handle.Close()
+                            New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
                         } catch {
                             $msg = ($_ | Format-List | Out-String)
                             Write-EventLog -EventId 30 -Message "Error creating new Registry Key $($Item.HivePath): $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
                         }
-
-                        If (Test-Path -Path $newKey.PSPath)
-                        {
-                            try {
-                                $result = New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
-                                $result.Handle.Close()
-                            } catch {
-                                $msg = ($_ | Format-List | Out-String)
-                                Write-EventLog -EventId 30 -Message "Error creating New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
-                            }
-                        }
-                        Else
-                        {
-                            Write-EventLog -EventId 140 -Message "Failed to create new Registry Key" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
-                        } 
                     }
                 }
-                
+
                 [gc]::Collect()
                 & REG UNLOAD HKLM\VDOT_TEMP | Out-Null
             }
