@@ -119,5 +119,25 @@
     "ScheduledTask": "XblGameSaveTask",
     "VDIState": "Disabled",
     "Description": "Xbox Live GameSave standby task"
+  },
+  {
+    "ScheduledTask": "UsbCeip",
+    "VDIState": "Disabled",
+    "Description": "Customer Experience Improvement Program task"
+  },
+  {
+    "ScheduledTask": "VerifyWinRE",
+    "VDIState": "Disabled",
+    "Description": "Customer Experience Improvement Program task"
+  },
+  {
+    "ScheduledTask": "Work Folders Logon Synchronization",
+    "VDIState": "Disabled",
+    "Description": "Customer Experience Improvement Program task"
+  },
+  {
+    "ScheduledTask": "Work Folders Maintenance Work",
+    "VDIState": "Disabled",
+    "Description": "Customer Experience Improvement Program task"
   }
 ]
