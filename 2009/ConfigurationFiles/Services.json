@@ -96,7 +96,7 @@
   },
   {
     "Name": "TabletInputService",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "Description": "Touch Keyboard and Handwriting Panel service: enables Touch Keyboard and Handwriting Panel pen and ink functionality"
   },
   {
