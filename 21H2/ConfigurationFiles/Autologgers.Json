@@ -28,5 +28,17 @@
     "URL": "N/A",
     "Disabled": true,
     "Description": "Not documented, but not hard to understand.  This is another diagnostic log for the Windows Diagnostics.  If your VMs are not using Wi-Fi, this log is not needed.  You could though leave this alone as it would almost never be started unless a user started a troubleshooter, and troubleshooters are usually disabled in VDI environments."
+  },
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\ReFSLog\\",
+    "URL": "N/A",
+    "Disabled": true,
+    "Description": "Diagnostic log for ReFS. Unless using ReFS, this trace log should not be needed"
+  },
+  {
+    "KeyName": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\Mellanox-Kernel\\",
+    "URL": "N/A",
+    "Disabled": true,
+    "Description": "Diagnostic log for ReFS. Unless using ReFS, this trace log should not be needed"
   }
 ]
