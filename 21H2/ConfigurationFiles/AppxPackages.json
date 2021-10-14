@@ -43,13 +43,13 @@
   },
   {
     "AppxPackage": "Microsoft.MicrosoftStickyNotes",
-    "VDIState": "Enabled",
+    "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-sticky-notes/9nblggh4qghw",
     "Description": "Note-taking app"
   },
   {
     "AppxPackage": "Microsoft.Paint",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/paint/9pcfs5b6t72h",
     "Description": "Windows basic sketching and graphics app"
   },
