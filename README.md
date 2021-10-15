@@ -1,6 +1,6 @@
-> **Please be sure to participate in our NEW survey!**
+# BREAKING CHANGE: SUPPORT FOR WINDOWS 11
 >
-> [VDI Optimization User Experience Survey](https://forms.office.com/r/gN02UxDQmf)
+
 
 # Introduction
 
