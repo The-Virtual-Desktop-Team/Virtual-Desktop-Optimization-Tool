@@ -64,7 +64,7 @@
     },
     {
         "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\DWM",
-        "KeyName": "AlwaysHiberNateThumbnails",
+        "KeyName": "AlwaysHibernateThumbnails",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
@@ -100,41 +100,6 @@
     {
         "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy",
         "KeyName": "01",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "KeyName": "SubscribedContent-338393Enabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "KeyName": "SubscribedContent-338393Enabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "KeyName": "SubscribedContent-353696Enabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "KeyName": "SubscribedContent-338388Enabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "KeyName": "SubscribedContent-338389Enabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
@@ -224,6 +189,13 @@
         "SetProperty": "True"
     },
     {
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\CPSS\\Store\\InkingAndTypingPersonalization",
+        "KeyName": "Value",
+        "PropertyType": "DWORD",
+        "PropertyValue": 0,
+        "SetProperty": "True"
+    },
+    {
         "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\InputPersonalization",
         "KeyName": "RestrictImplicitInkCollection",
         "PropertyType": "DWORD",
@@ -245,36 +217,8 @@
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Personalization\\Settings",
-        "KeyName": "AcceptedPrivacyPolicy",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
         "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement",
         "KeyName": "ScoobeSystemSettingEnabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "KeyName": "IsAADCloudSearchEnabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "KeyName": "IsDeviceSearchHistoryEnabled",
-        "PropertyType": "DWORD",
-        "PropertyValue": 0,
-        "SetProperty": "True"
-    },
-    {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "KeyName": "IsMSACloudSearchEnabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
