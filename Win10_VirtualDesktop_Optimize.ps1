@@ -1,4 +1,4 @@
-﻿<#####################################################################################################################################
+<#####################################################################################################################################
 
     This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment.  
     THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
@@ -40,6 +40,10 @@ Param (
     [Switch]$AcceptEULA
 )
 
+if  (19043 -lt (Get-ComputerInfo).OSBuildNumber) {
+    $WindowsVersion = '21H2'   
+}
+
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
 
@@ -48,7 +52,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020)
-- LAST UPDATED:   8/14/2020
+- LAST UPDATED:   10/14/2021
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
@@ -77,12 +81,12 @@ https://msdn.microsoft.com/en-us/library/cc422938.aspx
 #>
 
 <# Categories of cleanup items:
-This script is dependent on three elements:
+This script is dependent on the following:
 LGPO Settings folder, applied with the LGPO.exe Microsoft app
 
 The UWP app input file contains the list of almost all the UWP application packages that can be removed with PowerShell interactively.  
 The Store and a few others, such as Wallet, were left off intentionally.  Though it is possible to remove the Store app, 
-it is nearly impossible to get it back.  Please review the lists below and comment out or remove references to packages that you do not want to remove.
+it is nearly impossible to get it back.  Please review the configuration files and change the 'VDIState' to anything but 'disabled' to keep the item.
 #>
 BEGIN {
     
@@ -210,7 +214,6 @@ PROCESS {
             Write-EventLog -EventId 20 -Message "Configuration file not found - $AppxConfigFilePath" -LogName 'Virtual Desktop Optimization' -Source 'AppxPackages' -EntryType Warning 
             Write-Warning "Configuration file not found -  $AppxConfigFilePath"
         }
-
     }
     #endregion
 
