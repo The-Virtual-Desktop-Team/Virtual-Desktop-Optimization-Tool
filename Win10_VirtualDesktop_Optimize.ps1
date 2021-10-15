@@ -40,9 +40,9 @@ Param (
     [Switch]$AcceptEULA
 )
 
-if  (19043 -lt (Get-ComputerInfo).OSBuildNumber) {
+    If  (19043 -lt (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").CurrentBuildNumber) {
     $WindowsVersion = '21H2'   
-}
+    }
 
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
