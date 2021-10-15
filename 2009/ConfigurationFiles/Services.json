@@ -43,7 +43,7 @@
     "Name": "icssvc",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration?view=winrt-19041",
-    "Description": "Windows Mobile Hotspot service: provides the ability to share a cellular data connection with another device."
+    "Description": "Windows Mobile Hotspot (tethering) service: provides the ability to share a cellular data connection with another device."
   },
   {
     "Name": "lfsvc",
@@ -63,20 +63,9 @@
     "Description": "Service supporting text messaging and related functionality."
   },
   {
-    "Name": "OneSyncSvc",
+    "Name": "RmSvc",
     "VDIState": "Disabled",
-    "Description": "This (per-user) service synchronizes mail, contacts, calendar and various other user data."
-  },
-  {
-    "Name": "PimIndexMaintenanceSvc",
-    "VDIState": "Disabled",
-    "Description": "'Contact Data'. This (per-user) service indexes contact data for fast contact searching."
-  },
-  {
-    "Name": "Power",
-    "VDIState": "Disabled",
-    "URL": "https://docs.microsoft.com/en-us/windows-hardware/drivers/powermeter/user-mode-power-service",
-    "Description": "User-Mode Power service, manages power policy. If this service is disabled, power management and reporting are not available."
+    "Description": "Radio Management and Airplane Mode Service."
   },
   {
     "Name": "SEMgrSvc",
@@ -95,9 +84,10 @@
     "Description": "Maintains and improves system performance over time."
   },
   {
-    "Name": "TabletInputService",
-    "VDIState": "Unchanged",
-    "Description": "Touch Keyboard and Handwriting Panel service: enables Touch Keyboard and Handwriting Panel pen and ink functionality"
+    "Name": "VSS",
+    "VDIState": "Disabled",
+    "URL": "https://docs.microsoft.com/en-us/windows-server/storage/file-server/volume-shadow-copy-service",
+    "Description": "Volume Shadow Copy"
   },
   {
     "Name": "WdiSystemHost",
