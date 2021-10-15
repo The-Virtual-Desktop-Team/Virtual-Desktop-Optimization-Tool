@@ -1,257 +1,257 @@
 [
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer",
         "KeyName": "ShellState",
         "PropertyType": "BINARY",
         "PropertyValue": "0x24,0x00,0x00,0x00,0x3C,0x28,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00",
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "IconsOnly",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "ListviewAlphaSelect",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "ListviewShadow",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "ShowCompColor",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "ShowInfoTip",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "TaskbarAnimations",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
         "KeyName": "VisualFXSetting",
         "PropertyType": "DWORD",
         "PropertyValue": 3,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\DWM",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\DWM",
         "KeyName": "EnableAeroPeek",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\DWM",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\DWM",
         "KeyName": "AlwaysHiberNateThumbnails",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Control Panel\\Desktop",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Control Panel\\Desktop",
         "KeyName": "DragFullWindows",
         "PropertyType": "STRING",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Control Panel\\Desktop",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Control Panel\\Desktop",
         "KeyName": "FontSmoothing",
         "PropertyType": "STRING",
         "PropertyValue": 2,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Control Panel\\Desktop",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Control Panel\\Desktop",
         "KeyName": "UserPreferencesMask",
         "PropertyType": "BINARY",
         "PropertyValue": "0x90,0x32,0x07,0x80,0x10,0x00,0x00,0x00",
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Control Panel\\Desktop\\WindowMetrics",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Control Panel\\Desktop\\WindowMetrics",
         "KeyName": "MinAnimate",
         "PropertyType": "STRING",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy",
         "KeyName": "01",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
         "KeyName": "SubscribedContent-338393Enabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
         "KeyName": "SubscribedContent-338393Enabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
         "KeyName": "SubscribedContent-353696Enabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
         "KeyName": "SubscribedContent-338388Enabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
         "KeyName": "SubscribedContent-338389Enabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
         "KeyName": "SystemPaneSuggestionsEnabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Control Panel\\International\\User Profile",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Control Panel\\International\\User Profile",
         "KeyName": "HttpAcceptLanguageOptOut",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.Windows.Photos_8wekyb3d8bbwe",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.Windows.Photos_8wekyb3d8bbwe",
         "KeyName": "Disabled",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.Windows.Photos_8wekyb3d8bbwe",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.Windows.Photos_8wekyb3d8bbwe",
         "KeyName": "DisabledByUser",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.SkypeApp_kzf8qxf38zg5c",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.SkypeApp_kzf8qxf38zg5c",
         "KeyName": "Disabled",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.SkypeApp_kzf8qxf38zg5c",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.SkypeApp_kzf8qxf38zg5c",
         "KeyName": "DisabledByUser",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.YourPhone_8wekyb3d8bbwe",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.YourPhone_8wekyb3d8bbwe",
         "KeyName": "Disabled",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.YourPhone_8wekyb3d8bbwe",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.YourPhone_8wekyb3d8bbwe",
         "KeyName": "DisabledByUser",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe",
         "KeyName": "Disabled",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe",
         "KeyName": "DisabledByUser",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },    
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.PPIProjection_cw5n1h2txyewy",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.PPIProjection_cw5n1h2txyewy",
         "KeyName": "Disabled",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.PPIProjection_cw5n1h2txyewy",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications\\Microsoft.PPIProjection_cw5n1h2txyewy",
         "KeyName": "DisabledByUser",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\InputPersonalization",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\InputPersonalization",
         "KeyName": "RestrictImplicitInkCollection",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\InputPersonalization",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\InputPersonalization",
         "KeyName": "RestrictImplicitTextCollection",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore",
         "KeyName": "HarvestContacts",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Personalization\\Settings",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Personalization\\Settings",
         "KeyName": "AcceptedPrivacyPolicy",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement",
         "KeyName": "ScoobeSystemSettingEnabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,

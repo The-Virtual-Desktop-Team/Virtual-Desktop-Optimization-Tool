@@ -1,3 +1,7 @@
+> **Please be sure to participate in our NEW survey!**
+>
+> [VDI Optimization User Experience Survey](https://forms.office.com/r/gN02UxDQmf)
+
 # Introduction
 
 The Virtual Desktop Optimization Tool was created to automatically apply setting referenced in white paper:
@@ -22,7 +26,13 @@ This version of the VDOT tool now supports Windows 11. There is a new configurat
  [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)
  [Windows 11 Release Information](https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information)
 
+
+**NOTE:** This script now takes just a few minutes to complete on the reference (gold) device. The total runtime will be presented at the end, in the status output messages.  
+A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  
+Also, the "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
+
 ## Dependencies
+
 
  1. LGPO.EXE (available at <https://www.microsoft.com/en-us/download/details.aspx?id=55319>) stored in the 'LGPO' folder.
  **[NOTE]** We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred methods to apply policy settings are:

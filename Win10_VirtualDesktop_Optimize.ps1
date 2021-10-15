@@ -214,7 +214,6 @@ PROCESS {
             Write-EventLog -EventId 20 -Message "Configuration file not found - $AppxConfigFilePath" -LogName 'Virtual Desktop Optimization' -Source 'AppxPackages' -EntryType Warning 
             Write-Warning "Configuration file not found -  $AppxConfigFilePath"
         }
-
     }
     #endregion
 
