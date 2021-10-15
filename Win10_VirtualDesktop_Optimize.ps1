@@ -40,9 +40,13 @@ Param (
     [Switch]$AcceptEULA
 )
 
-    If  (19043 -lt (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").CurrentBuildNumber) {
-    $WindowsVersion = '21H2'   
-    }
+Write-Warning "`n
+*************************************************************************************************************************
+This PowerShell script has been replaced with file 'Windows_VDOT.ps1'. This change was made to add support for Windows 11
+All updates to the VDOT script will be made in the new file 'Windows_VDOT.ps1'.
+The file 'Win10_VirtualDesktop_Optimize.ps1' will remain available for backward compatibility.
+*************************************************************************************************************************`n"
+Start-Sleep -Seconds 5
 
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
