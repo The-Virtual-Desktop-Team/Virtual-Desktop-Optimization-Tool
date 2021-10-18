@@ -40,10 +40,6 @@ Param (
     [Switch]$AcceptEULA
 )
 
-    If  (19043 -lt (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").CurrentBuildNumber) {
-    $WindowsVersion = '21H2'   
-    }
-
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
 
@@ -89,7 +85,10 @@ The Store and a few others, such as Wallet, were left off intentionally.  Though
 it is nearly impossible to get it back.  Please review the configuration files and change the 'VDIState' to anything but 'disabled' to keep the item.
 #>
 BEGIN {
-    
+    If  (19043 -lt (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").CurrentBuildNumber) {
+    $WindowsVersion = '21H2'   
+    }    
+
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
     {
         # All VDOT main function Event ID's [1-9]
