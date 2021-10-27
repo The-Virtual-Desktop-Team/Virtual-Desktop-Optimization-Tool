@@ -97,7 +97,7 @@
   },
   {
     "AppxPackage": "Microsoft.WindowsCalculator",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/windows-calculator/9wzdncrfhvn5",
     "Description": "Microsoft Calculator app"
   },
