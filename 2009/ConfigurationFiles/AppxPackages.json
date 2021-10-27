@@ -36,6 +36,12 @@
     "Description": "Office UWP app suite"
   },
   {
+    "AppxPackage": "Microsoft.Office.OneNote",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/en-us/p/onenote-for-windows-10/9wzdncrfhvjl",
+    "Description": "Office UWP OneNote app"
+  },
+  {
     "AppxPackage": "Microsoft.MicrosoftSolitaireCollection",
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-solitaire-collection/9wzdncrfhwd2",
@@ -196,5 +202,5 @@
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
     "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
-  },
+  }
 ]
