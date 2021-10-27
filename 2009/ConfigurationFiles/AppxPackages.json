@@ -190,5 +190,11 @@
     "VDIState": "Disabled",
     "URL": "https://www.microsoft.com/en-us/p/movies-tv/9wzdncrfj3p2",
     "Description": "Movies and TV app"
-  }
+  },
+  {
+    "AppxPackage": "Microsoft.XboxApp",
+    "VDIState": "Disabled",
+    "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
+    "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
+  },
 ]
