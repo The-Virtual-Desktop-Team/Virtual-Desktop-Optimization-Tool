@@ -40,13 +40,6 @@ Param (
     [Switch]$AcceptEULA
 )
 
-Write-Warning "`n
-*************************************************************************************************************************
-This PowerShell script has been replaced with file 'Windows_VDOT.ps1'. This change was made to add support for Windows 11
-All updates to the VDOT script will be made in the new file 'Windows_VDOT.ps1'.
-The file 'Win10_VirtualDesktop_Optimize.ps1' will remain available for backward compatibility.
-*************************************************************************************************************************`n"
-Start-Sleep -Seconds 5
 
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
@@ -94,6 +87,15 @@ it is nearly impossible to get it back.  Please review the configuration files a
 #>
 BEGIN {
     
+    Write-Warning "`n
+*************************************************************************************************************************
+This PowerShell script has been replaced with file 'Windows_VDOT.ps1'. This change was made to add support for Windows 11
+All updates to the VDOT script will be made in the new file 'Windows_VDOT.ps1'.
+The file 'Win10_VirtualDesktop_Optimize.ps1' will remain available for backward compatibility.
+*************************************************************************************************************************`n"
+    Start-Sleep -Seconds 5
+
+
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
     {
         # All VDOT main function Event ID's [1-9]
