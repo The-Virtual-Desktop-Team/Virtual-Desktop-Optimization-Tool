@@ -12,24 +12,6 @@
     "Description": "This user service is used for Game Recordings and Live Broadcasts"
   },
   {
-    "Name": "CaptureService",
-    "VDIState": "Disabled",
-    "URL": "https://docs.microsoft.com/en-us/uwp/api/windows.graphics.capture?view=winrt-19041",
-    "Description": "OneCore capture service: enables optional screen capture functionality for applications that call the Windows.Graphics.Capture API."
-  },
-  {
-    "Name": "CDPSvc",
-    "VDIState": "Unchanged",
-    "URL": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cdp/929c2238-6d49-4ba4-a36a-37e732c4f736",
-    "Description": "Connected Devices Platform Service"
-  },
-  {
-    "Name": "CDPUserSvc",
-    "VDIState": "Unchanged",
-    "URL": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cdp/f5a15c56-ac3a-48f9-8c51-07b2eadbe9b4",
-    "Description": "Connected Devices Platform User Service"
-  },
-  {
     "Name": "defragsvc",
     "VDIState": "Disabled",
     "Description": "Optimize drives"
@@ -61,12 +43,7 @@
     "Name": "icssvc",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/uwp/api/Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration?view=winrt-19041",
-    "Description": "Windows Mobile Hotspot service: provides the ability to share a cellular data connection with another device."
-  },
-  {
-    "Name": "InstallService",
-    "VDIState": "Unchanged",
-    "Description": "Microsoft Store install service."
+    "Description": "Windows Mobile Hotspot (tethering) service: provides the ability to share a cellular data connection with another device."
   },
   {
     "Name": "lfsvc",
@@ -86,20 +63,9 @@
     "Description": "Service supporting text messaging and related functionality."
   },
   {
-    "Name": "OneSyncSvc",
+    "Name": "RmSvc",
     "VDIState": "Disabled",
-    "Description": "This (per-user) service synchronizes mail, contacts, calendar and various other user data."
-  },
-  {
-    "Name": "PimIndexMaintenanceSvc",
-    "VDIState": "Disabled",
-    "Description": "'Contact Data'. This (per-user) service indexes contact data for fast contact searching."
-  },
-  {
-    "Name": "Power",
-    "VDIState": "Disabled",
-    "URL": "https://docs.microsoft.com/en-us/windows-hardware/drivers/powermeter/user-mode-power-service",
-    "Description": "User-Mode Power service, manages power policy. If this service is disabled, power management and reporting are not available."
+    "Description": "Radio Management and Airplane Mode Service."
   },
   {
     "Name": "SEMgrSvc",
@@ -118,16 +84,6 @@
     "Description": "Maintains and improves system performance over time."
   },
   {
-    "Name": "TabletInputService",
-    "VDIState": "Unchanged",
-    "Description": "Touch Keyboard and Handwriting Panel service: enables Touch Keyboard and Handwriting Panel pen and ink functionality"
-  },
-  {
-    "Name": "UsoSvc",
-    "VDIState": "Unchanged",
-    "Description": "Update Orchestrator service, manages Windows Updates. If stopped, your devices will not be able to download and install the latest updates."
-  },
-  {
     "Name": "VSS",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/windows-server/storage/file-server/volume-shadow-copy-service",
@@ -143,12 +99,6 @@
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/windows/win32/wer/windows-error-reporting",
     "Description": "Windows Error Reporting Service allows errors to be reported when programs stop working or responding and allows existing solutions to be delivered. Also allows logs to be generated for diagnostic and repair services."
-  },
-  {
-    "Name": "WSearch",
-    "VDIState": "Unchanged",
-    "URL": "https://docs.microsoft.com/en-us/windows/win32/search/-search-3x-wds-overview#windows-search-service",
-    "Description": "Windows Search service provides content indexing, property caching, and search results for files, e-mail, and other content."
   },
   {
     "Name": "XblAuthManager",
