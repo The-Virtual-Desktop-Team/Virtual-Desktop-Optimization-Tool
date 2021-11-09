@@ -39,7 +39,7 @@ Param (
     [Switch]$Restart,
     [Switch]$AcceptEULA
 )
-
+ 
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
 
@@ -162,7 +162,8 @@ PROCESS {
         }
         catch 
         { 
-            Write-EventLog -EventId 110 -Message "Disabling / Removing Windows Media Player - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Error 
+            $msg = ($_ | Format-List | Out-String)
+            Write-EventLog -EventId 110 -Message "Disabling / Removing Windows Media Player - $msg" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Error 
         }
     }
     #endregion
@@ -196,8 +197,9 @@ PROCESS {
                     }
                     catch 
                     {
-                        Write-EventLog -EventId 120 -Message "Failed to remove Appx Package $($Item.AppxPackage) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'AppxPackages' -EntryType Error 
-                        Write-Warning "Failed to remove Appx Package $($Item.AppxPackage) - $($_.Exception.Message)"
+                        $msg = ($_ | Format-List | Out-String)
+                        Write-EventLog -EventId 120 -Message "Failed to remove Appx Package $($Item.AppxPackage) - $msg" -LogName 'Virtual Desktop Optimization' -Source 'AppxPackages' -EntryType Error 
+                        Write-Warning "Failed to remove Appx Package $($Item.AppxPackage) - $msg"
                     }
                 }
             }
@@ -243,16 +245,17 @@ PROCESS {
                         }
                         catch
                         {
-                            Write-EventLog -EventId 130 -Message "Failed to disabled Scheduled Task: $($TaskObject.TaskName) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error 
+                            $msg = ($_ | Format-List | Out-String)
+                            Write-EventLog -EventId 130 -Message "Failed to disabled Scheduled Task: $($TaskObject.TaskName) - $msg" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error 
                         }
                     }
                     ElseIf ($TaskObject -and $TaskObject.State -eq 'Disabled') 
                     {
-                        Write-EventLog -EventId 30 -Message "$($TaskObject.TaskName) Scheduled Task is already disabled - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Warning
+                        Write-EventLog -EventId 30 -Message "$($TaskObject.TaskName) Scheduled Task is already disabled" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Warning
                     }
                     Else
                     {
-                        Write-EventLog -EventId 130 -Message "Unable to find Scheduled Task: $($TaskObject.TaskName) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error
+                        Write-EventLog -EventId 130 -Message "Unable to find Scheduled Task: $($TaskObject.TaskName)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error
                     }
                 }
             }
@@ -303,31 +306,41 @@ PROCESS {
                         Write-Verbose "Found $($Item.HivePath) - $($Item.KeyName)"
                         If (Get-ItemProperty -Path ("{0}" -f $Item.HivePath) -ErrorAction SilentlyContinue)
                         {
-                            Write-EventLog -EventId 40 -Message "Set $($Item.HivePath) - $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                            Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Type $Item.PropertyType -Force 
+                            try {
+                                Write-EventLog -EventId 40 -Message "Set $($Item.HivePath) - $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
+                                Set-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -Value $Value -Force 
+                            } catch {
+                                $msg = ($_ | Format-List | Out-String)
+                                Write-EventLog -EventId 30 -Message "Set failed for $($Item.HivePath) - $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
+                            }
                         }
                         Else
                         {
-                            Write-EventLog -EventId 40 -Message "New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                            New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                            try {
+                                Write-EventLog -EventId 40 -Message "New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
+                                New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                            } catch {
+                                $msg = ($_ | Format-List | Out-String)
+                                Write-EventLog -EventId 30 -Message "Unable to create New $($Item.HivePath) Name $($Item.KeyName) PropertyType $($Item.PropertyType) Value $Value - $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
+                            }
                         }
                     }
                     Else
                     {
                         Write-EventLog -EventId 40 -Message "Registry Path not found $($Item.HivePath)" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
                         Write-EventLog -EventId 40 -Message "Creating new Registry Key $($Item.HivePath)" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Information
-                        $newKey = New-Item -Path ("{0}" -f $Item.HivePath) -Force
-                        If (Test-Path -Path $newKey.PSPath)
-                        {
+                        try {
+                            $newKey = New-Item -Path ("{0}" -f $Item.HivePath) -Force
+                            $newKey.Handle.Close()
                             New-ItemProperty -Path ("{0}" -f $Item.HivePath) -Name $Item.KeyName -PropertyType $Item.PropertyType -Value $Value -Force | Out-Null
+                        } catch {
+                            $msg = ($_ | Format-List | Out-String)
+                            Write-EventLog -EventId 30 -Message "Error creating new Registry Key $($Item.HivePath): $msg" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
                         }
-                        Else
-                        {
-                            Write-EventLog -EventId 140 -Message "Failed to create new Registry Key" -LogName 'Virtual Desktop Optimization' -Source 'DefaultUserSettings' -EntryType Error
-                        } 
                     }
                 }
 
+                [gc]::Collect()
                 & REG UNLOAD HKLM\VDOT_TEMP | Out-Null
             }
             Else
@@ -364,7 +377,8 @@ PROCESS {
                     }
                     Catch
                     {
-                        Write-EventLog -EventId 150 -Message "Failed to add $($Item.KeyName)`n`n $($Error[0].Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'AutoLoggers' -EntryType Error
+                        $msg = ($_ | Format-List | Out-String)
+                        Write-EventLog -EventId 150 -Message "Failed to add $($Item.KeyName)`n`n $msg" -LogName 'Virtual Desktop Optimization' -Source 'AutoLoggers' -EntryType Error
                     }
                     
                 }
@@ -399,20 +413,38 @@ PROCESS {
                 Write-Verbose "Processing Services Configuration File"
                 Foreach ($Item in $ServicesToDisable)
                 {
-                    Write-EventLog -EventId 60 -Message "Attempting to Stop Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
-                    Write-Verbose "Attempting to Stop Service $($Item.Name) - $($Item.Description)"
-                    try
-                    {
-                        Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue
+                    $service = Get-Service -Name $Item.name -ErrorAction SilentlyContinue
+                    if ($null -ne $service){
+                        if ($service.StartType -ne 'Disabled'){                        
+                            Write-EventLog -EventId 60 -Message "Attempting to Stop Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
+                            Write-Verbose "Attempting to Stop Service $($Item.Name) - $($Item.Description)"
+                            try
+                            {
+                                Stop-Service $Item.Name -Force
+                            }
+                            catch
+                            {
+                                $msg = ($_ | Format-List | Out-String)
+                                Write-EventLog -EventId 160 -Message "Failed to disabled Service: $($Item.Name) `n $msg" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
+                                Write-Warning "Failed to disabled Service: $($Item.Name) `n $msg"
+                            }
+                            Write-EventLog -EventId 60 -Message "Attempting to Disable Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
+                            Write-Verbose "Attempting to Disable Service $($Item.Name) - $($Item.Description)"
+                            try {
+                                Set-Service $Item.Name -StartupType Disabled 
+                            } catch {
+                                $msg = ($_ | Format-List | Out-String)
+                                Write-EventLog -EventId 60 -Message "Unable to Disable Service $($Item.Name) - $($Item.Description) - $msg" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
+                            }
+                        } else {
+                            Write-EventLog -EventId 60 -Message "Service was already disabled $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
+                            Write-Verbose "Service was already disabled $($Item.Name) - $($Item.Description)"
+                        }
+                    } else {
+                        Write-EventLog -EventId 60 -Message "Unable to find Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Warning
+                        Write-Warning "Unable to find Service $($Item.Name) - $($Item.Description)"
+
                     }
-                    catch
-                    {
-                        Write-EventLog -EventId 160 -Message "Failed to disabled Service: $($Item.Name) `n $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
-                        Write-Warning "Failed to disabled Service: $($Item.Name) `n $($_.Exception.Message)"
-                    }
-                    Write-EventLog -EventId 60 -Message "Attempting to Disable Server $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
-                    Write-Verbose "Attempting to Disable Server $($Item.Name) - $($Item.Description)"
-                    Set-Service $Item.Name -StartupType Disabled 
                 }
             }  
             Else
@@ -459,13 +491,23 @@ PROCESS {
                                 {
                                     Write-EventLog -EventId 70 -Message "Setting $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)" -LogName 'Virtual Desktop Optimization' -Source 'NetworkOptimizations' -EntryType Information
                                     Write-Verbose "Setting $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)"
-                                    Set-ItemProperty -Path $Hive.HivePath -Name $Key.Name -Value $Key.PropertyValue -Force
+                                    try {
+                                        Set-ItemProperty -Path $Hive.HivePath -Name $Key.Name -Value $Key.PropertyValue -Force
+                                    } catch {
+                                        $msg = ($_ | Format-List | Out-String)
+                                        Write-EventLog -EventId 70 -Message "Error setting $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue) $msg" -LogName 'Virtual Desktop Optimization' -Source 'NetworkOptimizations' -EntryType Error
+                                    }
                                 }
                                 Else
                                 {
                                     Write-EventLog -EventId 70 -Message "New $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)" -LogName 'Virtual Desktop Optimization' -Source 'NetworkOptimizations' -EntryType Information
                                     Write-Host "New $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue)"
-                                    New-ItemProperty -Path $Hive.HivePath -Name $Key.Name -PropertyType $Key.PropertyType -Value $Key.PropertyValue -Force | Out-Null
+                                    try {
+                                        New-ItemProperty -Path $Hive.HivePath -Name $Key.Name -PropertyType $Key.PropertyType -Value $Key.PropertyValue -Force | Out-Null
+                                    } catch {
+                                        $msg = ($_ | Format-List | Out-String)
+                                        Write-EventLog -EventId 70 -Message "Error creating New $($Hive.HivePath) -Name $($Key.Name) -Value $($Key.PropertyValue) $msg" -LogName 'Virtual Desktop Optimization' -Source 'NetworkOptimizations' -EntryType Error
+                                    }
                                 }
                             }
                         }
@@ -530,9 +572,14 @@ PROCESS {
                     {
                         If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
                         { 
-                            Write-EventLog -EventId 80 -Message "Fount key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
+                            Write-EventLog -EventId 80 -Message "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
                             Write-Verbose "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)"
-                            Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
+                            try {
+                                Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
+                            } catch {
+                                $msg = ($_ | Format-List | Out-String)
+                                Write-EventLog -EventId 80 -Message "Error setting property, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue) $msg" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Error
+                            }
                         }
                         Else 
                         { 
@@ -540,13 +587,23 @@ PROCESS {
                             {
                                 Write-EventLog -EventId 80 -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
                                 Write-Verbose "Path found, creating new property -Path $($Key.RegItemPath) Name $($Key.RegItemValueName) PropertyType $($Key.RegItemValueType) Value $($Key.RegItemValue)"
-                                New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                                try {
+                                    New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                                } catch {
+                                    $msg = ($_ | Format-List | Out-String)
+                                    Write-EventLog -EventId 80 -Message "Error creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue) $msg" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Error
+                                }
                             }
                             Else
                             {
                                 Write-EventLog -EventId 80 -Message "Creating Key and Path" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
                                 Write-Verbose "Creating Key and Path"
-                                New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                                try {
+                                    New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                                } catch {
+                                    $msg = ($_ | Format-List | Out-String)
+                                    Write-EventLog -EventId 80 -Message "Error Creating Key and Path $msg" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Error
+                                }
                             }
             
                         }
@@ -566,7 +623,12 @@ PROCESS {
                 Write-EventLog -EventId 80 -Message "[VDI Optimize] Import Local Group Policy Items" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
                 Write-Host "[VDI Optimize] Import Local Group Policy Items" -ForegroundColor Cyan
                 Write-Verbose "Importing Local Group Policy Items"
-                Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
+                try {
+                    Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
+                } catch {
+                    $msg = ($_ | Format-List | Out-String)
+                    Write-EventLog -EventId 80 -Message "[VDI Optimize] Error Import Local Group Policy Items $msg" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Error
+                }
             }
             Else
             {
