@@ -1,8 +1,8 @@
-> **Please be sure to participate in our NEW survey!**
->
-> [VDI Optimization User Experience Survey](https://forms.office.com/r/gN02UxDQmf)
+# Introduction to the Virtual Desktop Optimization Tool (VDOT)
 
-# Introduction
+>**BREAKING CHANGE: SUPPORT FOR WINDOWS 11**  
+>***The VDOT tool now supports Windows 11***.  
+>Windows 11 reports as Windows 10, and currently has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.
 
 The Virtual Desktop Optimization Tool was created to automatically apply setting referenced in white paper:
 "Optimizing Windows 10, version 2004 for a Virtual Desktop Infrastructure (VDI) role"  
@@ -12,8 +12,6 @@ URL: <https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-serv
 There is not, as of October 14, 2021, an updated version of this whitepaper. *Most optimizations are applicable in current builds*, as they were in the 2004 paper.  We are working to transition to documentation in this repository in the near future.
 
 The optimization settings in this tool are the *potential* settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed.  As of configuration "2009", the entire set of files that contain the settings are .JSON files.  The parameter that this tool uses to determine whether or not to apply a setting is 'VDIState'.  If 'VDIState' is set to "Enabled", the setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.
-
-This version of the VDOT tool now supports Windows 11. There is a new configuration folder called '21H2' that is used if run on Windows 11.  There are very few changes from previous builds.  As always, please open a new issue if a problem is encountered running this tool.
 
 ## References
 
@@ -26,13 +24,11 @@ This version of the VDOT tool now supports Windows 11. There is a new configurat
  [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)
  [Windows 11 Release Information](https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information)
 
-
 **NOTE:** This script now takes just a few minutes to complete on the reference (gold) device. The total runtime will be presented at the end, in the status output messages.  
 A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  
 Also, the "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
 
 ## Dependencies
-
 
  1. LGPO.EXE (available at <https://www.microsoft.com/en-us/download/details.aspx?id=55319>) stored in the 'LGPO' folder.
  **[NOTE]** We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred methods to apply policy settings are:
@@ -146,15 +142,15 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 >1. Create a script to repair the Start Menu, by copying the following to a text file, saving that as a .CMD or .BAT file, then providing that to the affected user either interactively or a logon script (normally does not require elevation).
 >
 >`start /wait taskkill /IM StartMenuExperienceHost.exe /F`  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AC"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AppData"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalCache"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\RoamingState"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\Settings"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\SystemAppData"  
->        rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\TempState"  
->        Start C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AC"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AppData"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalCache"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\RoamingState"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\Settings"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\SystemAppData"  
+> rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\TempState"  
+> Start C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
 >
 >1. Re-run VDOT with the appropriate '-WindowsVersion' parameter (e.g. 2004).  
 >
@@ -192,7 +188,6 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 > `Exception code: 0x80000003`  
 > `Fault offset: 0x000000000001b92d`  
 This has been resolved in recent builds.
-## Other Notes
 
 > ### Note on reinstalling Appx Packages
 >
@@ -204,21 +199,21 @@ This has been resolved in recent builds.
 ## Disclaimer
 
 This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment.  
-THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
-INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.  We grant 
-You a nonexclusive, royalty-free right to use and modify the Sample Code and to reproduce and distribute the object code form 
-of the Sample Code, provided that You agree: (i) to not use Our name, logo, or trademarks to market Your software product in 
-which the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product in which the Sample Code 
-is embedded; and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, 
+THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.  We grant
+You a nonexclusive, royalty-free right to use and modify the Sample Code and to reproduce and distribute the object code form
+of the Sample Code, provided that You agree: (i) to not use Our name, logo, or trademarks to market Your software product in
+which the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product in which the Sample Code
+is embedded; and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits,
 including attorneys’ fees, that arise or result from the use or distribution of the Sample Code.
 
 Microsoft provides programming examples for illustration only, without warranty either expressed or
-implied, including, but not limited to, the implied warranties of merchantability and/or fitness 
+implied, including, but not limited to, the implied warranties of merchantability and/or fitness
 for a particular purpose.  
 
-This sample assumes that you are familiar with the programming language being demonstrated and the 
-tools used to create and debug procedures. Microsoft support professionals can help explain the 
-functionality of a particular procedure, but they will not modify these examples to provide added 
-functionality or construct procedures to meet your specific needs. if you have limited programming 
-experience, you may want to contact a Microsoft Certified Partner or the Microsoft fee-based consulting 
-line at (800) 936-5200. 
+This sample assumes that you are familiar with the programming language being demonstrated and the
+tools used to create and debug procedures. Microsoft support professionals can help explain the
+functionality of a particular procedure, but they will not modify these examples to provide added
+functionality or construct procedures to meet your specific needs. if you have limited programming
+experience, you may want to contact a Microsoft Certified Partner or the Microsoft fee-based consulting
+line at (800) 936-5200.
