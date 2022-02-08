@@ -1,5 +1,8 @@
 # Introduction to the Virtual Desktop Optimization Tool (VDOT)
 
+>**AppxPackages**  
+We have decided to update all AppxPackages.json, regardless of version of Windows, to leave all packages in the default "Installed" state.  Should you wish to have them removed change "VDIState": "Enabled" to "Disabled" and they will be removed.
+
 >**BREAKING CHANGE: SUPPORT FOR WINDOWS 11**  
 >***The VDOT tool now supports Windows 11***.  
 >Windows 11 reports as Windows 10, and currently has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.
