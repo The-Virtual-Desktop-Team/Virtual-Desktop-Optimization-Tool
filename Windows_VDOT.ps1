@@ -497,7 +497,7 @@ PROCESS {
         # NIC Advanced Properties performance settings for network biased environments
         Write-EventLog -EventId 70 -Message "Configuring Network Adapter Buffer Size" -LogName 'Virtual Desktop Optimization' -Source 'NetworkOptimizations' -EntryType Information
         Write-Host "[VDI Optimize] Configuring Network Adapter Buffer Size" -ForegroundColor Cyan
-        Set-NetAdapterAdvancedProperty -DisplayName "Send Buffer Size" -DisplayValue 4MB
+        Set-NetAdapterAdvancedProperty -DisplayName "Send Buffer Size" -DisplayValue 4MB -NoRestart
         <#  NOTE:
             Note that the above setting is for a Microsoft Hyper-V VM.  You can adjust these values in your environment...
             by querying in PowerShell using Get-NetAdapterAdvancedProperty, and then adjusting values using the...
@@ -595,7 +595,7 @@ PROCESS {
             # Delete not in-use anything in the C:\Windows\Temp folder
             Write-EventLog -EventId 90 -Message "Removing all files not in use in $env:windir\TEMP" -LogName 'Virtual Desktop Optimization' -Source 'DiskCleanup' -EntryType Information
             Write-Host "Removing all files not in use in $env:windir\TEMP"
-            Remove-Item -Path $env:windir\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
+            Remove-Item -Path $env:windir\Temp\* -Recurse -Force -ErrorAction SilentlyContinue -Exclude packer*.ps1
 
             # Clear out Windows Error Reporting (WER) report archive folders
             Write-EventLog -EventId 90 -Message "Cleaning up WER report archive" -LogName 'Virtual Desktop Optimization' -Source 'DiskCleanup' -EntryType Information
