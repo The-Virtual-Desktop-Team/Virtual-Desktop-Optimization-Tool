@@ -59,7 +59,7 @@ On the device that will be receiving the optimizations:
 1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize)
 1. Run the following PowerShell commands:  
 
-**``Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process``**
+**``Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process``**<br>
 **``.\Windows_VDOT.ps1 -Verbose``**
 
 **[NOTE]** The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
