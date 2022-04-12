@@ -39,7 +39,7 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
     1. Use a domain-based Group Policy Object (GPO)
 
  1. Previously saved local group policy settings, available on the GitHub site where this script is located
- 1. The PowerShell script file 'Win10_VirtualDesktop_Optimize.ps1'
+ 1. The PowerShell script file 'Windows_VDOT.ps1'
  1. All VDOT files and folders.
 
 **NOTE:** This script should take just a few minutes to complete. The total runtime will be presented at the end, in the status output messages.  
@@ -60,7 +60,7 @@ On the device that will be receiving the optimizations:
 1. Run the following PowerShell commands:  
 
 **``Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process``**
-**``.\Win10_VirtualDesktop_Optimize.ps1 -Verbose``**
+**``.\Windows_VDOT.ps1 -Verbose``**
 
 **[NOTE]** The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
 
@@ -136,7 +136,7 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 
 ### Note on disk cleanup (06/11/2020)
 
->Starting with the 2004 version of these scripts, use of the Disk Cleanup Wizard (Cleanmgr.exe) has been deprecated.  DCW is near end-of-life, but also sometimes "hangs" during running of the scripts.  Instead some basic disk cleanup has been incorporated into the 'Win10_VirtualDesktop_Optimize.ps1' script.  There are logs, traces, and event log files deleted.  If you wish to maintain log files, you can edit the .PS1 script and remove those entries.
+>Starting with the 2004 version of these scripts, use of the Disk Cleanup Wizard (Cleanmgr.exe) has been deprecated.  DCW is near end-of-life, but also sometimes "hangs" during running of the scripts.  Instead some basic disk cleanup has been incorporated into the 'Windows_VDOT.ps1' script.  There are logs, traces, and event log files deleted.  If you wish to maintain log files, you can edit the .PS1 script and remove those entries.
 
 ### Start Menu "broken links" (10/13/2020)
 
