@@ -202,5 +202,23 @@
     "VDIState": "Enabled",
     "URL": "https://www.microsoft.com/store/apps/9wzdncrfjbd8",
     "Description": "Xbox 'Console Companion' app (games, friends, etc.)"
+  },
+  {
+    "AppxPackage": "Microsoft.MixedReality.Portal",
+    "VDIState": "Enabled",
+    "URL": "https://www.microsoft.com/en-us/p/mixed-reality-portal/9ng1h8b3zc7m",
+    "Description": "The app that facilitates Windows Mixed Reality setup, and serves as the command center for mixed reality experiences"
+  },
+  {
+    "AppxPackage": "Microsoft.Microsoft3DViewer",
+    "VDIState": "Enabled",
+    "URL": "https://www.microsoft.com/en-us/p/3d-viewer/9nblggh42ths",
+    "Description": "App to view common 3D file types"
+  },
+  {
+    "AppxPackage": "Microsoft.Wallet",
+    "VDIState": "Enabled",
+    "URL": "https://www.microsoft.com/en-us/payments",
+    "Description": "(Microsoft Pay) for Edge browser on certain devices"
   }
 ]
