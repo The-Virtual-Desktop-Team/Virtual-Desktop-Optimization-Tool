@@ -1,0 +1,44 @@
+﻿[
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "BackgroundModeEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "HideFirstRunExperience",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "HideInternetExplorerRedirectUXForIncompatibleSitesEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "ShowRecommendationsEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
+        "RegItemValueName": "NotifyDisabledIEOptions",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DefaultAssociationsConfiguration",
+        "RegItemValueType": "String",
+        "RegItemValue": "c:\\windows\\system32\\defaultassociations.xml",
+        "VDIState": "Enabled"
+    }
+]
