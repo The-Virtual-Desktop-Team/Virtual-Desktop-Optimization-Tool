@@ -1,39 +1,47 @@
 # Introduction to the Virtual Desktop Optimization Tool (VDOT)
 
 >**AppxPackages**  
-We have decided to update all AppxPackages.json, regardless of version of Windows, to leave all packages in the default "Installed" state.  Should you wish to have them removed change "VDIState": "Enabled" to "Disabled" and they will be removed.
+The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
 
->**BREAKING CHANGE: SUPPORT FOR WINDOWS 11**  
+>**SUPPORT FOR WINDOWS 11**  
 >***The VDOT tool now supports Windows 11***.  
->Windows 11 reports as Windows 10, and currently has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.
+>Windows 11 in some respects, reports the same as Windows 10, and currently (as of 5/5/22) has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.  Therefore, the 2009 folder configuration files apply to Windows 10, as well as Windows 11, as of 5/5/22.
 
-The Virtual Desktop Optimization Tool was created to automatically apply setting referenced in white paper:
-"Optimizing Windows 10, version 2004 for a Virtual Desktop Infrastructure (VDI) role"  
+**VDOT Origination**
+The Virtual Desktop Optimization Tool (VDOT) was created to automatically apply settings referenced in the following white paper:  
 
-URL: <https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations-2004>  
+  [Optimizing Windows 10, version 2004 for a Virtual Desktop Infrastructure (VDI) role](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations-2004)  
 
-There is not, as of October 14, 2021, an updated version of this whitepaper. *Most optimizations are applicable in current builds*, as they were in the 2004 paper.  We are working to transition to documentation in this repository in the near future.
+To that point, the optimizations had been geared towards on-premises VDI, as Azure Virtual Desktop (AVD) came into the picture, the VDOT tool evolved, with feedback from users, customers, and the Microsoft AVD Product Group, as to what services and settings should not be set for AVD.  
 
-The optimization settings in this tool are the *potential* settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed.  As of configuration "2009", the entire set of files that contain the settings are .JSON files.  The parameter that this tool uses to determine whether or not to apply a setting is 'VDIState'.  If 'VDIState' is set to "Enabled", the setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.
+As the VDOT tool exists now, it is compatible with a wide-range of systems.  It works on VDI, AVD, stand-alone Windows, Windows Server (with some caveats), and some optimizations are even applied to the Windows 365 offering.  
+
+There is not, as of May 5, 2022, an updated version of the above referenced whitepaper. *Most optimizations are applicable in current builds*, as they were in the 2004 paper.  We are working to transition to documentation in this repository in the near future.  
+
+The optimization settings in this tool are the **potential** settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed.  
+
+>*The JSON parameter that this tool uses to determine whether or not to apply a setting is **'VDIState'***.  If 'VDIState' is set to **Enabled**, the setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.
 
 ## References
 
- <https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx>  
- <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6>  
- <https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/>  
- <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6>  
- <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6>  
- <https://msdn.microsoft.com/en-us/library/cc422938.aspx>
- [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)
+ [PowerShell: Running Executables](https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx)  
+ [Remove-Item](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6)  
+ [LGPO](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/lgpo-exe-local-group-policy-object-utility-v1-0/ba-p/701045)  
+ [Set-Service](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.2)  
+ [Remove-Item](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2&viewFallbackFrom=powershell-6)  
+ [2.2.1.7.2 GlobalFolderOptionsVista element](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/a6ca3a17-1971-4b22-bf3b-e1a5d5c50fca)  
+ [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)  
  [Windows 11 Release Information](https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information)
 
 **NOTE:** This script now takes just a few minutes to complete on the reference (gold) device. The total runtime will be presented at the end, in the status output messages.  
+
 A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  
-Also, the "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
+
+The "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
 
 ## Dependencies
 
- 1. LGPO.EXE (available at <https://www.microsoft.com/en-us/download/details.aspx?id=55319>) stored in the 'LGPO' folder.
+ 1. LGPO.EXE stored in the 'LGPO' folder.
  **[NOTE]** We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred methods to apply policy settings are:
 
     1. Use a domain-based Group Policy Object (GPO)
@@ -61,6 +69,7 @@ On the device that will be receiving the optimizations:
 
 **``Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process``**<br>
 **``.\Windows_VDOT.ps1 -Verbose``**
+**``.\Windows_VDOT.ps1 -Verbose -Edge``
 
 **[NOTE]** The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
 
