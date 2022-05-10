@@ -1,5 +1,11 @@
 # Introduction to the Virtual Desktop Optimization Tool (VDOT)
 
+>## Edge Optimizations ##
+### We now support a few optimizations for the New Edge. ###
+[***Warning***] - This optimization is not included in the "Optimizations" Parmaeter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
+
+See readme in the 2009 folder for more information and instructions on usage
+
 >**AppxPackages**  
 We have decided to update all AppxPackages.json, regardless of version of Windows, to leave all packages in the default "Installed" state.  Should you wish to have them removed change "VDIState": "Enabled" to "Disabled" and they will be removed.
 
