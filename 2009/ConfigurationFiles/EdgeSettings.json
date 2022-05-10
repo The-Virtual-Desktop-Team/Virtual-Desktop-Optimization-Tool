@@ -1,0 +1,50 @@
+﻿[
+    {
+        "Description": "Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "BackgroundModeEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "Description": "If you enable this policy, the First-run experience and the splash screen will not be shown to users when they run Microsoft Edge for the first time.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "HideFirstRunExperience",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "Description": "This policy gives an option to disable one-time redirection dialog and the banner.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "HideInternetExplorerRedirectUXForIncompatibleSitesEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "Description": "This policy setting lets you decide whether employees should receive recommendations and in-product assistance notifications from Microsoft Edge.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "ShowRecommendationsEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "Description": "This policy lets you restrict launching of Internet Explorer as a standalone browser",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
+        "RegItemValueName": "NotifyDisabledIEOptions",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "Description": "This policy specifies the path to a file (e.g. either stored locally or on a network location) that contains file type and protocol default application associations.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DefaultAssociationsConfiguration",
+        "RegItemValueType": "String",
+        "RegItemValue": "c:\\windows\\system32\\defaultassociations.xml",
+        "VDIState": "Enabled"
+    }
+]

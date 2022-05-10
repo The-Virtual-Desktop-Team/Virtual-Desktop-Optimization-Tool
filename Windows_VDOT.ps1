@@ -31,7 +31,7 @@ Param (
     [ArgumentCompleter( { Get-ChildItem $PSScriptRoot -Directory | Where-Object { $_.Name -ne 'LGPO' } | Select-Object -ExpandProperty Name } )]
     [System.String]$WindowsVersion = (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").ReleaseId,
 
-    [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','DiskCleanup')] 
+    [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','Edge','DiskCleanup')] 
     [String[]]
     $Optimizations = "All",
 
@@ -48,7 +48,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020)
-- LAST UPDATED:   10/15/2021
+- LAST UPDATED:   5/4/2022
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
@@ -85,13 +85,14 @@ The UWP app input file contains the list of almost all the UWP application packa
 The Store and a few others, such as Wallet, were left off intentionally.  Though it is possible to remove the Store app, 
 it is nearly impossible to get it back.  Please review the configuration files and change the 'VDIState' to anything but 'disabled' to keep the item.
 #>
-BEGIN {
+BEGIN 
+{
     
 
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
     {
         # All VDOT main function Event ID's [1-9]
-        $EventSources = @('VDOT', 'WindowsMediaPlayer', 'AppxPackages', 'ScheduledTasks', 'DefaultUserSettings', 'Autologgers', 'Services', 'NetworkOptimizations', 'LGPO', 'DiskCleanup')
+        $EventSources = @('VDOT', 'WindowsMediaPlayer', 'AppxPackages', 'ScheduledTasks', 'DefaultUserSettings', 'Autologgers', 'Services', 'NetworkOptimizations', 'LGPO', 'EdgeVDOT', 'DiskCleanup')
         New-EventLog -Source $EventSources -LogName 'Virtual Desktop Optimization'
         Limit-EventLog -OverflowAction OverWriteAsNeeded -MaximumSize 64KB -LogName 'Virtual Desktop Optimization'
         Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Log Created"
@@ -530,7 +531,7 @@ PROCESS {
                     {
                         If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
                         { 
-                            Write-EventLog -EventId 80 -Message "Fount key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
+                            Write-EventLog -EventId 80 -Message "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
                             Write-Verbose "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)"
                             Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
                         }
@@ -570,13 +571,73 @@ PROCESS {
             }
             Else
             {
-                Write-EventLog -EventId 80 -Message "File not fount $PSScriptRoot\LGPO\LGPO.exe" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Warning
-                Write-Warning "File not fount $PSScriptRoot\LGPO\LGPO.exe"
+                Write-EventLog -EventId 80 -Message "File not found $PSScriptRoot\LGPO\LGPO.exe" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Warning
+                Write-Warning "File not found $PSScriptRoot\LGPO\LGPO.exe"
             }
         }    
     }
     #endregion
+    
+    #region Edge Settings
+    If ($Optimizations -contains "Edge")
+    {
+        $EdgeFilePath = ".\ConfigurationFiles\EdgeSettings.json"
+        If (Test-Path $EdgeFilePath)
+        {
+            Write-EventLog -EventId 80 -Message "Edge Policy Settings" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+            Write-Host "[VDI Optimize] Edge Policy Settings" -ForegroundColor Cyan
+            $EdgeSettings = Get-Content $EdgeFilePath | ConvertFrom-Json
+            If ($EdgeSettings.Count -gt 0)
+            {
+                Write-EventLog -EventId 80 -Message "Processing Edge Policy Settings ($($EdgeSettings.Count) Hives)" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                Write-Verbose "Processing Edge Policy Settings ($($EdgeSettings.Count) Hives)"
+                Foreach ($Key in $EdgeSettings)
+                {
+                    If ($Key.VDIState -eq 'Enabled')
+                    {
+                        If ($key.RegItemValueName -eq 'DefaultAssociationsConfiguration')
+                        {
+                            Copy-Item .\ConfigurationFiles\DefaultAssociationsConfiguration.xml $key.RegItemValue -Force
+                        }
+                        If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
+                        { 
+                            Write-EventLog -EventId 80 -Message "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                            Write-Verbose "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)"
+                            Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
+                        }
+                        Else 
+                        { 
+                            If (Test-path $Key.RegItemPath)
+                            {
+                                Write-EventLog -EventId 80 -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                                Write-Verbose "Path found, creating new property -Path $($Key.RegItemPath) Name $($Key.RegItemValueName) PropertyType $($Key.RegItemValueType) Value $($Key.RegItemValue)"
+                                New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+                            Else
+                            {
+                                Write-EventLog -EventId 80 -Message "Creating Key and Path" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                                Write-Verbose "Creating Key and Path"
+                                New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
+                            }
+            
+                        }
+                    }
+                }
+            }
+            Else
+            {
+                Write-EventLog -EventId 80 -Message "No Edge Policy Settings Found!" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Warning
+                Write-Warning "No Edge Policy Settings found"
+            }
+        }
+        Else 
+        {
+            Write-Host "Foo, nothing to do here"
+        }    
+    }
 
+    #endregion
+    
     #region Disk Cleanup
     # Delete not in-use files in locations C:\Windows\Temp and %temp%
     # Also sweep and delete *.tmp, *.etl, *.evtx, *.log, *.dmp, thumbcache*.db (not in use==not needed)
