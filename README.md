@@ -1,4 +1,11 @@
-# Introduction to the Virtual Desktop Optimization Tool (VDOT)
+# Windows Virtual Desktop Optimization
+![Contributors](https://img.shields.io/github/contributors/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+![Forks](https://img.shields.io/github/forks/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+![Stars](https://img.shields.io/github/stars/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+![Commits](https://img.shields.io/github/last-commit/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+![Issues](https://img.shields.io/github/issues/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+![Languages](https://img.shields.io/github/languages/top/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+# Introduction 
 
 >**AppxPackages**  
 The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
