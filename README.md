@@ -74,9 +74,21 @@ On the device that will be receiving the optimizations:
 1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize)
 1. Run the following PowerShell commands:  
 
-**``Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process``**<br>
-**``.\Windows_VDOT.ps1 -Verbose``**
-**``.\Windows_VDOT.ps1 -Verbose -Edge``
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+.\Windows_VDOT.ps1 -Verbose 
+#This will run all optimizations, except Edge
+
+.\Windows_VDOT.ps1 -Optimizations All 
+#This is the same as the command above and will run all optimizations, except Edge
+
+.\Windows_VDOT.ps1 -Optimizations Edge, All  
+#This will run all optimizations including Edge
+
+.\Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEULA
+#This will run AppxPackages only and auto accept the EULA
+```
 
 **[NOTE]** The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
 
