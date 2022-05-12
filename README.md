@@ -2,7 +2,7 @@
 
 >## Edge Optimizations ##
 ### We now support a few optimizations for the New Edge. ###
-[***Warning***] - This optimization is not included in the "Optimizations" Parmaeter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
+[***Warning***] - This optimization is not included in the "Optimizations" Parameter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
 
 See readme in the 2009 folder for more information and instructions on usage
 
@@ -24,14 +24,13 @@ The optimization settings in this tool are the *potential* settings that reduce 
 
 ## References
 
- <https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx>  
- <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6>  
- <https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/>  
- <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6>  
- <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6>  
- <https://msdn.microsoft.com/en-us/library/cc422938.aspx>
- [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)
- [Windows 11 Release Information](https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information)
+ * [PowerShell: Running Executables](https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx)
+ * [PowerShell Docs: Remove-Item](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-6)
+ * [Local Group Policy Object Utility](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/)
+ * [PowerShell Docs: Set-Service](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-6)  
+ * [MS-GPPREF: 2.2.1.7.2 GlobalFolderOptionsVista](https://msdn.microsoft.com/en-us/library/cc422938.aspx)
+ * [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)
+ * [Windows 11 Release Information](https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information)
 
 **NOTE:** This script now takes just a few minutes to complete on the reference (gold) device. The total runtime will be presented at the end, in the status output messages.  
 A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  
@@ -42,10 +41,10 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
  1. LGPO.EXE (available at <https://www.microsoft.com/en-us/download/details.aspx?id=55319>) stored in the 'LGPO' folder.
  **[NOTE]** We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred methods to apply policy settings are:
 
-    1. Use a domain-based Group Policy Object (GPO)
+    1. Use a domain-based Group Policy Object (GPO).
 
- 1. Previously saved local group policy settings, available on the GitHub site where this script is located
- 1. The PowerShell script file 'Windows_VDOT.ps1'
+ 1. Previously saved local group policy settings, available on the GitHub site where this script is located.
+ 1. The PowerShell script file 'Windows_VDOT.ps1'.
  1. All VDOT files and folders.
 
 **NOTE:** This script should take just a few minutes to complete. The total runtime will be presented at the end, in the status output messages.  
@@ -56,14 +55,14 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
 
 On the device that will be receiving the optimizations:
 
-1. Create a folder (ex. "C:\Optimize")
-1. Download or copy the entire VDOT set of files and folders
+1. Create a folder (ex. "C:\Optimize").
+1. Download or copy the entire VDOT set of files and folders.
 1. Unblock the downloaded .zip file, either manually using File -> Properties, or using PowerShell:
 [Unblock-File](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file?view=powershell-5.1)
-1. Extract the VDOT download to the folder previously created (ex. "C:\Optimize)
-1. Start PowerShell elevated
-1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize)
-1. Run the following PowerShell commands:  
+1. Extract the VDOT download to the folder previously created (ex. "C:\Optimize).
+1. Start PowerShell elevated.
+1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize).
+1. Run the following PowerShell commands:
 
 **``Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process``**<br>
 **``.\Windows_VDOT.ps1 -Verbose``**
