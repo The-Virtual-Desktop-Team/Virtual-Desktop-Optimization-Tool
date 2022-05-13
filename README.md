@@ -178,7 +178,7 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 >
 >1. Create a script to repair the Start Menu, by copying the following to a text file, saving that as a .CMD or .BAT file, then providing that to the affected user either interactively or a logon script (normally does not require elevation).
 >
->`start /wait taskkill /IM StartMenuExperienceHost.exe /F`  
+> start /wait taskkill /IM StartMenuExperienceHost.exe /F  
 > rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AC"  
 > rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\AppData"  
 > rd /S /Q "%UserProfile%\Appdata\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalCache"  
