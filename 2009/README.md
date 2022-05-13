@@ -2,7 +2,7 @@
 
 >## Edge Optimizations ##
 >### We now support a few optimizations for the New Edge. ###
->[***Warning***] - This optimization is not included in the "Optimizations" Parmaeter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
+>[***Warning***] - This optimization is not included in the "Optimizations" Parameter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
 
 EdgeSettings.json
 - BackgrounModeEnabled
