@@ -7,6 +7,12 @@
 ![Languages](https://img.shields.io/github/languages/top/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 # Introduction 
 
+>## Edge Optimizations ##
+### We now support a few optimizations for the New Edge. ###
+[***Warning***] - This optimization is not included in the "Optimizations" Parameter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
+
+See readme in the 2009 folder for more information and instructions on usage
+
 >**AppxPackages**  
 The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
 
@@ -51,10 +57,10 @@ The "-verbose" parameter in PowerShell directs the script to provide descriptive
  1. LGPO.EXE stored in the 'LGPO' folder.
  **[NOTE]** We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred methods to apply policy settings are:
 
-    1. Use a domain-based Group Policy Object (GPO)
+    1. Use a domain-based Group Policy Object (GPO).
 
- 1. Previously saved local group policy settings, available on the GitHub site where this script is located
- 1. The PowerShell script file 'Windows_VDOT.ps1'
+ 1. Previously saved local group policy settings, available on the GitHub site where this script is located.
+ 1. The PowerShell script file 'Windows_VDOT.ps1'.
  1. All VDOT files and folders.
 
 **NOTE:** This script should take just a few minutes to complete. The total runtime will be presented at the end, in the status output messages.  
@@ -65,14 +71,14 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
 
 On the device that will be receiving the optimizations:
 
-1. Create a folder (ex. "C:\Optimize")
-1. Download or copy the entire VDOT set of files and folders
+1. Create a folder (ex. "C:\Optimize").
+1. Download or copy the entire VDOT set of files and folders.
 1. Unblock the downloaded .zip file, either manually using File -> Properties, or using PowerShell:
 [Unblock-File](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file?view=powershell-5.1)
-1. Extract the VDOT download to the folder previously created (ex. "C:\Optimize)
-1. Start PowerShell elevated
-1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize)
-1. Run the following PowerShell commands:  
+1. Extract the VDOT download to the folder previously created (ex. "C:\Optimize).
+1. Start PowerShell elevated.
+1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize).
+1. Run the following PowerShell commands:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
