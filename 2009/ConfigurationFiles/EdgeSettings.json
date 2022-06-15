@@ -46,5 +46,21 @@
         "RegItemValueType": "String",
         "RegItemValue": "c:\\windows\\system32\\defaultassociations.xml",
         "VDIState": "Enabled"
+    },
+    {
+        "Description": "Allows Microsoft Edge processes to start at OS sign-in and restart in background after the last browser window is closed.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "StartupBoostEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
+        "Description": "Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed. In this scenario, background apps and the current browsing session remain active, including any session cookies",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "BackgroundModeEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
     }
 ]
