@@ -31,10 +31,14 @@ Param (
     [ArgumentCompleter( { Get-ChildItem $PSScriptRoot -Directory | Where-Object { $_.Name -ne 'LGPO' } | Select-Object -ExpandProperty Name } )]
     [System.String]$WindowsVersion = (Get-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\").ReleaseId,
 
-    [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','Edge','DiskCleanup')] 
+    [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','DiskCleanup')] 
     [String[]]
     $Optimizations = "All",
 
+    [Parameter()]
+    [ValidateSet('All', 'Edge', 'RemoveLegacyIE')]
+    [String[]]
+    $AdvancedOptimizations,
 
     [Switch]$Restart,
     [Switch]$AcceptEULA
@@ -92,7 +96,7 @@ BEGIN
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
     {
         # All VDOT main function Event ID's [1-9]
-        $EventSources = @('VDOT', 'WindowsMediaPlayer', 'AppxPackages', 'ScheduledTasks', 'DefaultUserSettings', 'Autologgers', 'Services', 'NetworkOptimizations', 'LGPO', 'EdgeVDOT', 'DiskCleanup')
+        $EventSources = @('VDOT', 'WindowsMediaPlayer', 'AppxPackages', 'ScheduledTasks', 'DefaultUserSettings', 'Autologgers', 'Services', 'NetworkOptimizations', 'LGPO', 'EdgeVDOT', 'BrowserVDOT','DiskCleanup')
         New-EventLog -Source $EventSources -LogName 'Virtual Desktop Optimization'
         Limit-EventLog -OverflowAction OverWriteAsNeeded -MaximumSize 64KB -LogName 'Virtual Desktop Optimization'
         Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Log Created"
@@ -579,7 +583,7 @@ PROCESS {
     #endregion
     
     #region Edge Settings
-    If ($Optimizations -contains "Edge")
+    If ($AdvancedOptimizations -contains "Edge" -or $AdvancedOptimizations -contains "All")
     {
         $EdgeFilePath = ".\ConfigurationFiles\EdgeSettings.json"
         If (Test-Path $EdgeFilePath)
@@ -635,9 +639,16 @@ PROCESS {
             Write-Host "Foo, nothing to do here"
         }    
     }
-
     #endregion
-    
+
+    #region Remove Legacy Internet Explorer
+    If ($AdvancedOptimizations -contains "RemoveLegacyIE" -or $AdvancedOptimizations -contains "All")
+    {
+        Write-EventLog -EventId 80 -Message "Remove Legacy Internet Explorer" -LogName 'Virtual Desktop Optimization' -Source 'BrowserVDOT' -EntryType Information
+        Write-Host "[VDI Optimize] Remove Legacy Internet Explorer" -ForegroundColor Cyan
+        Get-WindowsCapability -Online | Where-Object Name -Like "*Browser.Internet*" | Remove-WindowsCapability -Online 
+    }
+    #endregion
     #region Disk Cleanup
     # Delete not in-use files in locations C:\Windows\Temp and %temp%
     # Also sweep and delete *.tmp, *.etl, *.evtx, *.log, *.dmp, thumbcache*.db (not in use==not needed)
