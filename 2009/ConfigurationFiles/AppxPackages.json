@@ -54,7 +54,7 @@
     "Description": "Note-taking app"
   },
   {
-    "AppxPackage": "Microsoft.Paint",
+    "AppxPackage": "Microsoft.MSPaint",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/store/detail/paint-3d/9NBLGGH5FV99",
     "Description": "Paint 3D app (not Classic Paint app)"
