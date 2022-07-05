@@ -1,5 +1,19 @@
 [
     {
+        "RegItemPath": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Windows Feeds",
+        "RegItemValueName": "EnableFeeds",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "RegItemValueName": "EnableDynamicContentInWSB",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "AllowOnlineTips",
         "RegItemValueType": "DWord",
