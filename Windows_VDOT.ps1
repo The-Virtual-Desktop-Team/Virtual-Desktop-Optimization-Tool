@@ -33,7 +33,7 @@ Param (
 
     [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','DiskCleanup')] 
     [String[]]
-    $Optimizations = "All",
+    $Optimizations ,
 
     [Parameter()]
     [ValidateSet('All', 'Edge', 'RemoveLegacyIE')]
@@ -48,11 +48,11 @@ Param (
 #Requires -PSEdition Desktop
 
 <#
-- TITLE:          Microsoft Windows 10 Virtual Desktop Optimization Script
+- TITLE:          Microsoft Windows Virtual Desktop Optimization Script
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020)
-- LAST UPDATED:   5/4/2022
+- LAST UPDATED:   7/7/2022
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
