@@ -33,10 +33,10 @@ Param (
 
     [ValidateSet('All','WindowsMediaPlayer','AppxPackages','ScheduledTasks','DefaultUserSettings','Autologgers','Services','NetworkOptimizations','LGPO','DiskCleanup')] 
     [String[]]
-    $Optimizations ,
+    $Optimizations,
 
     [Parameter()]
-    [ValidateSet('All', 'Edge', 'RemoveLegacyIE')]
+    [ValidateSet('All', 'Edge', 'RemoveLegacyIE', 'RemoveOneDrive')]
     [String[]]
     $AdvancedOptimizations,
 
@@ -52,7 +52,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020)
-- LAST UPDATED:   7/7/2022
+- LAST UPDATED:   7/8/2022
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
@@ -96,7 +96,7 @@ BEGIN
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
     {
         # All VDOT main function Event ID's [1-9]
-        $EventSources = @('VDOT', 'WindowsMediaPlayer', 'AppxPackages', 'ScheduledTasks', 'DefaultUserSettings', 'Autologgers', 'Services', 'NetworkOptimizations', 'LGPO', 'EdgeVDOT', 'BrowserVDOT','DiskCleanup')
+        $EventSources = @('VDOT', 'WindowsMediaPlayer', 'AppxPackages', 'ScheduledTasks', 'DefaultUserSettings', 'Autologgers', 'Services', 'NetworkOptimizations', 'LGPO', 'AdvancedOptimizations', 'DiskCleanup')
         New-EventLog -Source $EventSources -LogName 'Virtual Desktop Optimization'
         Limit-EventLog -OverflowAction OverWriteAsNeeded -MaximumSize 64KB -LogName 'Virtual Desktop Optimization'
         Write-EventLog -LogName 'Virtual Desktop Optimization' -Source 'VDOT' -EntryType Information -EventId 1 -Message "Log Created"
@@ -588,12 +588,12 @@ PROCESS {
         $EdgeFilePath = ".\ConfigurationFiles\EdgeSettings.json"
         If (Test-Path $EdgeFilePath)
         {
-            Write-EventLog -EventId 80 -Message "Edge Policy Settings" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+            Write-EventLog -EventId 80 -Message "Edge Policy Settings" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
             Write-Host "[VDI Optimize] Edge Policy Settings" -ForegroundColor Cyan
             $EdgeSettings = Get-Content $EdgeFilePath | ConvertFrom-Json
             If ($EdgeSettings.Count -gt 0)
             {
-                Write-EventLog -EventId 80 -Message "Processing Edge Policy Settings ($($EdgeSettings.Count) Hives)" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                Write-EventLog -EventId 80 -Message "Processing Edge Policy Settings ($($EdgeSettings.Count) Hives)" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
                 Write-Verbose "Processing Edge Policy Settings ($($EdgeSettings.Count) Hives)"
                 Foreach ($Key in $EdgeSettings)
                 {
@@ -605,7 +605,7 @@ PROCESS {
                         }
                         If (Get-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -ErrorAction SilentlyContinue) 
                         { 
-                            Write-EventLog -EventId 80 -Message "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                            Write-EventLog -EventId 80 -Message "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
                             Write-Verbose "Found key, $($Key.RegItemPath) Name $($Key.RegItemValueName) Value $($Key.RegItemValue)"
                             Set-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -Value $Key.RegItemValue -Force 
                         }
@@ -613,13 +613,13 @@ PROCESS {
                         { 
                             If (Test-path $Key.RegItemPath)
                             {
-                                Write-EventLog -EventId 80 -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                                Write-EventLog -EventId 80 -Message "Path found, creating new property -Path $($Key.RegItemPath) -Name $($Key.RegItemValueName) -PropertyType $($Key.RegItemValueType) -Value $($Key.RegItemValue)" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
                                 Write-Verbose "Path found, creating new property -Path $($Key.RegItemPath) Name $($Key.RegItemValueName) PropertyType $($Key.RegItemValueType) Value $($Key.RegItemValue)"
                                 New-ItemProperty -Path $Key.RegItemPath -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
                             }
                             Else
                             {
-                                Write-EventLog -EventId 80 -Message "Creating Key and Path" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Information
+                                Write-EventLog -EventId 80 -Message "Creating Key and Path" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
                                 Write-Verbose "Creating Key and Path"
                                 New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
                             }
@@ -630,13 +630,13 @@ PROCESS {
             }
             Else
             {
-                Write-EventLog -EventId 80 -Message "No Edge Policy Settings Found!" -LogName 'Virtual Desktop Optimization' -Source 'EdgeVDOT' -EntryType Warning
+                Write-EventLog -EventId 80 -Message "No Edge Policy Settings Found!" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Warning
                 Write-Warning "No Edge Policy Settings found"
             }
         }
         Else 
         {
-            Write-Host "Foo, nothing to do here"
+           # nothing to do here"
         }    
     }
     #endregion
@@ -644,11 +644,33 @@ PROCESS {
     #region Remove Legacy Internet Explorer
     If ($AdvancedOptimizations -contains "RemoveLegacyIE" -or $AdvancedOptimizations -contains "All")
     {
-        Write-EventLog -EventId 80 -Message "Remove Legacy Internet Explorer" -LogName 'Virtual Desktop Optimization' -Source 'BrowserVDOT' -EntryType Information
+        Write-EventLog -EventId 80 -Message "Remove Legacy Internet Explorer" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
         Write-Host "[VDI Optimize] Remove Legacy Internet Explorer" -ForegroundColor Cyan
         Get-WindowsCapability -Online | Where-Object Name -Like "*Browser.Internet*" | Remove-WindowsCapability -Online 
     }
     #endregion
+
+    #region Remove OneDrive Commercial
+    If ($AdvancedOptimizations -contains "RemoveOneDrive" -or $AdvancedOptimizations -contains "All")
+    {
+        Write-EventLog -EventId 80 -Message "Remove OneDrive Commercial" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
+        Write-Host "[VDI Optimize] Removing OneDrive Commercial" -ForegroundColor Cyan
+        $OneDrivePath = @('C:\Windows\System32\OneDriveSetup.exe', 'C:\Windows\SysWOW64\OneDriveSetup.exe')   
+        $OneDrivePath | foreach {
+            If (Test-Path $_)
+            {
+                Write-Host "`tAttempting to uninstall $_"
+                Write-EventLog -EventId 80 -Message "Commercial $_" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
+                Start-Process $_ -ArgumentList "/uninstall" -Wait
+            }
+        }
+        Write-EventLog -EventId 80 -Message "Removing shortcut links for OneDrive" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
+        Remove-Item -Path “C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk” -Force -ErrorAction SilentlyContinue
+        Remove-Item -Path "C:\Windows\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"  -Force -ErrorAction SilentlyContinue
+    }
+
+    #endregion
+
     #region Disk Cleanup
     # Delete not in-use files in locations C:\Windows\Temp and %temp%
     # Also sweep and delete *.tmp, *.etl, *.evtx, *.log, *.dmp, thumbcache*.db (not in use==not needed)
