@@ -120,7 +120,12 @@ BEGIN
     }
 }
 PROCESS {
-
+    if (-not ($PSBoundParameters.Keys -match 'Optimizations') )
+    {
+        Write-EventLog -Message "No Optimizations (Optimizations or AdvancedOptimizations) passed, exiting script!" -Source 'VDOT' -EventID 100 -EntryType Error -LogName 'Virtual Desktop Optimization'
+        Write-Warning "**Breaking Change**`n`nOptimizations no longer defaults to 'All', you must explicitly pass in this parameter.`nThis is to allow for running 'AdvancedParameter' separately"
+        Return
+    }
     $EULA = Get-Content ..\EULA.txt
     If (-not($AcceptEULA))
     {
