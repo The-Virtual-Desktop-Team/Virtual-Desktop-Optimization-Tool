@@ -704,7 +704,7 @@ PROCESS {
     }
     Else
     {
-        Write-Warning "A reboot is required for all changed to take effect"
+        Write-Warning "A reboot is required for all changes to take effect"
     }
     ########################  END OF SCRIPT  ########################
 }
