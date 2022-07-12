@@ -413,17 +413,17 @@ PROCESS {
                 Write-Verbose "Processing Services Configuration File"
                 Foreach ($Item in $ServicesToDisable)
                 {
-                    Write-EventLog -EventId 60 -Message "Attempting to Stop Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
-                    Write-Verbose "Attempting to Stop Service $($Item.Name) - $($Item.Description)"
-                    try
-                    {
-                        Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue
-                    }
-                    catch
-                    {
-                        Write-EventLog -EventId 160 -Message "Failed to disable Service: $($Item.Name) `n $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
-                        Write-Warning "Failed to disable Service: $($Item.Name) `n $($_.Exception.Message)"
-                    }
+                    #Write-EventLog -EventId 60 -Message "Attempting to Stop Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
+                    #Write-Verbose "Attempting to Stop Service $($Item.Name) - $($Item.Description)"
+                    #try
+                    #{
+                    #    Stop-Service $Item.Name -Force -ErrorAction SilentlyContinue
+                    #}
+                    #catch
+                    #{
+                    #    Write-EventLog -EventId 160 -Message "Failed to disable Service: $($Item.Name) `n $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Error
+                    #    Write-Warning "Failed to disable Service: $($Item.Name) `n $($_.Exception.Message)"
+                    #}
                     Write-EventLog -EventId 60 -Message "Attempting to disable Service $($Item.Name) - $($Item.Description)" -LogName 'Virtual Desktop Optimization' -Source 'Services' -EntryType Information
                     Write-Verbose "Attempting to disable Service $($Item.Name) - $($Item.Description)"
                     Set-Service $Item.Name -StartupType Disabled 
