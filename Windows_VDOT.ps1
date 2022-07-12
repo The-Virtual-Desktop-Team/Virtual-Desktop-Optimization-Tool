@@ -598,7 +598,7 @@ PROCESS {
         If (Test-Path $EdgeFilePath)
         {
             Write-EventLog -EventId 80 -Message "Edge Policy Settings" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
-            Write-Host "[VDI Optimize] Edge Policy Settings" -ForegroundColor Cyan
+            Write-Host "[VDI Advanced Optimize] Edge Policy Settings" -ForegroundColor Cyan
             $EdgeSettings = Get-Content $EdgeFilePath | ConvertFrom-Json
             If ($EdgeSettings.Count -gt 0)
             {
@@ -654,7 +654,7 @@ PROCESS {
     If ($AdvancedOptimizations -contains "RemoveLegacyIE" -or $AdvancedOptimizations -contains "All")
     {
         Write-EventLog -EventId 80 -Message "Remove Legacy Internet Explorer" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
-        Write-Host "[VDI Optimize] Remove Legacy Internet Explorer" -ForegroundColor Cyan
+        Write-Host "[VDI Advanced Optimize] Remove Legacy Internet Explorer" -ForegroundColor Cyan
         Get-WindowsCapability -Online | Where-Object Name -Like "*Browser.Internet*" | Remove-WindowsCapability -Online 
     }
     #endregion
@@ -663,7 +663,7 @@ PROCESS {
     If ($AdvancedOptimizations -contains "RemoveOneDrive" -or $AdvancedOptimizations -contains "All")
     {
         Write-EventLog -EventId 80 -Message "Remove OneDrive Commercial" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
-        Write-Host "[VDI Optimize] Removing OneDrive Commercial" -ForegroundColor Cyan
+        Write-Host "[VDI Advanced Optimize] Removing OneDrive Commercial" -ForegroundColor Cyan
         $OneDrivePath = @('C:\Windows\System32\OneDriveSetup.exe', 'C:\Windows\SysWOW64\OneDriveSetup.exe')   
         $OneDrivePath | foreach {
             If (Test-Path $_)
