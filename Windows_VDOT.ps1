@@ -674,8 +674,8 @@ PROCESS {
             }
         }
         Write-EventLog -EventId 80 -Message "Removing shortcut links for OneDrive" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
-        Remove-Item -Path "C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk" -Force -ErrorAction SilentlyContinue
-        Remove-Item -Path "C:\Windows\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"  -Force -ErrorAction SilentlyContinue
+        Remove-Item -Path 'C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk' -Force -ErrorAction SilentlyContinue
+        Remove-Item -Path 'C:\Windows\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk'  -Force -ErrorAction SilentlyContinue
     }
 
     #endregion
