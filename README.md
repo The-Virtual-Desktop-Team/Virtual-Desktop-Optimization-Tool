@@ -7,11 +7,23 @@
 ![Languages](https://img.shields.io/github/languages/top/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 # Introduction 
 
->## Edge Optimizations ##
-### We now support a few optimizations for the New Edge. ###
-[***Warning***] - This optimization is not included in the "Optimizations" Parameter when "All" is seleced. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
+>## Microsoft Edge Optimizations ##
+### We now support optimizations for the new Microsoft Edge (Chromium). ###
+[***IMPORTANT***] - The new Microsoft Edge optimizations are not included in the standard "Optimizations" Parameter when "All" is selected. The new Edge settings have to be specifically called by passing in `-Optimizations Edge, <other optimizations>`  
 
-See readme in the 2009 folder for more information and instructions on usage
+  Example:  
+  `.\Windows_VDOT.ps1 -Optimizations All, Edge -Verbose -AcceptEula`
+
+  ** New Edge Optimizations **
+  * Set Edge as the default app for common Internet file types (using 'DefaultAssociations.xml' file and policy)
+  * Allow Edge to start processes at sign-in, whether or not the Edge app itself is started
+  * Disable "OOBE", or out-of-box experience. Though much improved, still heavy for virtual desktop environments
+  * Disable one-time redirection dialog and banner
+  * Show product assistance and recommendation notifications
+  * Allows Microsoft Edge processes to start at OS sign-in and restart in background after the last browser window is closed.
+  * Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed.
+
+See 'Readme.md' in the 2009 folder for more information and instructions on usage.
 
 >**AppxPackages**  
 The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
