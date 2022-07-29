@@ -1,51 +1,81 @@
-# Windows Virtual Desktop Optimization
+# Windows Virtual Desktop Optimization Tool (VDOT)
+
 ![Contributors](https://img.shields.io/github/contributors/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 ![Forks](https://img.shields.io/github/forks/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 ![Stars](https://img.shields.io/github/stars/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 ![Commits](https://img.shields.io/github/last-commit/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 ![Issues](https://img.shields.io/github/issues/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 ![Languages](https://img.shields.io/github/languages/top/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
-# Introduction 
 
->## Microsoft Edge Optimizations ##
-### We now support optimizations for the new Microsoft Edge (Chromium). ###
-[***IMPORTANT***] - The new Microsoft Edge optimizations are not included in the standard "Optimizations" Parameter when "All" is selected. The new Edge settings have to be specifically called by passing in `-Optimizations Edge, <other optimizations>`  
+## Introduction
 
-  Example:  
-  `.\Windows_VDOT.ps1 -Optimizations All, Edge -Verbose -AcceptEula`
+The Virtual Desktop Optimization Tool (VDOT) is a set of mostly text-based tools that apply settings to a Windows operating system, intended to improve performance.  The performance gains are in overall startup time, first logon time, subsequent logon time, and usability during a user-session.  
 
-  ** New Edge Optimizations **
-  * Set Edge as the default app for common Internet file types (using 'DefaultAssociations.xml' file and policy)
-  * Allow Edge to start processes at sign-in, whether or not the Edge app itself is started
-  * Disable "OOBE", or out-of-box experience. Though much improved, still heavy for virtual desktop environments
-  * Disable one-time redirection dialog and banner
-  * Show product assistance and recommendation notifications
-  * Allows Microsoft Edge processes to start at OS sign-in and restart in background after the last browser window is closed.
-  * Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed.
+The VDOT tool came about from years of performance tuning of on-premises Virtual Desktop Infrastructure (VDI).  Some of those VDI implementations were not Internet-connected, or limited Internet-connected, rendering some features and/or functionality of Windows non-functional.  Instead of having non-functional components running, those items that could be disabled or removed in a supported manner, were done so.  The result was faster startup, login, and smoother user throughout user sessions.  
 
-See 'Readme.md' in the 2009 folder for more information and instructions on usage.
-
->**AppxPackages**  
-The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
-
->**SUPPORT FOR WINDOWS 11**  
->***The VDOT tool now supports Windows 11***.  
->Windows 11 in some respects, reports the same as Windows 10, and currently (as of 5/5/22) has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.  Therefore, the 2009 folder configuration files apply to Windows 10, as well as Windows 11, as of 5/5/22.
-
-**VDOT Origination**
-The Virtual Desktop Optimization Tool (VDOT) was created to automatically apply settings referenced in the following white paper:  
-
-  [Optimizing Windows 10, version 2004 for a Virtual Desktop Infrastructure (VDI) role](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations-2004)  
-
-To that point, the optimizations had been geared towards on-premises VDI, as Azure Virtual Desktop (AVD) came into the picture, the VDOT tool evolved, with feedback from users, customers, and the Microsoft AVD Product Group, as to what services and settings should not be set for AVD.  
+Later when Azure Virtual Desktop (AVD) came about, the VDOT tool was meticulously gone over, and made to support AVD, in a manner that would not degrade the user interface, reduce functionality, or in any way impair the AVD session hosts.  Input was received and implemented from the Microsoft Windows and Azure Virtual Desktop product groups.
 
 As the VDOT tool exists now, it is compatible with a wide-range of systems.  It works on VDI, AVD, stand-alone Windows, Windows Server (with some caveats), and some optimizations are even applied to the Windows 365 offering.  
 
-There is not, as of May 5, 2022, an updated version of the above referenced whitepaper. *Most optimizations are applicable in current builds*, as they were in the 2004 paper.  We are working to transition to documentation in this repository in the near future.  
+The optimization settings in this tool are the ***potential*** settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed. 
 
-The optimization settings in this tool are the **potential** settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed.  
+The files that determine what to disable, remove, or set as policy, are in text-based .JSON files, in the respective OS version folder (ex. '2009').  *The JSON parameter that this tool uses to determine whether or not to apply a setting is **'VDIState'***.  If the 'VDIState' parameter in the respective .JSON file is set to **Disabled**, the optimization setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.  
 
->*The JSON parameter that this tool uses to determine whether or not to apply a setting is **'VDIState'***.  If 'VDIState' is set to **Enabled**, the setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.
+ > [!NOTE]
+ > This script takes a few minutes to complete. The total runtime will be presented at the end, in the status output messages.  A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  A reboot is necessary because several items cannot be stopped in the current session.
+
+The "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
+
+## Major Features and Functionality
+
+### Support for Windows 11
+
+Windows 11 in some respects, reports the same as Windows 10, to various configuration management tools.  Currently (as of 7/29/22) has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' number changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.  Therefore, the 2009 folder configuration files apply to Windows 10, as well as Windows 11.
+
+### Microsoft Edge (Chromium) optimizations
+
+The current version of Edge in Windows 10, as of 07/29/2022, is Microsoft Edge (Chromium based).  There are a set of policy template files specific to the new Edge.  The VDOT tool now has the following optimization options for Microsoft Edge:  
+
+* Set Edge as the default app for common Internet file types (using 'DefaultAssociations.xml' file and policy)
+* Allow Edge to start processes at sign-in, whether or not the Edge app itself is started
+* Disable "OOBE", or out-of-box experience. Though much improved, still heavy for virtual desktop environments
+* Disable one-time redirection dialog and banner
+* Show product assistance and recommendation notifications
+* Allows Microsoft Edge processes to start at OS sign-in and restart in background after the last browser window is closed.
+* Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed.
+
+### AppxPackages
+
+The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
+
+### "-Optimizations" parameter and new "-AdvancedOptimizations" parameters
+
+The VDOT tool has several parameters passed to the main PowerShell file **"Windows_VDOT.ps1"** that provides installation granularity.  The two parameters used to control exactly what optimizations are applied are:
+
+* `-Optimizations`
+  * All
+  * AppxPackages
+  * Autologgers
+  * DefaultUserSettings
+  * DiskCleanup
+  * LGPO (Local Group Policy Objects)
+  * NetworkOptimizations
+  * ScheduledTasks
+  * Services
+  * WindowsMediaPlayer
+* `-AdvancedOptimizations`
+  * All
+  * Edge
+  * RemoveLegacyIE (remove IE11 payload)
+  * RemoveOneDrive
+
+The result is that you could run as many, as few, or even one sub-parameter contained from the list above.  Here are two examples of running the VDOT tool for specific optimization categories:  
+
+> ```PowerShell
+    .\Windows_VDOT.ps1` -Optimizations AppxPackages -Verbose
+    ```
+
+> ```
 
 ## References
 
@@ -58,18 +88,12 @@ The optimization settings in this tool are the **potential** settings that reduc
  [Windows 10 Release Information](https://docs.microsoft.com/en-us/windows/release-health/release-information)  
  [Windows 11 Release Information](https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information)
 
-**NOTE:** This script now takes just a few minutes to complete on the reference (gold) device. The total runtime will be presented at the end, in the status output messages.  
-
-A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  
-
-The "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
-
 ## Dependencies
 
- 1. LGPO.EXE stored in the 'LGPO' folder.
- **[NOTE]** We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred methods to apply policy settings are:
+ 1. LGPO.EXE stored in the 'LGPO' folder.  
 
-    1. Use a domain-based Group Policy Object (GPO).
+ > [!NOTE]
+ > We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred method to apply policy settings are to use a domain-based Group Policy Object (GPO).
 
  1. Previously saved local group policy settings, available on the GitHub site where this script is located.
  1. The PowerShell script file 'Windows_VDOT.ps1'.
@@ -203,6 +227,7 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 >   Start C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
 >
 >```
+>
 >1. Re-run VDOT with the appropriate '-WindowsVersion' parameter (e.g. 2004).  
 >
 >**[NOTE]** Not only will this repair the Start Menu in some cases, there are a few settings that are specific to the specific build that may not have been previously applied.
