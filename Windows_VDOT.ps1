@@ -87,7 +87,33 @@ it is nearly impossible to get it back.  Please review the configuration files a
 #>
 BEGIN 
 {
-    
+    $VDOTVersion = "2.0.2009.1" 
+    # Create Key
+    $KeyPath = 'HKLM:\SOFTWARE\VDOT'
+    If (-Not(Test-Path $KeyPath))
+    {
+        New-Item -Path $KeyPath | Out-Null
+    }
+
+    # Add VDOT Version Key
+    $Version = "Version"
+    $VersionValue = $VDOTVersion
+    If (Get-ItemProperty $KeyPath -Name Version -ErrorAction SilentlyContinue)
+    {
+        Set-ItemProperty -Path $KeyPath -Name $Version -Value $VersionValue
+    }
+    Else
+    {
+        New-ItemProperty -Path $KeyPath -Name $Version -Value $VersionValue | Out-Null
+    }
+
+    # Add VDOT Last Run
+    $LastRun = "LastRunTime"
+    $LastRunValue = Get-Date
+    If (Get-ItemProperty $KeyPath -Name LastRunTime -ErrorAction SilentlyContinue)
+    {
+        Set-ItemProperty -Path $KeyPath -Name $LastRun -Value $LastRunValue
+    }
 
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
     {
