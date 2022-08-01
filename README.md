@@ -76,20 +76,8 @@ Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
 ```
 
 ```powershell
-Get-ChildItem -Path C:\Test -Name
+Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose
 ```
-
-```Output
-Logs
-anotherfile.txt
-Command.txt
-CreateTestFile.ps1
-ReadOnlyFile.txt
-```
-
->
->PS C:\VDOT\Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose
->
 
 ## References
 
