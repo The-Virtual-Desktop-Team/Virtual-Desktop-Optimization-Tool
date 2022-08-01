@@ -75,7 +75,17 @@ The result is that you could run as many, as few, or even one sub-parameter cont
 Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
 ```
 
-  
+```powershell
+Get-ChildItem -Path C:\Test -Name
+```
+
+```Output
+Logs
+anotherfile.txt
+Command.txt
+CreateTestFile.ps1
+ReadOnlyFile.txt
+```
 
 >
 >PS C:\VDOT\Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose
