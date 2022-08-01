@@ -71,12 +71,18 @@ The VDOT tool has several parameters passed to the main PowerShell file **"Windo
 
 The result is that you could run as many, as few, or even one sub-parameter contained from the list above.  Here are two examples of running the VDOT tool for specific optimization categories.
 
+Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
+
 ```powershell
 Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
 ```
 
 ```powershell
 Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose
+```
+
+```powershell
+Get-Service -Verbose
 ```
 
 ## References
@@ -134,7 +140,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 #This will run AppxPackages only and auto accept the EULA
 ```
 
-**[NOTE]** The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
+**[!NOTE]**
+The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
 
 When complete, you should see a prompt to restart.  You do not have to restart right away.
 
