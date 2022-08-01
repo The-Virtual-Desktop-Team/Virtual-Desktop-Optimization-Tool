@@ -69,13 +69,17 @@ The VDOT tool has several parameters passed to the main PowerShell file **"Windo
   * RemoveLegacyIE (remove IE11 payload)
   * RemoveOneDrive
 
-The result is that you could run as many, as few, or even one sub-parameter contained from the list above.  Here are two examples of running the VDOT tool for specific optimization categories:  
+The result is that you could run as many, as few, or even one sub-parameter contained from the list above.  Here are two examples of running the VDOT tool for specific optimization categories.
 
-> ```PowerShell
-    .\Windows_VDOT.ps1` -Optimizations AppxPackages -Verbose
-    ```
+```powershell
+Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
+```
 
-> ```
+  
+
+>
+>PS C:\VDOT\Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose
+>
 
 ## References
 
