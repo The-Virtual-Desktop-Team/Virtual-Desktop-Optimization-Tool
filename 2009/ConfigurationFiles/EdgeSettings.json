@@ -34,7 +34,7 @@
     {
         "Description": "This policy lets you restrict launching of Internet Explorer as a standalone browser",
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Main",
-        "RegItemValueName": "NotifyDisabledIEOptions",
+        "RegItemValueName": "NotifyDisableIEOptions",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
