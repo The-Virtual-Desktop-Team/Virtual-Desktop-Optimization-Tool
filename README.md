@@ -41,12 +41,15 @@ The current version of Edge in Windows 10, as of 07/29/2022, is Microsoft Edge (
 * Disable "OOBE", or out-of-box experience. Though much improved, still heavy for virtual desktop environments
 * Disable one-time redirection dialog and banner
 * Show product assistance and recommendation notifications
-* Allows Microsoft Edge processes to start at OS sign-in and restart in background after the last browser window is closed.
 * Allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed.
 
 ### AppxPackages
 
-The AppxPackages.json manifest, regardless of version of Windows, now has the "VDIState" set to "Unchanged". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
+The AppxPackages.json manifest, regardless of version of Windows, now has the "**VDIState**" set to "***Unchanged***". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
+
+ > [!NOTE]
+ > The VDOT tool not only removes UWP apps for "AllUsers", it removes the app payload.  Once a UWP app payload is removed, it cannot be re-provisioned to that system.  The only way to re-provision a  removed app payload is reset the device, reinstall, or re-image.  
+Users can still reinstall a VDOT removed app through the Store app, if Internet connected.  If not Internet connected, the apps cannot be reinstalled.  This is why VDOT does not remove the Store app, nor do we recommend that the Store app be removed.  [***Here is an article***](https://docs.microsoft.com/en-us/troubleshoot/windows-client/shell-experience/cannot-remove-uninstall-or-reinstall-microsoft-store-app) on the Store app.
 
 ### "-Optimizations" parameter and new "-AdvancedOptimizations" parameters
 
@@ -71,19 +74,25 @@ The VDOT tool has several parameters passed to the main PowerShell file **"Windo
 
 The result is that you could run as many, as few, or even one sub-parameter contained from the list above.  Here are two examples of running the VDOT tool for specific optimization categories.
 
-Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
+```.\Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose```
 
-```powershell
-Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
-```
+```.\Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose```
 
-```powershell
-Windows_VDOT.ps1 -AdvancedOptimizations Edge, AppxPackages -AcceptEula -Verbose
-```
+```.\Windows_VDOT.ps1 -Optimizations All -AdvancedOptimizations All -AcceptEULA -Verbose```
 
-```powershell
-Get-Service -Verbose
-```
+### Remove OneDrive
+
+We have added the ability to remove the built-in OneDrive app.  Removal of the OneDrive app is applicable for example, to air-gapped clouds.  There is an associated OneDrive app sync that can be removed in the AppxPackages optimization category.  The OneDrive app can be added back.  The sub-parameter to remove the OneDrive app is in the parameter "-AdvancedOptimizations".  Removal of the OneDrive app is not a default setting and can only be initiated by selecting one of the two following options:
+
+   **.\Windows_VDOT.ps1 -AdvancedOptimizations RemoveOneDrive**    
+   **.\Windows_VDOT.ps1 -AdvancedOptimizations All**
+
+### Remove Internet Explorer 11 payload
+
+Since Internet Explorer 11 has been officially retired, we added the option to remove the IE11 payload from the system.  The sub-parameter is ```RemoveLegacyIE``` and is contained in the ```-AdvancedOptimizations``` parameter.  Since it is not a default setting to remove the IE11 payload you can specify it's removal in one of two ways:
+
+  **.\Windows_VDOT.ps1 -AdvancedOptimizations RemoveLegacyIE**  
+  **.\Windows_VDOT.ps1 -AdvancedOptimizations All**  
 
 ## References
 
@@ -124,17 +133,14 @@ On the device that will be receiving the optimizations:
 1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize).
 1. Run the following PowerShell commands:
 
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-
-.\Windows_VDOT.ps1 -Verbose 
-#This will run all optimizations, except Edge
-
-.\Windows_VDOT.ps1 -Optimizations All 
-#This is the same as the command above and will run all optimizations, except Edge
+```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process```
+.\Windows_VDOT.ps1 -Verbose
+This will run all standard optimizations with verbose output
+.\Windows_VDOT.ps1 -Optimizations All  
+This is the same as the command above and will run all "standard" optimizations, with standard output  
 
 .\Windows_VDOT.ps1 -Optimizations Edge, All  
-#This will run all optimizations including Edge
+This will run all optimizations including Edge
 
 .\Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEULA
 #This will run AppxPackages only and auto accept the EULA
@@ -194,12 +200,12 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 >
 > If you would like to keep one or more of these apps in your image, and still control the background behavior, you can edit the default user registry hive and set the following settings:
 >
->        "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe /v Disabled /t REG_DWORD /d 1 /f
->        "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe /v DisabledByUser /t REG_DWORD /d 1 /f
->        "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c /v Disabled /t REG_DWORD /d 1 /f
->        "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c /v DisabledByUser /t REG_DWORD /d 1 /f
->        "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.YourPhone_8wekyb3d8bbwe /v Disabled /t REG_DWORD /d 1 /f
->        "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.YourPhone_8wekyb3d8bbwe /v DisabledByUser /t REG_DWORD /d 1 /f
+>"HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe /v Disabled /t REG_DWORD /d 1 /f
+>"HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe /v DisabledByUser /t REG_DWORD /d 1 /f
+>"HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c /v Disabled /t REG_DWORD /d 1 /f
+>"HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c /v DisabledByUser /t REG_DWORD /d 1 /f
+>"HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.YourPhone_8wekyb3d8bbwe /v Disabled /t REG_DWORD /d 1 /f
+>"HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.YourPhone_8wekyb3d8bbwe /v DisabledByUser /t REG_DWORD /d 1 /f
 >
 > You could also set these settings with Group Policy Preferences, and should take effect after a log off and log back on, or a Gpupdate refresh.
 
