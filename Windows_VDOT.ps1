@@ -151,7 +151,7 @@ PROCESS {
         Write-EventLog -Message "No Optimizations (Optimizations or AdvancedOptimizations) passed, exiting script!" -Source 'VDOT' -EventID 100 -EntryType Error -LogName 'Virtual Desktop Optimization'
         $Message = "`nThe Optimizations parameter no longer defaults to 'All', you must explicitly pass in this parameter.`nThis is to allow for running 'AdvancedOptimizations' separately " 
         Write-Host " * " -ForegroundColor black -BackgroundColor yellow -NoNewline
-        Write-Host " Breaking Change " -ForegroundColor Yellow -BackgroundColor Red -NoNewline
+        Write-Host " Important " -ForegroundColor Yellow -BackgroundColor Red -NoNewline
         Write-Host " * " -ForegroundColor black -BackgroundColor yellow -NoNewline
         Write-Host $Message -ForegroundColor yellow -BackgroundColor black
         Return
