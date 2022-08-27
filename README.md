@@ -17,7 +17,7 @@ Later when Azure Virtual Desktop (AVD) came about, the VDOT tool was meticulousl
 
 As the VDOT tool exists now, it is compatible with a wide-range of systems.  It works on VDI, AVD, stand-alone Windows, Windows Server (with some caveats), and some optimizations are even applied to the Windows 365 offering.  
 
-The optimization settings in this tool are the ***potential*** settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed. 
+The optimization settings in this tool are the ***potential*** settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed.
 
 The files that determine what to disable, remove, or set as policy, are in text-based .JSON files, in the respective OS version folder (ex. '2009').  *The JSON parameter that this tool uses to determine whether or not to apply a setting is **'VDIState'***.  If the 'VDIState' parameter in the respective .JSON file is set to **Disabled**, the optimization setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.  
 
@@ -25,6 +25,23 @@ The files that determine what to disable, remove, or set as policy, are in text-
  > This script takes a few minutes to complete. The total runtime will be presented at the end, in the status output messages.  A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  A reboot is necessary because several items cannot be stopped in the current session.
 
 The "-verbose" parameter in PowerShell directs the script to provide descriptive output as the script is running.
+
+
+## What's New
+
+### "All" parameter set behavior has changed
+
+Up until now, you could run this command:  
+```.\Windows_VDOT.ps1 -Verbose -AcceptEula```  
+and a core set of optimizations would run.  Now if you run the above command you receive a message back:  
+
+![VDOT_Param_Notice](/Images/VDOT_Default_Important_Notice.png)
+
+
+That equivalent functionality going forward is:  
+```.\Windows_VDOT.ps1 -Optimizations All -Verbose -AcceptEula```.
+
+This change came about when more categories of optimizations were added, some of which may not be desirable to everyone, so the new optimizations were added to a new parameter set called **AdvancedOptimizations**.  The new parameter set contains **Edge Chromium optimizations**, the ability to **remove Internet Explorer 11 payload**, and **remove the built-in OneDrive app**.  With the AdvancedOptimizations parameter set, you can run one or all of the optimizations just mentioned.
 
 ## Major Features and Functionality
 
@@ -124,34 +141,43 @@ Also, the "-verbose" parameter in PowerShell directs the script to provide descr
 
 On the device that will be receiving the optimizations:
 
-1. Create a folder (ex. "C:\Optimize").
+1. Create a folder (ex. "C:\VDOT").
 1. Download or copy the entire VDOT set of files and folders.
 1. Unblock the downloaded .zip file, either manually using File -> Properties, or using PowerShell:
 [Unblock-File](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file?view=powershell-5.1)
-1. Extract the VDOT download to the folder previously created (ex. "C:\Optimize).
+1. Extract the VDOT download to the folder previously created (ex. "C:\VDOT").
 1. Start PowerShell elevated.
-1. In PowerShell, change directory to the scripts folder (ex. C:\Optimize).
+1. In PowerShell, change directory to the scripts folder (ex. "C:\VDOT").
 1. Run the following PowerShell commands:
 
-```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process```
-.\Windows_VDOT.ps1 -Verbose
-This will run all standard optimizations with verbose output
-.\Windows_VDOT.ps1 -Optimizations All  
-This is the same as the command above and will run all "standard" optimizations, with standard output  
+```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process```  
+This allows for PowerShell script execution, but for only as long as the app running now is open.
 
-.\Windows_VDOT.ps1 -Optimizations Edge, All  
-This will run all optimizations including Edge
+```.\Windows_VDOT.ps1 -Optimizations All -Verbose```  
+This will run all standard optimizations with verbose output, though the EULA will have to be manually accepted.  
 
-.\Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEULA
-#This will run AppxPackages only and auto accept the EULA
-```
+```.\Windows_VDOT.ps1 -Optimizations All -Verbose -AcceptEula```  
+This will run all standard optimizations with verbose output, and automatically accept Eula (for scripted running)  
 
-**[!NOTE]**
-The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
+```.\Windows_VDOT.ps1 -Optimizations All -AdvancedOptimizations Edge -Verbose -AcceptEULA```  
+This will run all standard optimizations, the Edge browser advanced optimizations, verbose output, and automatically accept Eula.
 
-When complete, you should see a prompt to restart.  You do not have to restart right away.
+```.\Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEULA```  
+This will run AppxPackages only and auto accept the EULA
+
+```.\Windows_VDOT.ps1 -Optimizations All -AdvancedOptimizations All -Verbose -AcceptEULA -Restart```  
+This will run every VDOT optimization, verbose output, automatically accept Eula, and restart the device when VDOT concludes.
+
+> [!NOTE]
+ >The VDOT tool determines OS version at run-time.  You can specify a different set of configuration files by using the "-WindowsVersion" parameter.  
+
+When complete, you should see a prompt to restart.  You do not have to restart right away, though it is recommended to do so.
 
 ## Known Issues
+
+> ### SYSPREP (The Windows System Preparation Tool) (08/27/2022)
+>
+> Should you run VDOT before or after Sysprep?  The answer is either, maybe both.  The "both" answer is because you can re-run VDOT at any time and nothing changes unless settings have reverted, apps have been reinstalled, etc.  A case has been observed, where OneDrive is removed when VDOT is run before SYSPREP.  After that image is deployed there is a OneDrive link on the Start Menu.  This should not occur if you can run VDOT **AFTER SYSPREP**.
 
 > ### Windows cannot check certificate information (01/17/2020)
 >
