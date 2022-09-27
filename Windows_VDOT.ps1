@@ -91,7 +91,7 @@ it is nearly impossible to get it back.  Please review the configuration files a
 #>
 BEGIN 
 {
-    [Version]$VDOTVersion = "2.0.2009.1" 
+    [Version]$VDOTVersion = "2.1.2009.1" 
     # Create Key
     $KeyPath = 'HKLM:\SOFTWARE\VDOT'
     If (-Not(Test-Path $KeyPath))
