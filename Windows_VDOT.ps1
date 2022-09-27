@@ -91,7 +91,7 @@ it is nearly impossible to get it back.  Please review the configuration files a
 #>
 BEGIN 
 {
-    $VDOTVersion = "2.0.2009.1" 
+    [Version]$VDOTVersion = "2.0.2009.1" 
     # Create Key
     $KeyPath = 'HKLM:\SOFTWARE\VDOT'
     If (-Not(Test-Path $KeyPath))
@@ -117,6 +117,10 @@ BEGIN
     If (Get-ItemProperty $KeyPath -Name LastRunTime -ErrorAction SilentlyContinue)
     {
         Set-ItemProperty -Path $KeyPath -Name $LastRun -Value $LastRunValue
+    }
+    Else
+    {
+        New-ItemProperty -Path $KeyPath -Name $LastRun -Value $LastRunValue | Out-Null
     }
 
     If (-not([System.Diagnostics.EventLog]::SourceExists("Virtual Desktop Optimization")))
