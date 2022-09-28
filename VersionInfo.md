@@ -9,6 +9,12 @@ Version information will be in the following format `2.0.2009.1`
 
 ## Current Version
 
+2.1.2009.1
+## Change Log
+- Added missing code that adds the time and date VDOT was run on a host to the registry
+
+## Version History
+
 2.0.2009.1
 
 ## Change Log
