@@ -62,5 +62,13 @@
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
         "VDIState": "Enabled"
+    },
+    {
+        "Description": "Efficiency mode is always active. Efficiency mode is designed to help reduce background processing and extend battery life. It minimizes power usage by reducing resource usage (CPU usage) through modifying certain tab activity on tabs you’re not interacting with and putting inactive background tabs to sleep after 5 minutes or less. Supported since Edge v96.",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "EfficiencyMode",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
     }
 ]
