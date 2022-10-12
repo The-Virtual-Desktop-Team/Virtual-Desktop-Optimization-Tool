@@ -1,20 +1,27 @@
-# VDOT Version Information
+# VDOT Version History
 
-Version information will be in the following format `2.0.2009.1`
+Version - **3.0.2009.1**
+### Changes
+* Added "Functions" folder to breakout all the work being done in Windows_VDOT.ps1
+* Created "Configurations" folder to hold all configurations
 
-- 2 - Major Revisions to `Windows_VDOT.ps1`
-- 0 - Minor Revisions to `Windows_VDOT.ps1`
-- 2009 - Supported version of Windows 10/11 configuration files
-- 1 - Minor changes to configuration files
-
-## Current Version
-
-2.1.2009.1
-## Change Log
-- Added missing code that adds the time and date VDOT was run on a host to the registry
+### Updates
+* Fixed issue when VDOT is not run from its own directory
+* Update 3
+___
 
 ## Version History
 
-2.0.2009.1
+Version - **2.1.2009.1**
+### Changes
+* Added missing code that adds the time and date VDOT was run on a host to the registry
 
-## Change Log
+### Updates
+___
+
+Version - **2.0.2009.1**
+### Changes
+
+### Updates
+
+
