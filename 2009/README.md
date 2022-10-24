@@ -1,10 +1,10 @@
 # Windows Version 2009
 
 >## Edge Optimizations
-
+>
 >### We now support a few optimizations for the New Edge
-
->[***Warning***] - This optimization is not included in the "Optimizations" Parameter when "All" is selected. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
+>
+>***Warning*** - This optimization is not included in the "Optimizations" Parameter when "All" is selected. It specifically has to be called by passing in `-Optimizations Edge, <other optimizations>`
 
 EdgeSettings.json
 
