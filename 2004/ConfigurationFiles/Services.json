@@ -41,7 +41,7 @@
   },
   {
     "Name": "DiagTrack",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://docs.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization",
     "Description": "Connected User Experiences and Telemetry service, manages the event driven collection and transmission of diagnostic and usage information (used to improve the experience and quality of the Windows Platform) when the diagnostics and usage privacy option settings are enabled under Feedback and Diagnostics."
   },
