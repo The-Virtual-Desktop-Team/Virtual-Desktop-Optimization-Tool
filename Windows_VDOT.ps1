@@ -740,7 +740,7 @@ PROCESS {
             # Delete not in-use anything in your %temp% folder
             Write-EventLog -EventId 90 -Message "Removing files not in use in $env:temp directory" -LogName 'Virtual Desktop Optimization' -Source 'DiskCleanup' -EntryType Information
             Write-Host "Removing files not in use in $env:temp directory"
-            Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
+            Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue -Exclude packer*.ps1
 
             # Clear out ALL visible Recycle Bins
             Write-EventLog -EventId 90 -Message "Clearing out ALL Recycle Bins" -LogName 'Virtual Desktop Optimization' -Source 'DiskCleanup' -EntryType Information
