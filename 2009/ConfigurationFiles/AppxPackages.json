@@ -1,4 +1,10 @@
 [
+   {
+    "AppxPackage": "Clipchamp.Clipchamp",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/store/detail/9P1J8S7CCWWT",
+    "Description": "Video editing app"
+  },
   {
     "AppxPackage": "Microsoft.BingNews",
     "VDIState": "Unchanged",
