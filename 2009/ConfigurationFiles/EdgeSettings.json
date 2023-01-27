@@ -45,7 +45,7 @@
         "RegItemValueName": "DefaultAssociationsConfiguration",
         "RegItemValueType": "String",
         "RegItemValue": "c:\\windows\\system32\\defaultassociations.xml",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "Description": "Allows Microsoft Edge processes to start at OS sign-in and restart in background after the last browser window is closed.",
