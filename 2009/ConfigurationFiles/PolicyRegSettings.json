@@ -126,13 +126,6 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkConnectivityStatusIndicator",
-        "RegItemValueName": "DisablePassivePolling",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Unchanged"
-    },
-    {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetCache",
         "RegItemValueName": "Enabled",
         "RegItemValueType": "DWord",
