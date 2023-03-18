@@ -1,5 +1,12 @@
 [
     {
+        "RegItemPath": "HKLM:\\Software\\Policies\\Microsoft\\Dsh",
+        "RegItemValueName": "AllowNewsAndInterests",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+        {
         "RegItemPath": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Windows Feeds",
         "RegItemValueName": "EnableFeeds",
         "RegItemValueType": "DWord",
