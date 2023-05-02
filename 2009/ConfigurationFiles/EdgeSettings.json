@@ -62,5 +62,13 @@
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
+    },
+    {
+        "Description": "Policy setting to control an Edge search bar that gets placed on the user desktop automatically",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "RegItemValueName": "WebWidgetAllowed",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
     }
 ]
