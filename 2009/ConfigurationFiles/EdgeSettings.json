@@ -52,7 +52,7 @@
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
         "RegItemValueName": "StartupBoostEnabled",
         "RegItemValueType": "DWord",
-        "RegItemValue": "1",
+        "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
