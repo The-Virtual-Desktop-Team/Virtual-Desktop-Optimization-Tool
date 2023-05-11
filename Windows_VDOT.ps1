@@ -603,21 +603,22 @@ PROCESS {
                 Write-Warning "No LGPO Settings found"
             }
         }
-        Else 
-        {
-            If (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe"))
-            {
-                Write-EventLog -EventId 80 -Message "[VDI Optimize] Import Local Group Policy Items" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
-                Write-Host "[VDI Optimize] Import Local Group Policy Items" -ForegroundColor Cyan
-                Write-Verbose "Importing Local Group Policy Items"
-                Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
-            }
-            Else
-            {
-                Write-EventLog -EventId 80 -Message "File not found $PSScriptRoot\LGPO\LGPO.exe" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Warning
-                Write-Warning "File not found $PSScriptRoot\LGPO\LGPO.exe"
-            }
-        }    
+        # Removing support for LGPO legacy tool
+        #Else 
+        #{
+        #    If (Test-Path (Join-Path $PSScriptRoot "LGPO\LGPO.exe"))
+        #    {
+        #        Write-EventLog -EventId 80 -Message "[VDI Optimize] Import Local Group Policy Items" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
+        #        Write-Host "[VDI Optimize] Import Local Group Policy Items" -ForegroundColor Cyan
+        #        Write-Verbose "Importing Local Group Policy Items"
+        #        Start-Process (Join-Path $PSScriptRoot "LGPO\LGPO.exe") -ArgumentList "/g .\LGPO" -Wait
+        #    }
+        #    Else
+        #    {
+        #        Write-EventLog -EventId 80 -Message "File not found $PSScriptRoot\LGPO\LGPO.exe" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Warning
+        #        Write-Warning "File not found $PSScriptRoot\LGPO\LGPO.exe"
+        #    }
+        #}    
     }
     #endregion
     
