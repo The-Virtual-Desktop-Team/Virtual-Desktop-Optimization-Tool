@@ -696,7 +696,7 @@ PROCESS {
         Write-EventLog -EventId 80 -Message "Remove OneDrive Commercial" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
         Write-Host "[VDI Advanced Optimize] Removing OneDrive Commercial" -ForegroundColor Cyan
         $OneDrivePath = @('C:\Windows\System32\OneDriveSetup.exe', 'C:\Windows\SysWOW64\OneDriveSetup.exe')   
-        $OneDrivePath | foreach {
+        $OneDrivePath | ForEach-Object {
             If (Test-Path $_)
             {
                 Write-Host "`tAttempting to uninstall $_"
@@ -704,8 +704,9 @@ PROCESS {
                 Start-Process $_ -ArgumentList "/uninstall" -Wait
             }
         }
+
         Write-EventLog -EventId 80 -Message "Removing shortcut links for OneDrive" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
-        Get-ChildItem C:\OneDrive*.* -ErrorAction SilentlyContinue -Recurse | Remove-Item -Force -ErrorAction SilentlyContinue
+        Get-ChildItem 'C:\*' -Recurse -Force -EA SilentlyContinue -Include 'OneDrive','OneDrive.*' | Remove-Item -Force -Recurse -EA SilentlyContinue
     }
 
     #endregion
