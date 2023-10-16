@@ -139,5 +139,10 @@
     "ScheduledTask": "Work Folders Maintenance Work",
     "VDIState": "Disabled",
     "Description": "Customer Experience Improvement Program task"
+  },
+  {
+    "ScheduledTask": "Restore",
+    "VDIState": "Unchanged",
+    "Description": "Handles restoring settings from the cloud"
   }
 ]
