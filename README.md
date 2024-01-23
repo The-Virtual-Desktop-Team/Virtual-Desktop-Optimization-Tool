@@ -1,3 +1,13 @@
+# Quickstart
+
+```
+Set-ExecutionPolicy -ExecutionPolicy Bypass -y
+.\Windows_VDOT.ps1 -Optimizations AppxPackages -AcceptEula -Verbose
+.\Windows_VDOT.ps1 -AdvancedOptimizations Edge -AcceptEula -Verbose
+.\Windows_VDOT.ps1 -AdvancedOptimizations All -AcceptEula -Verbose 
+```
+
+
 # Windows Virtual Desktop Optimization Tool (VDOT)
 
 ![Contributors](https://img.shields.io/github/contributors/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
