@@ -350,27 +350,6 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableLockScreenAppNotifications",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DontEnumerateConnectedUsers",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "NoWelcomeScreen",
         "RegItemValueType": "DWord",
