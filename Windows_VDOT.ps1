@@ -592,7 +592,7 @@ PROCESS {
                             }
                             Else
                             {
-                                Write-EventLog -EventId 80 -Message "Creating Key and Path" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
+                                Write-EventLog -EventId 80 -Message "Creating Name $($Key.RegItemValueName), Value $($Key.RegItemValue) and Path $($Key.RegItemPath)" -LogName 'Virtual Desktop Optimization' -Source 'LGPO' -EntryType Information
                                 Write-Verbose "Creating Key and Path"
                                 New-Item -Path $Key.RegItemPath -Force | New-ItemProperty -Name $Key.RegItemValueName -PropertyType $Key.RegItemValueType -Value $Key.RegItemValue -Force | Out-Null 
                             }
