@@ -1,9 +1,15 @@
 [
-   {
+  {
     "AppxPackage": "Clipchamp.Clipchamp",
     "VDIState": "Unchanged",
-    "URL": "https://apps.microsoft.com/store/detail/9P1J8S7CCWWT",
-    "Description": "Video editing app"
+    "URL": "https://apps.microsoft.com/detail/9p1j8s7ccwwt?hl=en-us&gl=US",
+    "Description": "Create videos with a few clicks"
+  },
+  {
+    "AppxPackage": "Microsoft.549981C3F5F10",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/cortana/9NFFX4SZZ23L?hl=en-us&gl=US",
+    "Description": "Cortana (could not update)"
   },
   {
     "AppxPackage": "Microsoft.BingNews",
@@ -16,6 +22,12 @@
     "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/msn-weather/9wzdncrfj3q2",
     "Description": "MSN Weather app"
+  },
+  {
+    "AppxPackage": "Microsoft.DesktopAppInstaller",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9NBLGGH4NNS1",
+    "Description": "Microsoft App Installer for Windows 10 makes sideloading Windows 10 apps easy"
   },
   {
     "AppxPackage": "Microsoft.GamingApp",
@@ -60,10 +72,22 @@
     "Description": "Note-taking app"
   },
   {
+    "AppxPackage": "Microsoft.OutlookForWindows",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9NRX63209R7B?hl=en-us&gl=US",
+    "Description": "a best-in-class email experience that is free for anyone with Windows"
+  },
+  {
     "AppxPackage": "Microsoft.MSPaint",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/store/detail/paint-3d/9NBLGGH5FV99",
     "Description": "Paint 3D app (not Classic Paint app)"
+  },
+  {
+    "AppxPackage": "Microsoft.Paint",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9PCFS5B6T72H?hl=en-us&gl=US",
+    "Description": "Classic Paint app"
   },
   {
     "AppxPackage": "Microsoft.People",
@@ -90,10 +114,28 @@
     "Description": "Instant message, voice or video call app"
   },
   {
+    "AppxPackage": "Microsoft.StorePurchaseApp",
+    "VDIState": "Unchanged",
+    "URL": "",
+    "Description": "Store purchase app helper"
+  },
+  {
     "AppxPackage": "Microsoft.Todos",
     "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-to-do-lists-tasks-reminders/9nblggh5r558",
     "Description": "Microsoft To Do makes it easy to plan your day and manage your life"
+  },
+  {
+    "AppxPackage": "Microsoft.WinDbg.Fast",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9PGJGD53TN86?hl=en-us&gl=US",
+    "Description": "Microsoft WinDbg"
+  },
+  {
+    "AppxPackage": "Microsoft.Windows.DevHome",
+    "VDIState": "Unchanged",
+    "URL": "https://learn.microsoft.com/en-us/windows/dev-home/",
+    "Description": "A control center providing the ability to monitor projects in your dashboard using customizable widgets and more"
   },
   {
     "AppxPackage": "Microsoft.Windows.Photos",
@@ -150,10 +192,22 @@
     "Description": "(Voice recorder)"
   },
   {
+    "AppxPackage": "Microsoft.WindowsStore",
+    "VDIState": "Unchanged",
+    "URL": "https://blogs.windows.com/windowsexperience/2021/06/24/building-a-new-open-microsoft-store-on-windows-11/",
+    "Description": "Windows Store app"
+  },
+  {
     "AppxPackage": "Microsoft.WindowsTerminal",
     "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701",
     "Description": "A terminal app featuring tabs, panes, Unicode, UTF-8 character support, and GPU text rendering engine."
+  },
+  {
+    "AppxPackage": "Microsoft.Winget.Platform.Source",
+    "VDIState": "Unchanged",
+    "URL": "https://learn.microsoft.com/en-us/windows/package-manager/winget/",
+    "Description": "The Winget tool enables users to manage applications on Win10 and Win11 devices. This tool is the client interface to the Windows Package Manager service"
   },
   {
     "AppxPackage": "Microsoft.Xbox.TCUI",
@@ -202,6 +256,18 @@
     "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/movies-tv/9wzdncrfj3p2",
     "Description": "Movies and TV app"
+  },
+  {
+    "AppxPackage": "MicrosoftCorporationII.QuickAssist",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9P7BP5VNWKX5?hl=en-us&gl=US",
+    "Description": "Microsoft remote help app"
+  },
+  {
+    "AppxPackage": "MicrosoftWindows.Client.WebExperience",
+    "VDIState": "Unchanged",
+    "URL": "",
+    "Description": "Windows 11 Internet information widget"
   },
   {
     "AppxPackage": "Microsoft.XboxApp",
