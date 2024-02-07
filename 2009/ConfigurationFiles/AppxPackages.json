@@ -186,16 +186,16 @@
     "Description": "Fast, simple text editor for plain text documents and source code files."
   },
   {
-    "AppxPackage": "Microsoft.WindowsSoundRecorder",
-    "VDIState": "Unchanged",
-    "URL": "https://www.microsoft.com/en-us/p/windows-voice-recorder/9wzdncrfhwkn",
-    "Description": "(Voice recorder)"
-  },
-  {
     "AppxPackage": "Microsoft.WindowsStore",
     "VDIState": "Unchanged",
     "URL": "https://blogs.windows.com/windowsexperience/2021/06/24/building-a-new-open-microsoft-store-on-windows-11/",
     "Description": "Windows Store app"
+  },
+  {
+    "AppxPackage": "Microsoft.WindowsSoundRecorder",
+    "VDIState": "Unchanged",
+    "URL": "https://www.microsoft.com/en-us/p/windows-voice-recorder/9wzdncrfhwkn",
+    "Description": "(Voice recorder)"
   },
   {
     "AppxPackage": "Microsoft.WindowsTerminal",
