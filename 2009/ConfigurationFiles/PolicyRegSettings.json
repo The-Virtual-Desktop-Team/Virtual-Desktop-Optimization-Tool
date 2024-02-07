@@ -6,7 +6,7 @@
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
-        {
+    {
         "RegItemPath": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Windows Feeds",
         "RegItemValueName": "EnableFeeds",
         "RegItemValueType": "DWord",
@@ -280,7 +280,7 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Registration Wizard Control",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Registration Wizard Control",
         "RegItemValueName": "NoRegistration",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
@@ -350,13 +350,6 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DontEnumerateConnectedUsers",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
         "RegItemValueName": "NoWelcomeScreen",
         "RegItemValueType": "DWord",
@@ -385,7 +378,7 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\SystemRestore",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\SystemRestore",
         "RegItemValueName": "DisableSR",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
@@ -420,56 +413,56 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{eb73b633-3f4e-4ba0-8f60-8f3c6f53168f}",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{eb73b633-3f4e-4ba0-8f60-8f3c6f53168f}",
         "RegItemValueName": "ScenarioExecutionEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{9c5a40da-b965-4fc3-8781-88dd50a6299d}",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{9c5a40da-b965-4fc3-8781-88dd50a6299d}",
         "RegItemValueName": "ScenarioExecutionEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{3af8b24a-c441-4fa4-8c5c-bed591bfa867}",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{3af8b24a-c441-4fa4-8c5c-bed591bfa867}",
         "RegItemValueName": "ScenarioExecutionEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{2698178D-FDAD-40AE-9D3C-1371703ADC5B}",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{2698178D-FDAD-40AE-9D3C-1371703ADC5B}",
         "RegItemValueName": "ScenarioExecutionEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{ffc42108-4920-4acf-a4fc-8abdcc68ada4}",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{ffc42108-4920-4acf-a4fc-8abdcc68ada4}",
         "RegItemValueName": "ScenarioExecutionEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\WDI\\{a7a5847a-7511-4e4e-90b1-45ad2a002f51}",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{a7a5847a-7511-4e4e-90b1-45ad2a002f51}",
         "RegItemValueName": "ScenarioExecutionEnabled",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\AdvertisingInfo",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo",
         "RegItemValueName": "DisabledByGroupPolicy",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\AppCompat",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat",
         "RegItemValueName": "DisableInventory",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
@@ -490,28 +483,28 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CloudContent",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableSoftLanding",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CloudContent",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "RegItemValueName": "DisableWindowsConsumerFeatures",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\PreviewBuilds",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\PreviewBuilds",
         "RegItemValueName": "AllowBuildPreview",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\DataCollection",
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
         "RegItemValueName": "DoNotShowFeedbackNotifications",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
@@ -861,7 +854,7 @@
         "VDIState": "Enabled"
     },
     {
-        "RegItemPath": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\Explorer",
+        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
         "RegItemValueName": "NoRemoteDestinations",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
