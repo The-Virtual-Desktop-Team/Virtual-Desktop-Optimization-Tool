@@ -92,13 +92,6 @@
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
-        "RegItemValueType": "DWord",
-        "RegItemValue": "1",
-        "VDIState": "Enabled"
-    },
-    {
-        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
         "RegItemValueName": "DisableLockScreenAppNotifications",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
@@ -347,6 +340,13 @@
         "RegItemValueName": "EnumerateLocalUsers",
         "RegItemValueType": "DWord",
         "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "RegItemValueName": "DisableAcrylicBackgroundOnLogon",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
         "VDIState": "Enabled"
     },
     {

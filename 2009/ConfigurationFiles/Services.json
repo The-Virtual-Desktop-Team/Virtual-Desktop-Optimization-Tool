@@ -22,6 +22,11 @@
     "Description": "Diagnostic Execution Service"
   },
   {
+    "Name": "DiagTrack",
+    "VDIState": "Disabled",
+    "Description": "Connected User Experiences and Telemetry."
+  },
+  {
     "Name": "DPS",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/uwp/api/Windows.System.Diagnostics?view=winrt-19041",
