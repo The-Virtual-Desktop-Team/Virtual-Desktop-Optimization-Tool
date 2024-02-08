@@ -978,5 +978,31 @@
         "RegItemValueType": "DWord",
         "RegItemValue": "",
         "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
+        "RegItemValueName": "StartupBoostEnabled",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
+    },
+    {
+        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate",
+        "RegItemValueName": "UpdatesSuppressedDurationMin",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "900",
+        "VDIState": "Enabled"
+    },{
+        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate",
+        "RegItemValueName": "UpdatesSuppressedStartHour",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "4",
+        "VDIState": "Enabled"
+    },{
+        "RegItemPath": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate",
+        "RegItemValueName": "UpdatesSuppressedStartMin",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "0",
+        "VDIState": "Enabled"
     }
 ]
