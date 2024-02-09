@@ -229,5 +229,12 @@
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\GameBar",
+        "KeyName": "AppCaptureEnabled",
+        "PropertyType": "DWORD",
+        "PropertyValue": 0,
+        "SetProperty": "True"
     }
 ]
