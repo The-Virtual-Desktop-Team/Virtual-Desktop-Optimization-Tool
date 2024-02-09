@@ -222,5 +222,12 @@
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\GameBar",
+        "KeyName": "UseNexusForGameBarEnabled",
+        "PropertyType": "DWORD",
+        "PropertyValue": 0,
+        "SetProperty": "True"
     }
 ]
