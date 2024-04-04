@@ -84,7 +84,7 @@
   },
   {
     "Name": "VSS",
-    "VDIState": "Unchanged",
+    "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/windows-server/storage/file-server/volume-shadow-copy-service",
     "Description": "Volume Shadow Copy"
   },

@@ -142,7 +142,7 @@
   },
   {
     "ScheduledTask": "Restore",
-    "VDIState": "Unchanged",
+    "VDIState": "Disabled",
     "Description": "Handles restoring settings from the cloud"
   }
 ]
