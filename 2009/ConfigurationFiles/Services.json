@@ -1,5 +1,11 @@
 [
   {
+    "Name": "InstallService",
+    "VDIState": "Unchanged",
+    "URL": "",
+    "Description": "Provides infrastructure support for the Microsoft Store."
+  },
+  {
     "Name": "autotimesvc",
     "VDIState": "Disabled",
     "URL": "https://docs.microsoft.com/en-us/windows-hardware/drivers/network/mb-nitz-support",
