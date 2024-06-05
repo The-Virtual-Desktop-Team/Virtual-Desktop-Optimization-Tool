@@ -75,7 +75,7 @@
     "ScheduledTask": "QueueReporting",
     "VDIState": "Disabled",
     "URI": "\\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting",
-    "Description": "  "
+    "Description": "Windows Error Reporting task to process queued reports"
   },
   {
     "ScheduledTask": "RecommendedTroubleshootingScanner",
@@ -104,13 +104,13 @@
   {
     "ScheduledTask": "SpeechModelDownloadTask",
     "VDIState": "Disabled",
-    "URI": null,
-    "Description": null
+    "URI": \\Microsoft\\Windows\\Speech\\SpeechModelDownloadTask,
+    "Description": ""
   },
   {
     "ScheduledTask": "Sqm-Tasks",
     "VDIState": "Disabled",
-    "URI": null,
+    "URI": "\\Microsoft\\Windows\\PI\\Sqm-Tasks",
     "Description": "This task gathers information about the Trusted Platform Module (TPM), Secure Boot, and Measured Boot."
   },
   {
@@ -153,19 +153,19 @@
     "ScheduledTask": "VerifyWinRE",
     "VDIState": "Disabled",
     "URI": "\\Microsoft\\Windows\\RecoveryEnvironment\\VerifyWinRE",
-    "Description": "Customer Experience Improvement Program task"
+    "Description": "Validates the Windows Recovery Environment"
   },
   {
     "ScheduledTask": "Work Folders Logon Synchronization",
     "VDIState": "Disabled",
     "URI": "\\Microsoft\\Windows\\Work Folders\\Work Folders Logon Synchronization",
-    "Description": "Customer Experience Improvement Program task"
+    "Description": "This task initiates synchronization of Work Folders partnerships when a user logs onto the system"
   },
   {
     "ScheduledTask": "Work Folders Maintenance Work",
     "VDIState": "Disabled",
     "URI": "\\Microsoft\\Windows\\Work Folders\\Work Folders Maintenance Work",
-    "Description": "Customer Experience Improvement Program task"
+    "Description": "This task initiates maintenance work required for on-going good performance of data synchronization of Work Folders partnerships"
   },
   {
     "ScheduledTask": "Restore",
