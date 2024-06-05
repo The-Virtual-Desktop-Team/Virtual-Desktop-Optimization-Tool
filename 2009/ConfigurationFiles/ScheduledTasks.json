@@ -2,147 +2,175 @@
   {
     "ScheduledTask": "AnalyzeSystem",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Power Efficiency Diagnostics\\AnalyzeSystem",
     "Description": "This task analyzes the system looking for conditions that may cause high energy use."
   },
   {
     "ScheduledTask": "Cellular",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Management\\Provisioning\\Cellular",
     "Description": "Related to cellular devices"
   },
   {
     "ScheduledTask": "Consolidator",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator",
     "Description": "If the user has consented to participate in the Windows Customer Experience Improvement Program, this job collects and sends usage data to Microsoft."
   },
   {
     "ScheduledTask": "Diagnostics",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\DiskFootprint\\Diagnostics",
     "Description": "(DiskFootprint in task path) 'DiskFootprint' is the combined contribution of all processes that issue storage I/O in the form of storage reads, writes, and flushes."
   },
   {
     "ScheduledTask": "FamilySafetyMonitor",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Shell\\FamilySafetyMonitor",
     "Description": "Initializes Family Safety monitoring and enforcement."
   },
   {
     "ScheduledTask": "FamilySafetyRefreshTask",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Shell\\FamilySafetyRefreshTask",
     "Description": "Synchronizes the latest settings with the Microsoft family features service."
   },
   {
     "ScheduledTask": "MapsToastTask",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Maps\\MapsToastTask",
     "Description": "This task shows various Map related toasts"
   },
   {
     "ScheduledTask": "*Compatibility*",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser",
     "Description": "Collects program telemetry information if opted-in to the Microsoft Customer Experience Improvement Program."
   },
   {
     "ScheduledTask": "Microsoft-Windows-DiskDiagnosticDataCollector",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector",
     "Description": "The Windows Disk Diagnostic reports general disk and system information to Microsoft for users participating in the Customer Experience Program."
   },
   {
     "ScheduledTask": "NotificationTask",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\WwanSvc\\NotificationTask",
     "Description": "Background task for performing per user and web interactions"
   },
   {
     "ScheduledTask": "ProcessMemoryDiagnosticEvents",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\MemoryDiagnostic\\ProcessMemoryDiagnosticEvents",
     "Description": "Schedules a memory diagnostic in response to system events."
   },
   {
     "ScheduledTask": "Proxy",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Autochk\\Proxy",
     "Description": "This task collects and uploads autochk SQM data if opted-in to the Microsoft Customer Experience Improvement Program."
   },
   {
     "ScheduledTask": "QueueReporting",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting",
     "Description": "  "
   },
   {
     "ScheduledTask": "RecommendedTroubleshootingScanner",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Diagnosis\\RecommendedTroubleshootingScanner",
     "Description": "Check for recommended troubleshooting from Microsoft"
   },
   {
     "ScheduledTask": "RegIdleBackup",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Registry\\RegIdleBackup",
     "Description": "Registry Idle Backup Task"
   },
   {
     "ScheduledTask": "RunFullMemoryDiagnostic",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\MemoryDiagnostic\\RunFullMemoryDiagnostic",
     "Description": "Detects and mitigates problems in physical memory (RAM)."
   },
   {
     "ScheduledTask": "ScheduledDefrag",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Defrag\\ScheduledDefrag",
     "Description": "This task optimizes local storage drives."
   },
   {
     "ScheduledTask": "SpeechModelDownloadTask",
     "VDIState": "Disabled",
+    "URI": null,
     "Description": null
   },
   {
     "ScheduledTask": "Sqm-Tasks",
     "VDIState": "Disabled",
+    "URI": null,
     "Description": "This task gathers information about the Trusted Platform Module (TPM), Secure Boot, and Measured Boot."
   },
   {
     "ScheduledTask": "SR",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\SystemRestore\\SR",
     "Description": "This task creates regular system protection points."
   },
   {
     "ScheduledTask": "StartComponentCleanup",
     "VDIState": "Disabled",
-    "URL": "https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder",
+    "URI": "\\Microsoft\\Windows\\Servicing\\StartComponentCleanup",
     "Description": "Servicing task that may be better performed during maintenance windows"
   },
   {
     "ScheduledTask": "WindowsActionDialog",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Location\\WindowsActionDialog",
     "Description": "Location Notification"
   },
   {
     "ScheduledTask": "WinSAT",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Maintenance\\WinSAT",
     "Description": "Measures a system's performance and capabilities"
   },
   {
     "ScheduledTask": "XblGameSaveTask",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\XblGameSave\\XblGameSaveTask",
     "Description": "Xbox Live GameSave standby task"
   },
   {
     "ScheduledTask": "UsbCeip",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip",
     "Description": "Customer Experience Improvement Program task"
   },
   {
     "ScheduledTask": "VerifyWinRE",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\RecoveryEnvironment\\VerifyWinRE",
     "Description": "Customer Experience Improvement Program task"
   },
   {
     "ScheduledTask": "Work Folders Logon Synchronization",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Work Folders\\Work Folders Logon Synchronization",
     "Description": "Customer Experience Improvement Program task"
   },
   {
     "ScheduledTask": "Work Folders Maintenance Work",
     "VDIState": "Disabled",
+    "URI": "\\Microsoft\\Windows\\Work Folders\\Work Folders Maintenance Work",
     "Description": "Customer Experience Improvement Program task"
   },
   {
     "ScheduledTask": "Restore",
     "VDIState": "Unchanged",
+    "URI": "\\Microsoft\\Windows\\CloudRestore\\Restore",
     "Description": "Handles restoring settings from the cloud"
   }
 ]
