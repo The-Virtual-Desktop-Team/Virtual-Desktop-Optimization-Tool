@@ -52,7 +52,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020)
-- LAST UPDATED:   7/8/2022
+- LAST UPDATED:   6/6/2024
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
@@ -63,12 +63,10 @@ Param (
                   Please test thoroughly in your environment before implementation
 
 - DEPENDENCIES    1. On the target machine, run PowerShell elevated (as administrator)
-                  2. Within PowerShell, set exectuion policy to enable the running of scripts.
+                  2. Within PowerShell, set execution policy to enable the running of scripts.
                      Ex. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-                  3. LGPO.EXE (available at https://www.microsoft.com/en-us/download/details.aspx?id=55319)
-                  4. LGPO database files available in the respective folders (ex. \1909, or \2004)
-                  5. This PowerShell script
-                  6. The text input files containing all the apps, services, traces, etc. that you...
+                  3. This PowerShell script
+                  4. The text input files containing all the apps, services, traces, etc. that you...
                      may be interested in disabling. Please review these input files to customize...
                      to your environment/requirements
 
