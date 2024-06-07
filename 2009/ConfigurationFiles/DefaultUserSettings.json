@@ -1,5 +1,12 @@
 [
     {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "KeyName": "TaskbarMn",
+        "PropertyType": "DWord",
+        "PropertyValue": "0",
+        "SetProperty": "True"
+    },
+    {
         "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "KeyName": "DisableThirdPartySuggestions",
         "PropertyType": "DWord",
