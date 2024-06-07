@@ -1,5 +1,166 @@
 [
     {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "KeyName": "DisableThirdPartySuggestions",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "KeyName": "DisableTailoredExperiencesWithDiagnosticData",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "KeyName": "NoResolveSearch",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\Directory UI",
+        "KeyName": "QueryLimit",
+        "PropertyType": "DWord",
+        "PropertyValue": "1500",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "KeyName": "NoWindowMinimizingShortcuts",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "KeyName": "TaskbarNoNotification",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "KeyName": "DisableWindowsSpotlightFeatures",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "KeyName": "NoThumbnailCache",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "KeyName": "DisableSearchBoxSuggestions",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "KeyName": "NoBalloonFeatureAdvertisements",
+        "PropertyType": "DWord",
+        "PropertyValue": "",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Control Panel\\International",
+        "KeyName": "TurnOffOfferTextPredictions",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "KeyName": "DisableThumbsDBOnNetworkFolders",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
+        "KeyName": "NoToastApplicationNotification",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications",
+        "KeyName": "NoToastApplicationNotificationOnLockScreen",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
+        "KeyName": "DisableMFUTracking",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "KeyName": "NoInstrumentation",
+        "PropertyType": "DWord",
+        "PropertyValue": "",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
+        "KeyName": "StartupBoostEnabled",
+        "PropertyType": "DWord",
+        "PropertyValue": "0",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate",
+        "KeyName": "UpdatesSuppressedDurationMin",
+        "PropertyType": "DWord",
+        "PropertyValue": "900",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate",
+        "KeyName": "UpdatesSuppressedStartHour",
+        "PropertyType": "DWord",
+        "PropertyValue": "4",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate",
+        "KeyName": "UpdatesSuppressedStartMin",
+        "PropertyType": "DWord",
+        "PropertyValue": "0",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "KeyName": "NoSearchInternetInStartMenu",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "KeyName": "NoRemoteDestinations",
+        "PropertyType": "DWord",
+        "PropertyValue": "1",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "KeyName": "ConfigureWindowsSpotlight",
+        "PropertyType": "DWord",
+        "PropertyValue": "2",
+        "SetProperty": "True"
+    },
+    {
         "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer",
         "KeyName": "ShellState",
         "PropertyType": "BINARY",
@@ -236,5 +397,12 @@
         "PropertyType": "DWORD",
         "PropertyValue": 0,
         "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+        "KeyName": "TurnOffWindowsCopilot",
+        "PropertyType": "DWORD",
+        "PropertyValue": 1,
+        "SetProperty": "False"
     }
 ]
