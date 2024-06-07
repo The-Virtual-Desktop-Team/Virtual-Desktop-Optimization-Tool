@@ -1,6 +1,13 @@
 [
     {
         "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "KeyName": "Start_IrisRecommendations",
+        "PropertyType": "DWord",
+        "PropertyValue": "0",
+        "SetProperty": "True"
+    },
+    {
+        "HivePath": "HKLM:\\VDOT_TEMP\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "KeyName": "TaskbarMn",
         "PropertyType": "DWord",
         "PropertyValue": "0",
