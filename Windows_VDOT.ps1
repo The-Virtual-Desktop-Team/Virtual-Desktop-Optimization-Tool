@@ -51,8 +51,8 @@ Param (
 - TITLE:          Microsoft Windows Virtual Desktop Optimization Script
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
-- CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020)
-- LAST UPDATED:   7/8/2022
+- CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020), @brentil (2024)
+- LAST UPDATED:   6/7/2024
 - PURPOSE:        To automatically apply settings referenced in the following white papers:
                   https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
                   
@@ -756,6 +756,7 @@ PROCESS {
             Write-EventLog -EventId 90 -Message "Clearing BranchCache cache" -LogName 'Virtual Desktop Optimization' -Source 'DiskCleanup' -EntryType Information
             Write-Host "Clearing BranchCache cache" 
             Clear-BCCache -Force -ErrorAction SilentlyContinue
+        
         }    #endregion
 
     Set-Location $CurrentLocation
