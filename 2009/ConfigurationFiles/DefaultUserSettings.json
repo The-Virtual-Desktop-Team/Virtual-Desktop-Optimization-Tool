@@ -11,7 +11,7 @@
         "KeyName": "IconsOnly",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
-        "SetProperty": "True"
+        "SetProperty": "False"
     },
     {
         "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
