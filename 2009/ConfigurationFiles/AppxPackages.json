@@ -33,7 +33,7 @@
     "AppxPackage": "Microsoft.DesktopAppInstaller",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/detail/9NBLGGH4NNS1",
-    "Description": "Microsoft App Installer for Windows 10 makes sideloading Windows 10 apps easy"
+    "Description": "Microsoft App Installer for Windows 10 makes sideloading Windows apps easy"
   },
   {
     "AppxPackage": "Microsoft.GamingApp",
