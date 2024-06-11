@@ -52,14 +52,13 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020), @brentil (2024)
-- LAST UPDATED:   6/7/2024
-- PURPOSE:        To automatically apply settings referenced in the following white papers:
-                  https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
+- LAST UPDATED:   6/11/2024
+- PURPOSE:        To automatically apply many optimization settings to and Windows device; VDI, AVD, standalone machine
                   
 - Important:      Every setting in this script and input files are possible optimizations only,
                   and NOT recommendations or requirements. Please evaluate every setting for applicability
                   to your specific environment. These scripts have been tested on Hyper-V VMs, as well as Azure VMs...
-                  including Windows 11.
+                  including Windows 11 23H2.
                   Please test thoroughly in your environment before implementation
 
 - DEPENDENCIES    1. On the target machine, run PowerShell elevated (as administrator)
