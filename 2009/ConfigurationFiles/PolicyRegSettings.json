@@ -1,5 +1,12 @@
 [
     {
+        "RegItemPath": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy",
+        "RegItemValueName": "DeleteUserAppContainersOnLogoff",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Enabled"
+    },
+    {
         "RegItemPath": "HKLM:\\Software\\Policies\\Microsoft\\Dsh",
         "RegItemValueName": "AllowNewsAndInterests",
         "RegItemValueType": "DWord",
