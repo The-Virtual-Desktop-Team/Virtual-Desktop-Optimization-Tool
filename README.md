@@ -116,7 +116,13 @@ We have added the ability to remove the built-in OneDrive app.  Removal of the O
 Since Internet Explorer 11 has been officially retired, we added the option to remove the IE11 payload from the system.  The sub-parameter is ```RemoveLegacyIE``` and is contained in the ```-AdvancedOptimizations``` parameter.  Since it is not a default setting to remove the IE11 payload you can specify it's removal in one of two ways:
 
   **.\Windows_VDOT.ps1 -AdvancedOptimizations RemoveLegacyIE**  
-  **.\Windows_VDOT.ps1 -AdvancedOptimizations All**  
+  **.\Windows_VDOT.ps1 -AdvancedOptimizations All**
+
+### Running VDOT on Server 20xx (2019, 2022, 2025)
+
+VDOT runs fine on Server 20xx, though if every parameter is specified, there will be a lot of non-error error messages generated.  There are no UWP apps prior to Server 2025.  To run VDOT on Windows Server 2019 and/or Windows Server 2022, use this parameter:
+
+  **.\Windows_VDOT.ps1 -WindowsVersion 2009**  
 
 ## References
 
@@ -131,10 +137,8 @@ Since Internet Explorer 11 has been officially retired, we added the option to r
 
 ## Dependencies
 
- 1. LGPO.EXE stored in the 'LGPO' folder.  
-
  > [!NOTE]
- > We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred method to apply policy settings are to use a domain-based Group Policy Object (GPO).
+ > We have fully deprecated the use of LGPO.exe.
 
  1. Previously saved local group policy settings, available on the GitHub site where this script is located.
  1. The PowerShell script file 'Windows_VDOT.ps1'.

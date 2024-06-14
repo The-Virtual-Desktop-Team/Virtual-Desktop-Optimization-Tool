@@ -52,7 +52,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020), @brentil (2024)
-- LAST UPDATED:   6/11/2024
+- LAST UPDATED:   6/14/2024
 - PURPOSE:        To automatically apply many optimization settings to and Windows device; VDI, AVD, standalone machine
                   
 - Important:      Every setting in this script and input files are possible optimizations only,
