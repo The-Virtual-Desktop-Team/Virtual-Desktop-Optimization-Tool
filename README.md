@@ -17,9 +17,9 @@ Later when Azure Virtual Desktop (AVD) came about, the VDOT tool was meticulousl
 
 As the VDOT tool exists now, it is compatible with a wide-range of systems.  It works on VDI, AVD, stand-alone Windows, Windows Server (with some caveats), and some optimizations are even applied to the Windows 365 offering.  
 
-The optimization settings in this tool are the ***potential*** settings that reduce compute activity, and thus increase user density per host.  It is important to test the optimization settings in each respective environment, and adjust settings as needed.
+The optimization settings in this tool are the ***potential*** settings that reduce compute activity, and thus increase user density per host.  ***It is important to test the optimization settings in each respective environment, and adjust settings as needed.***
 
-The files that determine what to disable, remove, or set as policy, are in text-based .JSON files, in the respective OS version folder (ex. '2009').  *The JSON parameter that this tool uses to determine whether or not to apply a setting is **'VDIState'***.  If the 'VDIState' parameter in the respective .JSON file is set to **Disabled**, the optimization setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.  
+The VDOT configuration files that determine what to disable, remove, or set as policy, are in text-based .JSON files, in the respective OS version folder (ex. '2009').  *The JSON parameter that this tool uses to determine whether or not to apply a setting is **'VDIState'***.  If the 'VDIState' parameter in the respective .JSON file is set to **Disabled**, the optimization setting will be applied.  If 'VDIState' is set to anything else, the setting will not be applied.  
 
  > [!NOTE]
  > This script takes a few minutes to complete. The total runtime will be presented at the end, in the status output messages.  A prompt to reboot will appear when the script has completely finished running. Wait for this prompt to confirm the script has successfully completed.  A reboot is necessary because several items cannot be stopped in the current session.
@@ -49,9 +49,13 @@ This change came about when more categories of optimizations were added, some of
 
 Windows 11 in some respects, reports the same as Windows 10, to various configuration management tools.  Currently (as of 7/29/22) has 'ReleaseID' value of '2009'.  Until the 'ReleaseID' number changes, all new optimizations are going to be included in the 'Configuration Files' folder underneath the '2009' folder.  Therefore, the 2009 folder configuration files apply to Windows 10, as well as Windows 11.
 
+The current version of VDOT, as of 06/14/2024, has been tested with Windows 11 23H2, and with current Insider builds of Windows 11.  There are slight variances on what "convenience" apps are included in Windows based on ring, milestone, SKU, etc.  Therefore, it is possible that a setting is included in the VDOT tool that applies to one or another specific ring or SKU of Windows.  In that case if an attempt is made to remove an app that does not exist, an error will be displayed and the script will move on.  Activities are logged in the Windows event log for later reference.
+
 ### Microsoft Edge (Chromium) optimizations
 
-The current version of Edge in Windows 10, as of 07/29/2022, is Microsoft Edge (Chromium based).  There are a set of policy template files specific to the new Edge.  The VDOT tool now has the following optimization options for Microsoft Edge:  
+The current version of Edge in Windows 10, as of 07/29/2022, is Microsoft Edge (Chromium based).  There are a set of policy template files specific to the new Edge.  All of the policy settings that VDOT used are documented in **[Group Policy Settings Reference Spreadsheet for Windows 11 2023 Update (23H2)](https://www.microsoft.com/en-us/download/details.aspx?id=105668)**
+
+The VDOT tool now has the following optimization options for Microsoft Edge:  
 
 * Set Edge as the default app for common Internet file types (using 'DefaultAssociations.xml' file and policy)
 * Allow Edge to start processes at sign-in, whether or not the Edge app itself is started
@@ -62,11 +66,14 @@ The current version of Edge in Windows 10, as of 07/29/2022, is Microsoft Edge (
 
 ### AppxPackages
 
-The AppxPackages.json manifest, regardless of version of Windows, now has the "**VDIState**" set to "***Unchanged***". The reason is that there is not a "recommended" list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
+The AppxPackages.json manifest, regardless of version of Windows, now has the "**VDIState**" set to "***Unchanged***". The reason is that there is not a Microsoft *"recommended"* list of apps to remove for all environments. In each case, if you want to remove a Universal Windows Platform (UWP) application, change the "VDIState" value from **Unchanged** to **"Disabled"**.
 
  > [!NOTE]
- > The VDOT tool not only removes UWP apps for "AllUsers", it removes the app payload.  Once a UWP app payload is removed, it cannot be re-provisioned to that system.  The only way to re-provision a  removed app payload is reset the device, reinstall, or re-image.  
+ > The VDOT tool not only removes UWP apps for "AllUsers", it removes the app payload.  Once a UWP app payload is removed, it cannot be re-provisioned to that system.  The only way to re-provision a removed app payload is reset the device, reinstall, or re-image.  
 Users can still reinstall a VDOT removed app through the Store app, if Internet connected.  If not Internet connected, the apps cannot be reinstalled.  This is why VDOT does not remove the Store app, nor do we recommend that the Store app be removed.  [***Here is an article***](https://docs.microsoft.com/en-us/troubleshoot/windows-client/shell-experience/cannot-remove-uninstall-or-reinstall-microsoft-store-app) on the Store app.
+
+> |  **&#9999;** **NOTE**|
+> There is a service that should not be disabled, except perhaps in "air-gapped" environments, or other environments that block access to the Microsoft Content Delivery Network (CDN).  This service is called the "Microsoft Store Install Service".  If this service is disabled, the Store components in Windows cannot update UWP apps and dependencies, which can lead to vulnerabilities.  The exception could be made if the organization proactively updates the UWP apps and their dependencies.  Manually updating UWP requires obtaining each components application installation package, and the packages of application dependency components.  These can be bundled and offered through components such as Endpoint Manager, or perhaps Intune.
 
 ### "-Optimizations" parameter and new "-AdvancedOptimizations" parameters
 
@@ -109,7 +116,13 @@ We have added the ability to remove the built-in OneDrive app.  Removal of the O
 Since Internet Explorer 11 has been officially retired, we added the option to remove the IE11 payload from the system.  The sub-parameter is ```RemoveLegacyIE``` and is contained in the ```-AdvancedOptimizations``` parameter.  Since it is not a default setting to remove the IE11 payload you can specify it's removal in one of two ways:
 
   **.\Windows_VDOT.ps1 -AdvancedOptimizations RemoveLegacyIE**  
-  **.\Windows_VDOT.ps1 -AdvancedOptimizations All**  
+  **.\Windows_VDOT.ps1 -AdvancedOptimizations All**
+
+### Running VDOT on Server 20xx (2019, 2022, 2025)
+
+VDOT runs fine on Server 20xx, though if every parameter is specified, there will be a lot of non-error error messages generated.  There are no UWP apps prior to Server 2025.  To run VDOT on Windows Server 2019 and/or Windows Server 2022, use this parameter:
+
+  **.\Windows_VDOT.ps1 -WindowsVersion 2009**  
 
 ## References
 
@@ -124,10 +137,8 @@ Since Internet Explorer 11 has been officially retired, we added the option to r
 
 ## Dependencies
 
- 1. LGPO.EXE stored in the 'LGPO' folder.  
-
  > [!NOTE]
- > We may move away from the using LGPO.exe to apply policy settings at some point.  The preferred method to apply policy settings are to use a domain-based Group Policy Object (GPO).
+ > We have fully deprecated the use of LGPO.exe.
 
  1. Previously saved local group policy settings, available on the GitHub site where this script is located.
  1. The PowerShell script file 'Windows_VDOT.ps1'.
