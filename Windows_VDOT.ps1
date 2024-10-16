@@ -554,7 +554,7 @@ PROCESS {
     #   * change the "Root Certificates Update" policy.
     #   * change the "Enable Windows NTP Client" setting.
     #   * set the "Select when Quality Updates are received" policy
-    If ($Optimizations -EQ "All")
+    If ($Optimizations -contains "LocalPolicy" -or $Optimizations -contains "All")
     {
         $LocalPolicyFilePath = ".\ConfigurationFiles\PolicyRegSettings.json"
         If (Test-Path $LocalPolicyFilePath)
