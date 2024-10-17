@@ -296,7 +296,13 @@
   {
     "AppxPackage": "MicrosoftTeams",
     "VDIState": "Unchanged",
-    "URL": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
+    "URL": "https://apps.microsoft.com/detail/xp8bt8dw290mpq",
+    "Description": "Microsoft communication platform"
+  },
+  {
+    "AppxPackage": "MSTeams",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/xp8bt8dw290mpq",
     "Description": "Microsoft communication platform"
   },
   {
