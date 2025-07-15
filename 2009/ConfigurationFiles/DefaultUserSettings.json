@@ -413,7 +413,7 @@
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
         "KeyName": "TurnOffWindowsCopilot",
         "PropertyType": "DWORD",
         "PropertyValue": 1,
