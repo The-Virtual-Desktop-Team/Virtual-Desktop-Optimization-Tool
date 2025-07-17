@@ -406,7 +406,7 @@
         "SetProperty": "True"
     },
     {
-        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\GameBar",
+        "HivePath": "HKLM:\\VDOT_TEMP\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
         "KeyName": "AppCaptureEnabled",
         "PropertyType": "DWORD",
         "PropertyValue": 0,
