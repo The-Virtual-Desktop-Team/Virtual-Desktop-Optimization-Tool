@@ -8,13 +8,19 @@
   {
     "AppxPackage": "Clipchamp.Clipchamp",
     "VDIState": "Unchanged",
-    "URL": "https://apps.microsoft.com/detail/9p1j8s7ccwwt?hl=en-us&gl=US",
+    "URL": "https://apps.microsoft.com/detail/9p1j8s7ccwwt",
     "Description": "Create videos with a few clicks"
+  },
+  {
+    "AppxPackage": "Microsoft.Copilot",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9nht9rb2f4hd",
+    "Description": "Microsoft AI app"
   },
   {
     "AppxPackage": "Microsoft.549981C3F5F10",
     "VDIState": "Unchanged",
-    "URL": "https://apps.microsoft.com/detail/cortana/9NFFX4SZZ23L?hl=en-us&gl=US",
+    "URL": "https://apps.microsoft.com/detail/cortana/9NFFX4SZZ23L",
     "Description": "Cortana (could not update)"
   },
   {
@@ -34,6 +40,12 @@
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/detail/9NBLGGH4NNS1",
     "Description": "Microsoft App Installer for Windows 10 makes sideloading Windows apps easy"
+  },
+  {
+    "AppxPackage": "Microsoft.Edge.GameAssist ",
+    "VDIState": "Unchanged",
+    "URL": "",
+    "Description": ""
   },
   {
     "AppxPackage": "Microsoft.GamingApp",
@@ -130,6 +142,12 @@
     "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/microsoft-to-do-lists-tasks-reminders/9nblggh5r558",
     "Description": "Microsoft To Do makes it easy to plan your day and manage your life"
+  },
+  {
+    "AppxPackage": "Microsoft.USNationalParks",
+    "VDIState": "Unchanged",
+    "URL": "",
+    "Description": ""
   },
   {
     "AppxPackage": "Microsoft.WinDbg.Fast",
