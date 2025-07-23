@@ -1,45 +1,66 @@
 [
     {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "RegItemValueName": "HideRecommendedSection",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Unchanged"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\current\\device\\Start",
+        "RegItemValueName": "HideRecommendedSection",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Unchanged"
+    },
+    {
+        "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\current\\device\\Education",
+        "RegItemValueName": "IsEducationEnvironment",
+        "RegItemValueType": "DWord",
+        "RegItemValue": "1",
+        "VDIState": "Unchanged"
+    },
+    {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
         "RegItemValueName": "HideOOBE",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
         "RegItemValueName": "HideEULAPage",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
         "RegItemValueName": "HideLocalAccountScreen",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
         "RegItemValueName": "HideOEMRegistrationScreen",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
         "RegItemValueName": "HideWirelessSetupInOOBE",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
         "RegItemValueName": "ProtectYourPC",
         "RegItemValueType": "DWord",
         "RegItemValue": "1",
-        "VDIState": "Enabled"
+        "VDIState": "Unchanged"
     },
     {
         "RegItemPath": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy",
