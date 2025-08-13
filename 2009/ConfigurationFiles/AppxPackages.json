@@ -6,7 +6,7 @@
     "Description": ""
   },
   {
-    "AppxPackage": "Bing Search",
+    "AppxPackage": "Microsoft.BingSearch",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/detail/9nzbf4gt040c",
     "Description": "Web Search from Microsoft Bing provides web results and answers in Windows Search"
