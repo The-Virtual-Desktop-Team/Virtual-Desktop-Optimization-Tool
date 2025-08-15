@@ -1,5 +1,53 @@
 [
-   {
+  {
+    "AppxPackage": "Microsoft.AVCEncoderVideoExtension",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9pb0trcnrhfx",
+    "Description": "This video extension enables apps to encode video into the AVC (H.264) video coding format. "
+  }, 
+  {
+    "AppxPackage": "Microsoft.AV1VideoExtension",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9mvzqvxjbq9v",
+    "Description": "This extension helps video apps installed on Windows to play videos that have been encoded using the AV1 video coding standard developed by the Alliance for Open Media."
+  },
+  {
+    "AppxPackage": "Microsoft.HEIFImageExtension",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9pmmsr1cgpwg",
+    "Description": "The HEIF Image Extension enables Windows to read and write files that use the High Efficiency Image File (HEIF) format."
+  },
+  {
+    "AppxPackage": "Microsoft.MPEG2VideoExtension",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9n95q1zzpmh4",
+    "Description": "play MPEG-1 and MPEG-2 videos. If you have MP4 or MKV video files that don’t play, this extension should help. Also, if you can’t play videos that have file name extensions such as .mpeg, .mpg, .ts, .m2ts, .mkv, and .avi, this extension might help you play them."
+  },
+  {
+    "AppxPackage": "Microsoft.VP9VideoExtensions",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9n4d0msmp0pt",
+    "Description": "play and produce content in the VP8/VP9 format."
+  },
+  {
+    "AppxPackage": "Microsoft.WebMediaExtensions",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9n5tdp8vcmhs",
+    "Description": "play content delivered in the OGG container or encoded using the Vorbis or Theora codecs."
+  },
+  {
+    "AppxPackage": "Microsoft.WebpImageExtension",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9pg2dk419drg",
+    "Description": "view WebP images, which is a modern format that provides lossless and lossy compression for smaller, richer images"
+  },
+  {
+    "AppxPackage": "Microsoft.RawImageExtension",
+    "VDIState": "Unchanged",
+    "URL": "https://apps.microsoft.com/detail/9nctdw2w1bh8",
+    "Description": "native viewing support for images captured in raw file formats produced by many mid- to high-end digital cameras, including CR3 files"
+  },
+  {
     "AppxPackage": "NotepadPlusPlus",
     "VDIState": "Unchanged",
     "URL": "",
