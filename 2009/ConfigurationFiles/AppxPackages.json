@@ -33,7 +33,7 @@
     "AppxPackage": "Microsoft.WebMediaExtensions",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/detail/9n5tdp8vcmhs",
-    "Description": "play content delivered in the OGG container or encoded using the Vorbis or Theora codecs."
+    "Description": "Play content delivered in the OGG container or encoded using the Vorbis or Theora codecs."
   },
   {
     "AppxPackage": "Microsoft.WebpImageExtension",
