@@ -39,7 +39,7 @@
     "AppxPackage": "Microsoft.WebpImageExtension",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/detail/9pg2dk419drg",
-    "Description": "view WebP images, which is a modern format that provides lossless and lossy compression for smaller, richer images"
+    "Description": "View WebP images, which is a modern format that provides lossless and lossy compression for smaller, richer images"
   },
   {
     "AppxPackage": "Microsoft.RawImageExtension",
