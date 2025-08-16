@@ -1,9 +1,15 @@
 [
   {
+    "AppxPackage": "MicrosoftWindows.CrossDevice",
+    "VDIState": "Unchanged",
+    "URL": "(Not available through the Store)",
+    "Description": "powers cross-device experiences in Windows; notification syncing between PC and Android, file sharing via Nearby Share, cntinuity features like shared clipboard or app handoff"
+  },
+  {
     "AppxPackage": "Microsoft.AVCEncoderVideoExtension",
     "VDIState": "Unchanged",
     "URL": "https://apps.microsoft.com/detail/9pb0trcnrhfx",
-    "Description": "This video extension enables apps to encode video into the AVC (H.264) video coding format. "
+    "Description": "This video extension enables apps to encode video into the AVC (H.264) video coding format."
   }, 
   {
     "AppxPackage": "Microsoft.AV1VideoExtension",
