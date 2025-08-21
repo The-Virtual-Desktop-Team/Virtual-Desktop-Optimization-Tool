@@ -52,7 +52,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020), @brentil (2024)
-- LAST UPDATED:   6/14/2024
+- LAST UPDATED:   8/21/2025
 - PURPOSE:        To automatically apply many optimization settings to and Windows device; VDI, AVD, standalone machine
                   
 - Important:      Every setting in this script and input files are possible optimizations only,
@@ -190,23 +190,43 @@ PROCESS {
     }
 
     #region Disable, then remove, Windows Media Player including payload
-    If ($Optimizations -contains "WindowsMediaPlayer" -or $Optimizations -contains "All") {
+    If ($Optimizations -contains "WindowsMediaPlayer" -or $Optimizations -contains "All")
+    {
+        Write-EventLog -EventId 10 -Message "[VDI Optimize] Disable / Remove Windows Media Player" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Information
+        Write-Host "[VDI Optimize] Disable / Remove LEGACY Windows Media Player"
         try
         {
-            Write-EventLog -EventId 10 -Message "[VDI Optimize] Disable / Remove Windows Media Player" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Information 
-            Write-Host "[VDI Optimize] Disable / Remove Windows Media Player" -ForegroundColor Cyan
             Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -NoRestart | Out-Null
-            Get-WindowsPackage -Online -PackageName "*Windows-mediaplayer*" | ForEach-Object { 
-                Write-EventLog -EventId 10 -Message "Removing $($_.PackageName)" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Information 
-                Remove-WindowsPackage -PackageName $_.PackageName -Online -ErrorAction SilentlyContinue -NoRestart | Out-Null
+        }
+        catch
+        {
+            Write-EventLog -EventId 110 -Message "Failed to disable Windows Media Player: $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Warning
+        }
+
+        $mediaPackages = Get-WindowsPackage -Online -PackageName "*media*"
+        if ($mediaPackages)
+         {
+            foreach ($pkg in $mediaPackages)
+            {
+                $pkgName = $pkg.PackageName
+                Write-EventLog -EventId 10 -Message "Attempting to remove $pkgName" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Information
+                try
+                {
+                    Remove-WindowsPackage -PackageName $pkgName -Online -NoRestart -ErrorAction Stop | Out-Null
+                    Write-EventLog -EventId 10 -Message "Successfully removed $pkgName" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Information
+                }
+                catch
+                {
+                    Write-EventLog -EventId 110 -Message "Failed to remove $pkgName`: $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Warning
+                }
             }
         }
-        catch 
-        { 
-            Write-EventLog -EventId 110 -Message "Disabling / Removing Windows Media Player - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Error 
+        else
+        {
+            Write-EventLog -EventId 10 -Message "No media packages found to remove" -LogName 'Virtual Desktop Optimization' -Source 'WindowsMediaPlayer' -EntryType Information
         }
     }
-    #endregion
+    #endregion Disable, then remove, Windows Media Player
 
     #region Begin Clean APPX Packages
     If ($Optimizations -contains "AppxPackages" -or $Optimizations -contains "All")
