@@ -52,7 +52,7 @@ Param (
 - AUTHORED BY:    Robert M. Smith and Tim Muessig (Microsoft)
 - AUTHORED DATE:  11/19/2019
 - CONTRIBUTORS:   Travis Roberts (2020), Jason Parker (2020), @brentil (2024)
-- LAST UPDATED:   6/14/2024
+- LAST UPDATED:   9/12/2025
 - PURPOSE:        To automatically apply many optimization settings to and Windows device; VDI, AVD, standalone machine
                   
 - Important:      Every setting in this script and input files are possible optimizations only,
@@ -294,28 +294,33 @@ PROCESS {
             {
                 Foreach ($Item in $SchTasksList)
                 {
-                    $TaskObject = Get-ScheduledTask $Item.ScheduledTask
-                    If ($TaskObject -and $TaskObject.State -ne 'Disabled')
-                    {
-                        Write-EventLog -EventId 30 -Message "Attempting to disable Scheduled Task: $($TaskObject.TaskName)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Information 
-                        Write-Verbose "Attempting to disable Scheduled Task: $($TaskObject.TaskName)"
+                    $Tasks = Get-ScheduledTask -TaskName $Item.ScheduledTask -ErrorAction SilentlyContinue
+                    
+                    if (-not $Tasks) {
+                        Write-EventLog -EventId 130 -Message "Scheduled Task not found: $($Item.ScheduledTask)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Warning
+                        continue
+                    }
+                    
+                    foreach ($TaskObject in @($Tasks)) {
+                        $taskIdentifier = "$($TaskObject.TaskPath)$($TaskObject.TaskName)"
+                        
+                        If ($TaskObject.State -eq 'Disabled') 
+                        {
+                            Write-EventLog -EventId 30 -Message "$taskIdentifier Scheduled Task is already disabled" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Information
+                            continue
+                        }
+                    
+                        Write-EventLog -EventId 30 -Message "Attempting to disable Scheduled Task: $taskIdentifier" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Information 
+                        Write-Verbose "Attempting to disable Scheduled Task: $taskIdentifier"
                         try
                         {
-                            Disable-ScheduledTask -InputObject $TaskObject | Out-Null
-                            Write-EventLog -EventId 30 -Message "Disabled Scheduled Task: $($TaskObject.TaskName)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Information 
+                            Disable-ScheduledTask -InputObject $TaskObject -ErrorAction Stop | Out-Null
+                            Write-EventLog -EventId 30 -Message "Disabled Scheduled Task: $taskIdentifier" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Information 
                         }
                         catch
                         {
-                            Write-EventLog -EventId 130 -Message "Failed to disabled Scheduled Task: $($TaskObject.TaskName) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error 
+                            Write-EventLog -EventId 130 -Message "Failed to disable Scheduled Task: $taskIdentifier - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error 
                         }
-                    }
-                    ElseIf ($TaskObject -and $TaskObject.State -eq 'Disabled') 
-                    {
-                        Write-EventLog -EventId 30 -Message "$($TaskObject.TaskName) Scheduled Task is already disabled - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Warning
-                    }
-                    Else
-                    {
-                        Write-EventLog -EventId 130 -Message "Unable to find Scheduled Task: $($TaskObject.TaskName) - $($_.Exception.Message)" -LogName 'Virtual Desktop Optimization' -Source 'ScheduledTasks' -EntryType Error
                     }
                 }
             }
