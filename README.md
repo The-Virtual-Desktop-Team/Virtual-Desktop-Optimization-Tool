@@ -85,7 +85,7 @@ The VDOT tool has several parameters passed to the main PowerShell file **"Windo
   * Autologgers
   * DefaultUserSettings
   * DiskCleanup
-  * LGPO (Local Group Policy Objects)
+  * LocalPolicy (Local Group Policy Objects)
   * NetworkOptimizations
   * ScheduledTasks
   * Services
@@ -215,7 +215,7 @@ When complete, you should see a prompt to restart.  You do not have to restart r
 >
 > **Turn off Windows Network Connectivity Status Indicator active tests**
 >
->With the active tests disabled, Office 365 is not able to contact it's licensing service, and therefore would not run any of the Office apps.  This setting has been changed back to **"Not configured"** in the included LGPO configuration.
+>With the active tests disabled, Office 365 is not able to contact it's licensing service, and therefore would not run any of the Office apps.  This setting has been changed back to **"Not configured"** in the included LocalPolicy configuration.
 
 > ### Some apps have no visible border in cloud environments (04/22/2020)
 >
