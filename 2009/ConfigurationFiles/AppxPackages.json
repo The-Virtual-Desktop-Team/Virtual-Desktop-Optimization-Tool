@@ -55,7 +55,7 @@
   },
   {
     "AppxPackage": "Microsoft.MicrosoftOfficeHub",
-    "VDIState": "Disabled",
+    "VDIState": "Unchanged",
     "URL": "https://www.microsoft.com/en-us/p/office/9wzdncrd29v9",
     "Description": "Office UWP app suite"
   },
